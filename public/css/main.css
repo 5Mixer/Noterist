@@ -1,31 +1,55 @@
 .right {
 	float:right;
 }
+input[type="checkbox"] {
+	display: none;
+	visibility: hidden;
+}
+.card:hover .toggleBtn{
+	opacity:1;
+}
+.toggleBtn {
+	background-color: rgb(47, 47, 43);
+	color: rgb(231, 217, 221);
+	display: inline-block;
+	position: absolute;
+	z-index: 10;
 
-/*
-input {
-  display: none;
-  visibility: hidden;
+	transition: opacity .5s;
+	opacity: .2;
+
+	right:10px;
+	top:10px;
+
+	padding: 10px;
+
+	float:right;
 }
 label {
 }
 label:hover {
 }
+label::before {
+	/* vertical-align: text-top;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px; */
+}
 #expand {
-display:none;
+	display:none;
+	transition: width 0.2s;
 
-  width: 0;
-
-  margin: 1em;
-  padding: 1em;
-  overflow: hidden;
-  transition: width 0.2s;
+	background: rgb(217, 226, 209);
+	/* display: inline-block; */
+	margin: .7rem;
+}
+#front {
+	/* display:none; */
 }
 .toggle:checked ~ #expand {
-  width: 250px;
-
-  display:block;
+	display:inline-block;
 }
-.toggle:checked ~ label::before {
+.toggle:checked ~ #front {
+	display:none;
 }
-*/

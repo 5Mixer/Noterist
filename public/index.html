@@ -19,16 +19,23 @@
 		</header>
 		<section id="workbench">
 			<div class="card" ng-repeat="card in cards | filter:searchFilter">
-				<img src="cards/{{card.img}}" alt="">
 				<!-- <input id="{{::$id}} toggle" class="toggle" type="checkbox" checked> -->
-				<!-- <input id="{{::$id}} toggle" class="toggle" type="checkbox">
-				<label for="{{::$id}} toggle" class="toggle"> <img src="cards/{{card.img}}" alt=""> </label>
-
-				<div id="expand" class="right">
-					<section>
-						<span ng-repeat="tag in card.tags" class="tag">tag</span>
-					</section>
-				</div> -->
+				<input id="{{::$id}} toggle" class="toggle" type="checkbox">
+				<label class="toggleBtn" for="{{::$id}} toggle" class="toggle"></label>
+				<div id="front">
+					<img src="cards/{{card.img}}" alt="">
+				</div>
+				<div id="expand">
+					<h3>{{card.title}}</h3>
+					<div class="cardNotes">
+						<div ng-repeat="tag in card.tags" class="tag">
+							{{tag}}
+						</div><br>
+						these are some random notes that could be written about a flash cards. Links to other flash cards, notes about importance, and similar meta commentary comments can be placed right here.
+						these are some random notes that could be written about a flash cards. Links to other flash cards, notes about importance, and similar meta commentary comments can be placed right here.
+						these are some random notes that could be written about a flash cards. Links to other flash cards, notes about importance, and similar meta commentary comments can be placed right here.
+					</div>
+				</div>
 			</div>
 		</section>
 
