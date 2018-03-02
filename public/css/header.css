@@ -1,0 +1,21 @@
+header {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0;
+	background-color: rgb(34, 255, 111);
+
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+header,h1 {
+	margin: 0;
+	display: inline;
+}
+
+.search {
+	padding: .5em;
+	margin: .0em;
+	width: 550px;
+	max-width: 50%;
+}
