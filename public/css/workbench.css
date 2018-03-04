@@ -32,10 +32,12 @@ body {
 	width: 480px;
 }
 .cardNotes {
-	overflow-y:scroll;
+	overflow-y:auto;
 	/* max-height: auto; */
 	position:absolute;
 	max-height: calc(300px - 5em);
+	width:calc(100% - 25px);
+	height: 100%;
 }
 .tag {
 	background-color: rgb(218, 215, 135);

@@ -3,4 +3,4 @@ const app = express()
 
 app.use(express.static('public'))
 
-app.listen(80, () => console.log('Cards app listening on port 80!'))
+app.listen(8000, () => console.log('Cards app listening on port 8000!'))
