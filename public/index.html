@@ -5,18 +5,36 @@
 		<title>cards</title>
 
 		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/sidebar.css">
 		<link rel="stylesheet" href="/css/header.css">
 		<link rel="stylesheet" href="/css/workbench.css">
 	</head>
 	<body ng-app="cards" ng-controller="core">
+
 		<header>
-			<h1>cards.</h1>
-			<span class="right">
-				<input class="right search" id="name" type="text" placeholder="Search" ng-model="search">
+			<span class="header"><i class="fa fa-list-alt"></i> cards.
+
+				<div class="icon-bar">
+					<a class="active" href="#"><i class="fa fa-home"></i> Home</a>
+					<a href="#"><i class="fa fa-lightbulb"></i> Learn</a>
+					<a href="#"><i class="fa fa-list-alt"></i> Cards</a>
+					<a href="#"><i class="fa fa-file-alt"></i> Study</a>
+					<a href="#"><i class="fa fa-file-video"></i> Listen</a>
+				</div>
 
 			</span>
+
+
+			<span class="right">
+				<input class="right search" id="name" type="text" placeholder="Search" ng-model="search">
+			</span>
 		</header>
+
+
+
+
 		<section id="workbench">
 			<div class="card" ng-repeat="card in cards | filter:searchFilter">
 				<!-- <input id="{{::$id}} toggle" class="toggle" type="checkbox" checked> -->

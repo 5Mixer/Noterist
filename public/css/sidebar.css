@@ -1,0 +1,39 @@
+.icon-bar {
+	/* width: 50px; /* Set a specific width */
+	background-color: #555; /* Dark-grey background */
+	position: fixed;
+	/* height: 100%; */
+	top: 60px;
+	left: 0;
+	width: 100px;
+	padding-top: 0;
+
+	display:none;
+
+
+	z-index: 101;
+}
+
+.icon-bar a {
+	display: block; /* Make the links appear below each other instead of side-by-side */
+	text-align: center; /* Center-align text */
+	text-decoration: none;
+	padding: 10px; /* Add some padding */
+	/* transition: all 0.1s ease; */
+	color: white; /* White text color */
+	font-size: 18px; /* Increased font-size */
+
+
+	vertical-align: middle;
+	line-height: 30px;
+
+	font-size: 15px;
+}
+
+.icon-bar a:hover {
+	background-color: #000; /* Add a hover color */
+}
+
+.active {
+	background-color: #4CAF50; /* Add an active/current color */
+}

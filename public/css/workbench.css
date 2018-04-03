@@ -8,6 +8,7 @@ body {
 	width: 100%;
 	height: 100%;
 	min-height: 100%;
+	/* padding-left: 40px; */
 
 	background: url("../resources/halftone-yellow.png");
 	background-repeat: repeat;
