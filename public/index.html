@@ -28,11 +28,21 @@
 
 
 			<span class="right">
+				<span id="newCard"><i class="fa fa-plus"></i></span>
 				<input class="right search" id="name" type="text" placeholder="Search" ng-model="search">
 			</span>
 		</header>
 
-
+		<div id="newCardSection">
+			<h2>New Card</h2>
+			<!-- <form method="post" enctype="multipart/form-data" action="/upload" role="form"> -->
+				<input placeholder="Title" name="title" type="text" ng-model="newcard.title"><br>
+				<input placeholder="Tags" name="tags" type="text" ng-model="newcard.tags"><br>
+				<input type="file" name="file" accept="image/*" fileread="newcard.file">
+				<br>
+				<button type="submit" ng-click="newCard()" class="pure-button pure-button-primary">Upload</button>
+			<!-- </form> -->
+		</div>
 
 
 		<section id="workbench">

@@ -53,3 +53,7 @@ label::before {
 .toggle:checked ~ #front {
 	display:none;
 }
+a {
+	color: black;
+	text-decoration:none;
+}
