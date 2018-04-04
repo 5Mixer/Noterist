@@ -23,6 +23,11 @@ app.controller("core", function($scope,$http) {
 	$scope.cards = []
 
 	$scope.newcard = {title:"",tags:"",file:undefined}
+	$scope.newCardDialogOpen = false;
+
+	$scope.openNewCard = function () {
+		$scope.newCardDialogOpen = !$scope.newCardDialogOpen
+	}
 
 	$scope.newCard = function () {
 		$http({
@@ -30,7 +35,11 @@ app.controller("core", function($scope,$http) {
 			url     : '/cards',
 			data    : $scope.newcard,
 			headers : { 'Content-Type': "application/json" }  // set the headers so angular passing info as form data (not request payload)
+		}).success(function (response){
+			$scope.cards.push(response)
 		})
+		$scope.newCardDialogOpen = false;
+		$scope.newcard = {title:"",tags:"",file:undefined}
 	}
 
 	$scope.delete = function(card){
@@ -42,6 +51,28 @@ app.controller("core", function($scope,$http) {
 		})
 		$scope.cards.splice($scope.cards.indexOf(card),1)
 	}
+
+	$scope.edit = function (card){
+		card.beingEdited = true;
+		card.edits = {title: card.title, tags: card.tags.join(" ") }
+	}
+	$scope.saveEdits = function (card){
+		card.beingEdited = false;
+		card.title = card.edits.title;
+		card.tags = card.edits.tags.split(" ")
+		card.edits = undefined;
+		$http({
+			method: "PATCH",
+			url : "/cards",
+			data: card,
+			headers : { 'Content-Type': "application/json" }
+		})
+	}
+	$scope.cancelEdits = function (card){
+		card.beingEdited = false;
+		card.edits = undefined;
+	}
+
 
 	$scope.searchFilter = function(card) {
 		if ($scope.search.length == 0)
