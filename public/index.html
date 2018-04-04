@@ -14,7 +14,7 @@
 	<body ng-app="cards" ng-controller="core">
 
 		<header>
-			<span class="header"><i class="fa fa-list-alt"></i> cards.
+			<span class="header"><i class="fa fa-list-alt"></i> cards ({{cards.length}})
 
 				<div class="icon-bar">
 					<a class="active" href="#"><i class="fa fa-home"></i> Home</a>
@@ -55,6 +55,9 @@
 				</div>
 				<div id="expand">
 					<h3>{{card.title}}</h3>
+					<div>
+						<button type="button" name="button" class="pure-button" ng-click="delete(card)"><i class="fas fa-trash"></i> Delete</button>
+					</div>
 					<div class="cardNotes">
 						<div ng-repeat="tag in card.tags" class="tag">
 							{{tag}}

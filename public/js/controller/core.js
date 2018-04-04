@@ -20,16 +20,27 @@ app.directive("fileread", [function () {
 
 app.controller("core", function($scope,$http) {
 	$scope.search = ""
+	$scope.cards = []
 
 	$scope.newcard = {title:"",tags:"",file:undefined}
 
 	$scope.newCard = function () {
 		$http({
 			method  : 'POST',
-			url     : '/upload',
-			data    : $scope.newcard,  // pass in data as strings
+			url     : '/cards',
+			data    : $scope.newcard,
 			headers : { 'Content-Type': "application/json" }  // set the headers so angular passing info as form data (not request payload)
 		})
+	}
+
+	$scope.delete = function(card){
+		$http({
+			method: "DELETE",
+			url : "/cards",
+			data: card,
+			headers : { 'Content-Type': "application/json" }
+		})
+		$scope.cards.splice($scope.cards.indexOf(card),1)
 	}
 
 	$scope.searchFilter = function(card) {
@@ -63,5 +74,4 @@ app.controller("core", function($scope,$http) {
 
 	})
 
-	$scope.cards = []
 });

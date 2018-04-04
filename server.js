@@ -20,7 +20,7 @@ app.use(bodyParser.json({limit: '5mb'}))
 db.defaults({ posts: [], user: {}, count: 0 }).write()
 
 
-app.post('/upload', function (req, res) {
+app.post('/cards', function (req, res) {
 	var base64Data = req.body.file.replace(/^data:([A-Za-z-+/]+);base64,/, '');
 
 	var targetPath = path.resolve('./public/cards/'+req.body.title+".jpg");
@@ -32,6 +32,11 @@ app.post('/upload', function (req, res) {
 
 	res.redirect("back")
 });
+
+app.delete('/cards', function (req,res) {
+	var card = req.body
+	db.get("cards").remove(card).write()
+})
 
 app.get("/db", function (req,res){
 	res.json(db.value())
