@@ -1,0 +1,73 @@
+.homepanel {
+	width: 800px;
+	height: 400px;
+	background-color: rgb(246, 242, 239);
+	padding: 20px;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.mastersearch {
+	padding: 1em;
+	margin-top: 20px;
+	font-style: 2em;
+	width: calc(100% - 40px);
+}
+.home {
+	padding: 0;
+	margin: 0;
+	min-width: 100%;
+	min-height: 100%;
+	position: fixed;
+
+	background: url(../resources/rnapolymerase.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.homebutton {
+	width: 100px;
+	height: 130px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+	text-align: center;
+	padding: 15px;
+	margin: 10px;
+	background-color: rgb(244, 243, 236);
+	border-bottom: rgb(246, 244, 130) 15px solid;
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Icons */
+.homebutton .fa{
+	font-size: 2.4em;
+	text-align: center;
+	display: block;
+	position:absolute;
+	vertical-align: top;
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 10px;
+	color: rgba(27, 26, 26, 0.9);
+}
+
+.homebutton:hover {
+	/* border-bottom: rgb(233, 231, 90) 80px solid; */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
