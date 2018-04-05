@@ -11,80 +11,40 @@
 		<link rel="stylesheet" href="/css/header.css">
 		<link rel="stylesheet" href="/css/workbench.css">
 	</head>
-	<body ng-app="cards" ng-controller="core">
+	<body>
+		<div ng-app="studycloud">
 
-		<header>
-			<span class="header"><i class="fa fa-list-alt"></i> cards ({{filtered.length}}/{{cards.length}})
+			<header>
+				<span class="header"><i class="fa fa-list-alt"></i> cards ({{filtered.length}}/{{cards.length}})
 
-				<div class="icon-bar">
-					<a class="active" href="#"><i class="fa fa-home"></i> Home</a>
-					<a href="#"><i class="fa fa-lightbulb"></i> Learn</a>
-					<a href="#"><i class="fa fa-list-alt"></i> Cards</a>
-					<a href="#"><i class="fa fa-file-alt"></i> Study</a>
-					<a href="#"><i class="fa fa-file-video"></i> Listen</a>
-				</div>
+					<div class="icon-bar">
+						<a ng-class="{active: false}" href="/"><i class="fa fa-home"></i> Home</a>
+						<a ng-class="{active: false}" href="#test"><i class="fa fa-lightbulb"></i> Test</a>
+						<a ng-class="{active: false}" href="#glossary"><i class="fa fa-book"></i> Glossary</a>
+						<a ng-class="{active: false}" href="#cards"><i class="fa fa-list-alt"></i> Cards</a>
+						<a ng-class="{active: false}" href="#studysheets"><i class="fa fa-file-alt"></i> Study Sheets</a>
+						<a ng-class="{active: false}" href="#sacs"><i class="fa fa-vial"></i> Past SAC's</a>
+						<a ng-class="{active: false}" href="#listen"><i class="fa fa-file-video"></i> Listen</a>
+					</div>
 
-			</span>
+				</span>
 
 
-			<span class="right">
+				<!-- <span class="right">
 				<span id="newCard" ng-click="openNewCard()"><i class="fa fa-plus"></i></span>
 				<input class="right search" id="name" type="text" placeholder="Search" ng-model="search">
-			</span>
-		</header>
+			</span> -->
+			</header>
 
-		<div id="newCardSection" ng-show="newCardDialogOpen">
-			<h2>New Card</h2>
-			<!-- <form method="post" enctype="multipart/form-data" action="/upload" role="form"> -->
-				<input placeholder="Title" name="title" type="text" ng-model="newcard.title"><br>
-				<input placeholder="Tags" name="tags" type="text" ng-model="newcard.tags"><br>
-				​<textarea placeholder="Description" style="width:calc(100% - 10px)" rows="1" cols="10" ng-model="newcard.description"></textarea><br>
+			<br><br>
 
-				<input type="file" name="file" accept="image/*" fileread="newcard.file">
-				<br>
-				<button type="submit" ng-click="newCard()" class="pure-button pure-button-primary">Upload</button>
-			<!-- </form> -->
+			<ng-view></ng-view>
 		</div>
 
-
-		<section id="workbench">
-			<div class="card" ng-repeat="card in cards | filter:searchFilter as filtered">
-				<!-- <input id="{{::$id}} toggle" class="toggle" type="checkbox" checked> -->
-				<input id="{{::$id}} toggle" class="toggle" type="checkbox">
-				<label class="toggleBtn" for="{{::$id}} toggle" class="toggle"></label>
-				<div id="front">
-					<img src="cards/{{card.img}}" alt="">
-				</div>
-				<div id="expand">
-					<h3 ng-hide="card.beingEdited">{{card.title}}</h3>
-					<h3 ng-show="card.beingEdited"><input type="text" name="" class="wide" ng-model="card.edits.title"></h3>
-
-					<div>
-						<button type="button" class="pure-button" ng-click="edit(card)" ng-hide="card.beingEdited"><i class="fas fa-edit"></i> Edit</button>
-						<button type="button" class="pure-button" ng-click="saveEdits(card)" ng-show="card.beingEdited"><i class="fas fa-check"></i> Save edits</button>
-						<button type="button" class="pure-button" ng-click="cancelEdits(card)" ng-show="card.beingEdited"><i class="fas fa-times"></i> Cancel edits</button>
-						<button type="button" class="pure-button" ng-click="delete(card)" ng-show="card.beingEdited"><i class="fas fa-trash"></i> Delete</button>
-					</div>
-					<div class="cardNotes">
-						<div ng-repeat="tag in card.tags" class="tag" ng-hide="card.beingEdited">
-							<span>{{tag}}</span>
-						</div><br>
-						<span ng-show="card.beingEdited">​<textarea placeholder="Card tags" style="width:calc(100% - 10px)" rows="1" cols="10" ng-model="card.edits.tags"></textarea><br></span>
-						<span ng-show="card.beingEdited">​<textarea placeholder="Description and notes regarding card" style="width:calc(100% - 10px)" rows="5" cols="10" ng-model="card.edits.description"></textarea><br></span>
-
-						<div class="cardDescription" ng-hide="card.beingEdited">
-							{{card.description || "Notes and comments. (None added to this card yet)." }}
-						</div>
-
-
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/controller/core.js"></script>
+		<script src="js/controller/cards.js"></script>
 	</body>
 </html>
