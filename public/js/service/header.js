@@ -1,4 +1,15 @@
 app.factory('header',function(){
-    var headerData = {search:{text:""}}
-    return headerData;
+	search = ""
+	var headerData = {
+		search: search,
+		getSearch:
+			function (){
+				return search || ""
+			},
+		setSearch:
+			function(s){
+				search = s
+			}
+		}
+	return headerData;
 });

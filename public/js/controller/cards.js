@@ -1,5 +1,7 @@
 app.controller("cards", function($scope,$http,header) {
 
+	$scope.search = header.getSearch
+	
 	$scope.cards = []
 
 	$scope.newcard = {title:"",tags:"",file:undefined}
@@ -56,10 +58,10 @@ app.controller("cards", function($scope,$http,header) {
 
 
 	$scope.searchFilter = function(card) {
-		if ($scope.$parent.search.length == 0)
+		if ($scope.search().length == 0)
 			return true;
 
-		var searchWords = $scope.search.toLowerCase().split(" ");
+		var searchWords = $scope.search().toLowerCase().split(" ");
 		var cardTitleWords = card.title.toLowerCase().split(" ");
 		var cardTags = card.tags;
 		for (var n = 0; n < searchWords.length; n++){

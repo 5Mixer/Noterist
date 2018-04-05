@@ -1,34 +1,54 @@
-var app = angular.module("studycloud", ["ngRoute"]);
+var app = angular.module("studycloud", ["ui.router"]);
 
-app.config(function($routeProvider) {
-	$routeProvider
-	.when("/", {
-		templateUrl : "templates/home.html",
-		controller: "core"
+app.config(function($stateProvider, $urlRouterProvider) {
+	$stateProvider
+	// .state('root', {
+	//     abstract: true,  //no url, this is just so that other properties have defaults.
+	//     views:{
+	//         'header': {
+	//             template: '',
+	//             controller: function($scope){}
+	//         },
+	//         'content': {
+	//             template: '',
+	//             controller: function($scope){}
+	//         }
+	//     }
+	// })
+	.state("home", {
+		url: "/",
+		views: { 'content' : { templateUrl : "templates/home.html", controller: "core" } },
+
 	})
-	.when("/test", {
-		templateUrl : "templates/test.html"
+	.state("test", {
+		url: "/test",
+		views: { 'content' : { templateUrl : "templates/test.html" } }
 	})
-	.when("/glossary", {
-		templateUrl : "templates/glossary.html",
-		controller: "glossary"
+	.state("glossary", {
+		url: "/glossary",
+		views: { 'content' : { templateUrl : "templates/glossary.html",controller: "glossary" } },
+
 	})
-	.when("/cards", {
-		templateUrl : "templates/cards.html",
-		controller: "cards"
+	.state("cards", {
+		url: "/cards",
+		views: {
+			'header' : { templateUrl: "templates/cardHeader.html", controller: "cardHeader"},
+			'content': { templateUrl : "templates/cards.html", controller: "cards"}
+		}
 	})
-	.when("/studysheets", {
-		templateUrl : "templates/studysheets.html"
+	.state("studysheets", {
+		url: "/studysheets",
+		views: { 'content' : { templateUrl : "templates/studysheets.html" } }
 	})
-	.when("/sacs", {
-		templateUrl : "templates/SACs.html",
-		controller: "core"
+	.state("sacs", {
+		url: "/sacs",
+		views: { 'content' : { templateUrl : "templates/SACs.html", controller: "core" } },
 	})
-	.when("/listen", {
-		templateUrl : "templates/listen.html"
+	.state("listen", {
+		url: "/listen",
+		views: { 'content' : { templateUrl : "templates/listen.html" } }
 	})
-	.when("/home", {redirectTo: '/'})
-	.otherwise({ redirectTo: '/'})
+	$urlRouterProvider.otherwise('/');
 });
 
 app.run(function($rootScope) {
