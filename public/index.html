@@ -9,17 +9,18 @@
 		<link rel="stylesheet" href="/css/main.css">
 		<link rel="stylesheet" href="/css/sidebar.css">
 		<link rel="stylesheet" href="/css/header.css">
+		<link rel="stylesheet" href="/css/glossary.css">
 		<link rel="stylesheet" href="/css/workbench.css">
 		<link rel="stylesheet" href="/css/home.css">
 	</head>
 	<body>
-		<div ng-app="studycloud">
+		<div ng-app="studycloud" ng-controller="core">
 
 			<header>
 				<span class="header"><i class="fa fa-list-alt"></i> cards ({{filtered.length}}/{{cards.length}})
 
 					<div class="icon-bar">
-						<a ng-class="{active: false}" href="/"><i class="fa fa-home"></i> Home</a>
+						<a ng-class="{active: false}" href="#home"><i class="fa fa-home"></i> Home</a>
 						<a ng-class="{active: false}" href="#test"><i class="fa fa-lightbulb"></i> Test</a>
 						<a ng-class="{active: false}" href="#glossary"><i class="fa fa-book"></i> Glossary</a>
 						<a ng-class="{active: false}" href="#cards"><i class="fa fa-list-alt"></i> Cards</a>
@@ -31,19 +32,21 @@
 				</span>
 
 
-				<!-- <span class="right">
-				<span id="newCard" ng-click="openNewCard()"><i class="fa fa-plus"></i></span>
-				<input class="right search" id="name" type="text" placeholder="Search" ng-model="search">
-			</span> -->
+				<span class="right">
+					<span id="newCard" ng-click="openNewCard()"><i class="fa fa-plus"></i></span>
+					<input class="right search" id="name" type="text" placeholder="Search" ng-model="search">
+				</span>
 			</header>
-
 			<ng-view></ng-view>
+
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
 		<script src="js/app.js"></script>
+		<script src="js/service/header.js"></script>
 		<script src="js/controller/core.js"></script>
+		<script src="js/controller/glossary.js"></script>
 		<script src="js/controller/cards.js"></script>
 	</body>
 </html>

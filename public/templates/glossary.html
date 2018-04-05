@@ -1,0 +1,6 @@
+<section id="workbench">
+	<div class="glossaryCard" ng-repeat="term in terms | filter:searchFilter as filtered">
+		{{term.term}}<hr>
+		{{term.definition}}
+	</div>
+</section>

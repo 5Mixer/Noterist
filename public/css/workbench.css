@@ -1,6 +1,6 @@
 /* Includes styles for the background, cards, and anything related to the general panning area. */
 body {
-
+	background-color: rgb(228, 227, 194);
 }
 #workbench {
 	width: 100%;

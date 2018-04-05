@@ -10,7 +10,8 @@ app.config(function($routeProvider) {
 		templateUrl : "templates/test.html"
 	})
 	.when("/glossary", {
-		templateUrl : "templates/glossary.html"
+		templateUrl : "templates/glossary.html",
+		controller: "glossary"
 	})
 	.when("/cards", {
 		templateUrl : "templates/cards.html",
@@ -26,6 +27,7 @@ app.config(function($routeProvider) {
 	.when("/listen", {
 		templateUrl : "templates/listen.html"
 	})
+	.when("/home", {redirectTo: '/'})
 	.otherwise({ redirectTo: '/'})
 });
 
