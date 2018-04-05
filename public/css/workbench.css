@@ -36,7 +36,7 @@ body {
 	overflow-y:auto;
 	/* max-height: auto; */
 	position:absolute;
-	max-height: calc(300px - 5em);
+	max-height: 180px;
 	width:calc(100% - 25px);
 	height: 100%;
 }
@@ -46,6 +46,11 @@ body {
 	margin: 3px;
 	display: inline-block;
 	border-radius: 4px;
+	font-size: .8em;
+}
+
+.cardDescription {
+	white-space: pre-line;
 }
 
 #newCard {

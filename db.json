@@ -13,7 +13,8 @@
         "transcription"
       ],
       "id": "H1m96Rbif",
-      "beingEdited": false
+      "beingEdited": false,
+      "description": ""
     },
     {
       "img": "photosynthesis io.jpg",
@@ -21,17 +22,26 @@
       "tags": [
         "process",
         "input",
-        "output"
+        "output",
+        "independent",
+        "dependent"
       ],
-      "id": "BJlm5pR-jz"
+      "id": "BJlm5pR-jz",
+      "beingEdited": false
     },
     {
       "img": "polymerisation.jpg",
-      "title": "Polymerisation",
+      "title": "Condensation Polymerisation",
       "tags": [
-        "chemistry"
+        "chemistry",
+        "reaction",
+        "synthesis",
+        "anabolic",
+        "endergonic"
       ],
-      "id": "BJZ7cTC-oz"
+      "id": "BJZ7cTC-oz",
+      "beingEdited": false,
+      "description": "The 'opposite' of condensation reactions are hydrolysis reactions. For the molecule that makes these, take a look at !H1m96Rbif\n\nCondensation reactions are anabolic, endergonic reactions that require energy to function (i.e synthesis of proteins takes energy)\n\nPolymerisation can be remembered through through it's prefix poly - many. Many monomers are joined.\n\nIf answering questions about identifying polymers, remember to be specific and identify properties unique to them, for instance, their bonds being peptide bonds for amino acids."
     },
     {
       "img": "protein structure.jpg",
@@ -208,6 +218,22 @@
         "comparison"
       ],
       "id": "HJ7g75TRbiG"
+    },
+    {
+      "img": "Signalling molecules.jpg",
+      "title": "Signalling molecules",
+      "tags": [
+        ""
+      ],
+      "id": "ryTH1Lfsz"
+    },
+    {
+      "img": "Signalling molecules #2.jpg",
+      "title": "Signalling molecules #2",
+      "tags": [
+        ""
+      ],
+      "id": "BybFrUQsM"
     }
   ],
   "posts": [],

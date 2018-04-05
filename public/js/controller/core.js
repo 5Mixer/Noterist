@@ -54,12 +54,13 @@ app.controller("core", function($scope,$http) {
 
 	$scope.edit = function (card){
 		card.beingEdited = true;
-		card.edits = {title: card.title, tags: card.tags.join(" ") }
+		card.edits = {title: card.title, tags: card.tags.join(" "), description: card.description }
 	}
 	$scope.saveEdits = function (card){
 		card.beingEdited = false;
 		card.title = card.edits.title;
 		card.tags = card.edits.tags.split(" ")
+		card.description = card.edits.description
 		card.edits = undefined;
 		$http({
 			method: "PATCH",

@@ -43,7 +43,7 @@ app.post('/cards', function (req, res) {
 	});
 
 	var id = shortid.generate()
-	var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), id: id}
+	var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), description: req.body.description, id: id}
 	db.get("cards").push(card).write()
 
 	res.json(card)
