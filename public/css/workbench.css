@@ -1,8 +1,6 @@
 /* Includes styles for the background, cards, and anything related to the general panning area. */
 body {
 
-	background: url("../resources/halftone-yellow.png");
-	background-repeat: repeat;
 }
 #workbench {
 	width: 100%;
@@ -10,7 +8,7 @@ body {
 	min-height: 100%;
 	/* padding-left: 40px; */
 
-	background: url("../resources/halftone-yellow.png");
+	background-color: rgb(228, 227, 194);
 	background-repeat: repeat;
 	padding-top: 100px;
 }

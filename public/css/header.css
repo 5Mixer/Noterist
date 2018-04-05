@@ -4,9 +4,9 @@ header {
 	box-sizing: border-box;
 	position: fixed;
 	margin: 0;
-	background-color: rgb(34, 255, 111);
-
-
+	background-color: rgb(246, 244, 130);
+	/* background: url("../resources/halftone-yellow.png"); */
+	color: rgb(48, 48, 48);
 
 	height: 60px;
 
