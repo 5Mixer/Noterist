@@ -7,6 +7,9 @@
 		</div><br>
 
 		<div class="studysheet" ng-repeat="studysheet in studydoc.pages | filter:searchFilter as filtered">
+			<div class="resize-drag">
+			</div>
+
 			<img ng-src="{{'studysheets/'+studysheet.img}}" alt="">
 		</div>
 

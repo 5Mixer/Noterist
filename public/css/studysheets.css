@@ -13,3 +13,31 @@
 	max-width: 80%;
 	min-width: 30%;
 }
+
+.resize-drag {
+	border: 3px solid rgba(247, 231, 75,.7);
+	background-color: rgba(247, 231, 75, 0.3);
+	color: rgb(29, 29, 29);
+	border-radius: 2px;
+	padding: 20px;
+	margin: 30px 20px;
+
+	width: 120px;
+
+	box-sizing: border-box;
+
+	position: absolute;
+	display: block;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.resize-container {
+	display: inline-block;
+
+}
