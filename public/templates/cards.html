@@ -13,9 +13,9 @@
 	<div class="card" ng-repeat="card in cards | filter:searchFilter as filtered">
 		<!-- <input id="{{::$id}} toggle" class="toggle" type="checkbox" checked> -->
 		<input id="{{::$id}} toggle" class="toggle" type="checkbox">
-		<label class="toggleBtn" for="{{::$id}} toggle" class="toggle"></label>
+		<label ng-hide="card.beingEdited" class="toggleBtn" for="{{::$id}} toggle" class="toggle"></label>
 		<div id="front">
-			<img src="cards/{{card.img}}" alt="">
+			<img class="cardimg" src="cards/{{card.img}}" alt="">
 		</div>
 		<div id="expand">
 			<h3 ng-hide="card.beingEdited">{{card.title}}</h3>

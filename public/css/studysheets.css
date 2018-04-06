@@ -8,7 +8,7 @@
 	max-width: 100%;
 }
 
-.studysheet img {
+.studysheet > img {
 	width: 900px;
 	max-width: 80%;
 	min-width: 30%;

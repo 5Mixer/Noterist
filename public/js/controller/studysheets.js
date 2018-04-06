@@ -73,20 +73,14 @@ function dragMoveListener(event) {
 app.controller("studysheets", function($scope,$http) {
 	$scope.search = ""
 
-	$scope.studysheets = [
-		{
-			title: "Signalling molecules",
-			tags: ["signalling", "endocrine","paracrine", "autocrine", "hormones", "neurotransmitters", "cytokines", "pheromones", "neurohormones", "MHC", "growth regulators"],
-			pages: [
-				{
-					img: "Signalling molecules.jpg"
-				},
-				{
-					img: "Signalling molecules 2.jpg"
-				}
-			]
-		}
-	]
+	$scope.studysheets = []
+	$http({
+		method: 'GET',
+		url: '/db'
+	}).success(function(response){
+		console.log(response)
+		$scope.studysheets = response.studysheets
+	})
 
 	$scope.searchFilter = function(card) {
 		if ($scope.search.length == 0)
