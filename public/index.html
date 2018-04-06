@@ -17,22 +17,22 @@
 		<div ng-app="studycloud" ng-controller="core">
 
 			<header>
-				<span class="header"><i class="fa fa-list-alt"></i> cards ({{filtered.length}}/{{cards.length}})
+				<span class="header"><i class="fa {{stateIcon}}"></i> {{capitalizeFirstLetter($state.current.name)}}
 
 					<div class="icon-bar">
-						<a ng-class="{active: false}" ui-sref="home"><i class="fa fa-home"></i> Home</a>
-						<a ng-class="{active: false}" ui-sref="test"><i class="fa fa-lightbulb"></i> Test</a>
-						<a ng-class="{active: false}" ui-sref="glossary"><i class="fa fa-book"></i> Glossary</a>
-						<a ng-class="{active: false}" ui-sref="cards"><i class="fa fa-list-alt"></i> Cards</a>
-						<a ng-class="{active: false}" ui-sref="studysheets"><i class="fa fa-file-alt"></i> Study Sheets</a>
-						<a ng-class="{active: false}" ui-sref="sacs"><i class="fa fa-vial"></i> Past SAC's</a>
-						<a ng-class="{active: false}" ui-sref="listen"><i class="fa fa-file-video"></i> Listen</a>
+						<a ng-class="{active: $state.current.name == 'home' }" ui-sref="home"><i class="fa fa-home"></i> Home</a>
+						<a ng-class="{active: $state.current.name == 'test' }" ui-sref="test"><i class="fa fa-lightbulb"></i> Test</a>
+						<a ng-class="{active: $state.current.name == 'glossary' }" ui-sref="glossary"><i class="fa fa-book"></i> Glossary</a>
+						<a ng-class="{active: $state.current.name == 'cards' }" ui-sref="cards"><i class="fa fa-list-alt"></i> Cards</a>
+						<a ng-class="{active: $state.current.name == 'studysheets' }" ui-sref="studysheets"><i class="fa fa-file-alt"></i> Study Sheets</a>
+						<a ng-class="{active: $state.current.name == 'sacs' }" ui-sref="sacs"><i class="fa fa-vial"></i> Past SAC's</a>
+						<a ng-class="{active: $state.current.name == 'listen' }" ui-sref="listen"><i class="fa fa-file-video"></i> Listen</a>
 					</div>
 
+					<span ui-view="header"></span>
 				</span>
 
 
-				<span ui-view="header"></span>
 			</header>
 			<div ui-view="content"></div>
 

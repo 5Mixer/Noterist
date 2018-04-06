@@ -1,15 +1,16 @@
 app.controller("cards", function($scope,$http,header) {
 
 	$scope.search = header.getSearch
-	
+
+	header.openNewCard = function () {
+		$scope.newCardDialogOpen = !$scope.newCardDialogOpen
+	}
+
 	$scope.cards = []
 
 	$scope.newcard = {title:"",tags:"",file:undefined}
 	$scope.newCardDialogOpen = false;
 
-	$scope.openNewCard = function () {
-		$scope.newCardDialogOpen = !$scope.newCardDialogOpen
-	}
 
 	$scope.newCard = function () {
 		$http({

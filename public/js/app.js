@@ -1,5 +1,15 @@
 var app = angular.module("studycloud", ["ui.router"]);
 
+var icons = {
+	"home":"home",
+	"test":"lightbulb",
+	"glossary":"book",
+	"cards":"list-alt",
+	"studysheets":"file-alt",
+	"sacs":"vial",
+	"listen":"file-video"
+}
+
 app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 	// .state('root', {
@@ -51,10 +61,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 });
 
-app.run(function($rootScope) {
+app.run(function($rootScope, $state, $stateParams) {
     $rootScope.$on("$locationChangeStart", function(event, next, current) {
         // handle route changes
-        console.log("Eoute change "+current)
+        console.log("State change "+$state.current.name)
+		console.log(icons)
+		console.log(icons[$state.current.name])
+		$rootScope.stateIcon = "fa-" + icons[$state.current.name]
+		$rootScope.$state = $state;
+		$rootScope.$stateParams = $stateParams;
+
     });
 });
 
