@@ -1,4 +1,4 @@
-var app = angular.module("studycloud", ["ui.router"]);
+var app = angular.module("studycloud", ["ui.router","ui.tree"]);
 
 var icons = {
 	"home":"home",

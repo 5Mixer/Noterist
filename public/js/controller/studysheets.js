@@ -73,6 +73,114 @@ function dragMoveListener(event) {
 app.controller("studysheets", function($scope,$http) {
 	$scope.search = ""
 
+	$scope.studydoc = undefined
+
+	// A node has been clicked, open it, showing images etc. (Don't 'expand')
+	$scope.open = function (node){
+		console.log(node)
+		if (node.documentid != undefined){
+			var studysheet = undefined
+			for (var i = 0; i < $scope.studysheets.length; i++){
+				if ($scope.studysheets[i].id == node.documentid){
+					console.log("Found study sheet, opening.")
+					$scope.studydoc = $scope.studysheets[i]
+					return; //Break once the study sheet is found.
+				}
+			}
+			console.log("Odd behaviour! Study sheet node *with* ID had no matching studysheet!")
+		}
+		//If this point is reached, a node has been opened with no corresponding document. Make one.
+		console.log("Creating new study sheet.")
+		var studysheetId = ""+Math.random()*999999999;
+		var newStudysheet = {
+			"title": node.title || "New studysheet",
+			"tags":[],
+			"id":studysheetId,
+			"pages": []
+		}
+		node.documentid = studysheetId;
+		$scope.studysheets.push(newStudysheet)
+		$scope.studydoc = newStudysheet
+	}
+
+	$scope.appendTextPage = function (sheet) {
+		var page = {
+			"type": "text"
+		}
+		sheet.pages.push(page)
+	}
+	$scope.appendImagePage = function (sheet) {
+		var page = {
+			"type": "image"
+		}
+		sheet.pages.push(page)
+	}
+
+	$scope.remove = function (scope) {
+		scope.remove();
+	};
+
+	$scope.toggle = function (scope) {
+		scope.toggle();
+	};
+
+	$scope.newSubItem = function (scope) {
+		var nodeData = scope.$modelValue;
+		nodeData.nodes.push({
+			id: nodeData.id * 10 + nodeData.nodes.length,
+			title: nodeData.title + '.' + (nodeData.nodes.length + 1),
+			nodes: []
+		});
+	};
+
+	$scope.collapseAll = function () {
+		$scope.$broadcast('angular-ui-tree:collapse-all');
+	};
+
+	$scope.expandAll = function () {
+		$scope.$broadcast('angular-ui-tree:expand-all');
+	};
+
+	$scope.data = [{
+		'id': "1",
+		'title': 'AOS 1',
+		'nodes': [
+			{
+				'id': "11",
+				'title': 'Cell membrane',
+				'nodes': [
+					{
+						'id': "111",
+						'title': 'Diagram',
+						'nodes': []
+					}
+				]
+			},
+			{
+				'id': "12",
+				'title': 'Organelles',
+				'nodes': []
+			}
+		]
+	}, {
+		'id': "2",
+		'title': 'AOS 2',
+		'nodes': [
+		{
+			'id': "21",
+			'title': 'Cell signalling',
+			'documentid': 'AN7gK2TRsmL',
+			'nodes': []
+		},
+		{
+			'id': "22",
+			'title': 'Cell defence',
+			'nodes': []
+		}
+		]
+	}];
+
+
 	$scope.studysheets = []
 	$http({
 		method: 'GET',

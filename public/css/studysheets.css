@@ -1,17 +1,103 @@
+.treenavigator {
+	margin-top: 100px;
+	margin-left: 20px;
+	max-width: 300px;
+	width: 100%;
+	position:absolute;
+	left: 0;
+	display: inline-block;
+}
+
+.treenode {
+	background: #fefff9;
+	border: 1px solid #e8ebda;
+	color: #383636;
+	padding: 10px 10px;
+}
+
+.treenode:hover {
+	color: #19191a;
+	background: #f9f8ef;
+	border-color: #e6e8dc;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fffef0;
+	border: 2px dashed #dbdabf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+tr.angular-ui-tree-empty {
+	height:100px
+}
+
+/* --- Tree --- */
+.tree-node {
+	border: 1px solid #ebebda;
+	background: #fffff9;
+	color: #b3b07c;
+}
+
+.tree-node-content {
+	margin: 10px;
+}
+.tree-handle {
+	padding: 10px;
+	background: #c9bd41;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fefff0;
+	border: 2px dashed #dbdbbf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
 /* The full view */
 .studysheetspanel {
+	display: inline-block;
+	width: calc(100% - 400px);
 	padding-top: 90px;
-	margin-left: 120px;
-	margin-right: 120px;
+	margin-left: 350px;
+	max-width: 900px;
 }
 .studysheet {
 	max-width: 100%;
+	width: 100%;
 }
 
-.studysheet > img {
+.studysheetimg {
 	width: 900px;
 	max-width: 80%;
+	max-width: 80%;
 	min-width: 30%;
+}
+
+.addelementbtn {
+	min-width: 200px;
+
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	cursor: pointer;
+
+	vertical-align: top;
+
+	background-color: rgb(252, 252, 252);
+
+	box-sizing: border-box;
+	display: inline-block;
+
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: center;
 }
 
 .resize-drag {

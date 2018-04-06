@@ -223,6 +223,7 @@
   "studysheets": [
     {
       "title": "Signalling molecules",
+      "id": "AN7gK2TRsmL",
       "tags": [
         "signalling",
         "endocrine",
@@ -238,9 +239,11 @@
       ],
       "pages": [
         {
+          "type": "image",
           "img": "Signalling molecules.jpg"
         },
         {
+          "type": "image",
           "img": "Signalling molecules 2.jpg"
         }
       ]

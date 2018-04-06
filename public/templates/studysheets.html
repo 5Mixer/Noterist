@@ -1,16 +1,74 @@
+<div class="treenavigator">
+
+	<button ng-click="expandAll()">Expand all</button>
+	<button ng-click="collapseAll()">Collapse all</button>
+	<script type="text/ng-template" id="nodes_renderer.html">
+		<div class="treenode" ng-click="open(node)">
+			<a class="" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+				<span
+				class="fa"
+				ng-class="{
+					'fa-chevron-right': collapsed,
+					'fa-chevron-down': !collapsed
+				}"></span>
+			</a>
+			{{node.title}}
+
+			<!-- Drag element -->
+			<span class="right fa fa-arrows-alt" ui-tree-handle></span>
+
+			<!-- Remove/add buttons -->
+			<a class="right" data-nodrag ng-click="remove(this)">
+				<span class="fa fa-times"></span>
+			</a>
+			<a class="right" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;">
+				<span class="fa fa-plus"></span>
+			</a>
+		</div>
+
+		<ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+			<li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+			</li>
+		</ol>
+	</script>
+
+	<div ui-tree>
+		<ol ui-tree-nodes="" ng-model="data" id="tree-root">
+			<li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+		</ol>
+	</div>
+
+</div>
 <section class="studysheetspanel">
-	<div ng-repeat="studydoc in studysheets">
-		<h1>{{studydoc.title}}</h1>
+
+	<div>
+		<h1>{{studydoc.title || ''}}</h1>
 
 		<div ng-repeat="tag in studydoc.tags" class="tag">
 			<span>{{tag}}</span>
 		</div><br>
 
 		<div class="studysheet" ng-repeat="studysheet in studydoc.pages | filter:searchFilter as filtered">
-			<div class="resize-drag">
-			</div>
+			<!-- Resizable annotation box thingy -->
+			<!-- <div class="resize-drag">
+			</div> -->
 
-			<img ng-src="{{'studysheets/'+studysheet.img}}" alt="">
+			<div ng-show="studysheet.type == 'image'">
+				<img class="studysheetimg" ng-src="{{'studysheets/'+studysheet.img}}" alt="">
+			</div>
+			<div ng-show="studysheet.type == 'text'">
+				<textarea name="name" rows="20" cols="140"></textarea>
+			</div>
+		</div>
+
+		<!-- When a valid page is shown -->
+		<div ng-show="studydoc != undefined">
+			<div class="addelementbtn" ng-click="appendTextPage(studydoc)">
+				Append text section
+			</div>
+			<div class="addelementbtn" ng-click="appendImagePage(studydoc)">
+				Append image section
+			</div>
 		</div>
 
 	</div>
