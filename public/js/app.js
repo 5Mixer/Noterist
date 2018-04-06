@@ -12,19 +12,6 @@ var icons = {
 
 app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
-	// .state('root', {
-	//     abstract: true,  //no url, this is just so that other properties have defaults.
-	//     views:{
-	//         'header': {
-	//             template: '',
-	//             controller: function($scope){}
-	//         },
-	//         'content': {
-	//             template: '',
-	//             controller: function($scope){}
-	//         }
-	//     }
-	// })
 	.state("home", {
 		url: "/",
 		views: { 'content' : { templateUrl : "templates/home.html", controller: "core" } },
@@ -48,7 +35,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	})
 	.state("studysheets", {
 		url: "/studysheets",
-		views: { 'content' : { templateUrl : "templates/studysheets.html" } }
+		views: { 'content' : { templateUrl : "templates/studysheets.html", controller: "studysheets" } }
 	})
 	.state("sacs", {
 		url: "/sacs",
@@ -65,8 +52,6 @@ app.run(function($rootScope, $state, $stateParams) {
     $rootScope.$on("$locationChangeStart", function(event, next, current) {
         // handle route changes
         console.log("State change "+$state.current.name)
-		console.log(icons)
-		console.log(icons[$state.current.name])
 		$rootScope.stateIcon = "fa-" + icons[$state.current.name]
 		$rootScope.$state = $state;
 		$rootScope.$stateParams = $stateParams;

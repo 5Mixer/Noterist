@@ -22,7 +22,7 @@ body {
 	max-height: 300px;
 	height: 300px;
 }
-.card,img {
+.card img {
 	position:relative;
 	/* min-height: 300px; */
 	max-height: 300px;

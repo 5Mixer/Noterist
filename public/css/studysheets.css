@@ -1,0 +1,15 @@
+/* The full view */
+.studysheetspanel {
+	padding-top: 90px;
+	margin-left: 120px;
+	margin-right: 120px;
+}
+.studysheet {
+	max-width: 100%;
+}
+
+.studysheet img {
+	width: 900px;
+	max-width: 80%;
+	min-width: 30%;
+}

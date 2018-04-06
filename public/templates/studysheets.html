@@ -1,0 +1,14 @@
+<section class="studysheetspanel">
+	<div ng-repeat="studydoc in studysheets">
+		<h1>{{studydoc.title}}</h1>
+
+		<div ng-repeat="tag in studydoc.tags" class="tag">
+			<span>{{tag}}</span>
+		</div><br>
+
+		<div class="studysheet" ng-repeat="studysheet in studydoc.pages | filter:searchFilter as filtered">
+			<img ng-src="{{'studysheets/'+studysheet.img}}" alt="">
+		</div>
+
+	</div>
+</section>
