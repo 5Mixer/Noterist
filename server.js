@@ -30,9 +30,11 @@ db.get("cards").merge(cards).write();
 cards = undefined;
 
 var cards = require('./routes/cards.js')(db)
-app.use("/cards",cards)
 var studysheets = require('./routes/studysheets.js')(db)
+var hierarchy = require('./routes/hierarchy.js')(db)
+app.use("/cards",cards)
 app.use("/studysheets",studysheets)
+app.use("/hierarchy",hierarchy)
 
 app.get("/db", function (req,res){
 	res.json(db.value())

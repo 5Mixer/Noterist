@@ -3,8 +3,8 @@
 	<button ng-click="expandAll()">Expand all</button>
 	<button ng-click="collapseAll()">Collapse all</button>
 	<script type="text/ng-template" id="nodes_renderer.html">
-		<div class="treenode" ng-click="open(node)">
-			<a class="" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+		<div class="treenode" ng-class="{'tree-node-active' : activeNode.title==node.title}" ng-click="open(node,this)">
+			<a ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
 				<span
 				class="fa"
 				ng-class="{
@@ -15,15 +15,16 @@
 			{{node.title}}
 
 			<!-- Drag element -->
-			<span class="right fa fa-arrows-alt" ui-tree-handle></span>
+			<span class="treebutton right fa fa-arrows-alt" ui-tree-handle></span>
 
 			<!-- Remove/add buttons -->
-			<a class="right" data-nodrag ng-click="remove(this)">
+			<span class="treebutton right" data-nodrag ng-click="remove(this); $event.stopPropagation()">
 				<span class="fa fa-times"></span>
-			</a>
-			<a class="right" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;">
+			</span>
+
+			<span class="treebutton right" ng-show="this.depth() < 5" data-nodrag ng-click="newSubItem(this); $event.stopPropagation()">
 				<span class="fa fa-plus"></span>
-			</a>
+			</span>
 		</div>
 
 		<ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
@@ -33,8 +34,8 @@
 	</script>
 
 	<div ui-tree>
-		<ol ui-tree-nodes="" ng-model="data" id="tree-root">
-			<li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+		<ol ui-tree-nodes="" ng-model="hierarchy" id="tree-root" data-max-depth="4">
+			<li ng-repeat="node in hierarchy" ui-tree-node ng-include="'nodes_renderer.html'"></li>
 		</ol>
 	</div>
 
@@ -46,7 +47,7 @@
 
 		<div ng-repeat="tag in studydoc.tags" class="tag">
 			<span>{{tag}}</span>
-		</div><br>
+		</div><br><br>
 
 		<div class="studysheet" ng-repeat="studysheet in studydoc.pages | filter:searchFilter as filtered">
 			<!-- Resizable annotation box thingy -->
@@ -57,7 +58,7 @@
 				<img class="studysheetimg" ng-src="{{'studysheets/'+studysheet.img}}" alt="">
 			</div>
 			<div ng-show="studysheet.type == 'text'">
-				<textarea name="name" rows="20" cols="140"></textarea>
+				<textarea name="name" rows="20" cols="140" ng-model="studysheet.text"></textarea>
 			</div>
 		</div>
 

@@ -68,16 +68,18 @@ function dragMoveListener(event) {
 }
 
 
-
-
 app.controller("studysheets", function($scope,$http) {
 	$scope.search = ""
 
+	$scope.hierarchy = [];
+
 	$scope.studydoc = undefined
+	$scope.activeNode = undefined;
 
 	// A node has been clicked, open it, showing images etc. (Don't 'expand')
-	$scope.open = function (node){
-		console.log(node)
+	$scope.open = function (node,scope){
+		saveSheet(); //Save whatever was open before hand so that changes aren't lost.
+		$scope.activeNode = node;
 		if (node.documentid != undefined){
 			var studysheet = undefined
 			for (var i = 0; i < $scope.studysheets.length; i++){
@@ -87,11 +89,12 @@ app.controller("studysheets", function($scope,$http) {
 					return; //Break once the study sheet is found.
 				}
 			}
-			console.log("Odd behaviour! Study sheet node *with* ID had no matching studysheet!")
+			console.log("Odd behaviour! Study sheet node *with* ID had no matching studysheet! Doc id: "+node.documentid)
 		}
+
 		//If this point is reached, a node has been opened with no corresponding document. Make one.
 		console.log("Creating new study sheet.")
-		var studysheetId = ""+Math.random()*999999999;
+		var studysheetId = node.documentid || ""+Math.random()*9999999999;
 		var newStudysheet = {
 			"title": node.title || "New studysheet",
 			"tags":[],
@@ -101,19 +104,69 @@ app.controller("studysheets", function($scope,$http) {
 		node.documentid = studysheetId;
 		$scope.studysheets.push(newStudysheet)
 		$scope.studydoc = newStudysheet
+		$http({
+			method: "POST",
+			url : "/studysheets",
+			data: newStudysheet,
+			headers : { 'Content-Type': "application/json" }
+		})
 	}
 
 	$scope.appendTextPage = function (sheet) {
 		var page = {
-			"type": "text"
+			"type" : "text",
+			"text" : ""
 		}
 		sheet.pages.push(page)
+		$http({
+			method: "PATCH",
+			url : "/studysheets",
+			data: sheet,
+			headers : { 'Content-Type': "application/json" }
+		})
 	}
 	$scope.appendImagePage = function (sheet) {
 		var page = {
 			"type": "image"
 		}
 		sheet.pages.push(page)
+		$http({
+			method: "PATCH",
+			url : "/studysheets",
+			data: sheet,
+			headers : { 'Content-Type': "application/json" }
+		})
+	}
+
+	var lastSave = undefined;
+	saveSheet = function(){
+		if ($scope.studydoc == undefined)
+			return;
+		if (JSON.stringify($scope.studydoc) == lastSave)
+			return; //No neat to send off something that the server already has a copy of...
+
+		lastSave = JSON.stringify($scope.studydoc); //Deep save, otherwise they will be assigned to same instance
+
+		console.log("...saving sheet...")
+
+		$http({
+			method: "PATCH",
+			url : "/studysheets",
+			data: $scope.studydoc,
+			headers : { 'Content-Type': "application/json" }
+		})
+	}
+
+	setInterval(saveSheet, 2000) //Periodically check if anything has changed from last save, and if so, save it.
+
+	hierarchyModified = function (){
+		$http({
+			method: "PATCH",
+			url : "/hierarchy",
+			data: $scope.hierarchy,
+			headers : { 'Content-Type': "application/json" }
+		})
+		console.log("Sending server hierarchy update")
 	}
 
 	$scope.remove = function (scope) {
@@ -127,8 +180,9 @@ app.controller("studysheets", function($scope,$http) {
 	$scope.newSubItem = function (scope) {
 		var nodeData = scope.$modelValue;
 		nodeData.nodes.push({
-			id: nodeData.id * 10 + nodeData.nodes.length,
+			id: ""+Math.random()*9999999999,
 			title: nodeData.title + '.' + (nodeData.nodes.length + 1),
+			documentid: undefined, //No assosiated document yet. When opened, a doc will be created.
 			nodes: []
 		});
 	};
@@ -141,53 +195,19 @@ app.controller("studysheets", function($scope,$http) {
 		$scope.$broadcast('angular-ui-tree:expand-all');
 	};
 
-	$scope.data = [{
-		'id': "1",
-		'title': 'AOS 1',
-		'nodes': [
-			{
-				'id': "11",
-				'title': 'Cell membrane',
-				'nodes': [
-					{
-						'id': "111",
-						'title': 'Diagram',
-						'nodes': []
-					}
-				]
-			},
-			{
-				'id': "12",
-				'title': 'Organelles',
-				'nodes': []
-			}
-		]
-	}, {
-		'id': "2",
-		'title': 'AOS 2',
-		'nodes': [
-		{
-			'id': "21",
-			'title': 'Cell signalling',
-			'documentid': 'AN7gK2TRsmL',
-			'nodes': []
-		},
-		{
-			'id': "22",
-			'title': 'Cell defence',
-			'nodes': []
-		}
-		]
-	}];
-
+	// For the hierarchy, it is easier to watch for any changes than try and predict when they happen
+	// Many things can cause a hierarchy change, adding, deleting, dragging, renaming...
+	// The third arguement specifies that the hierarchy should be watched deeply.
+	$scope.$watch("hierarchy",hierarchyModified, true)
 
 	$scope.studysheets = []
 	$http({
 		method: 'GET',
 		url: '/db'
 	}).success(function(response){
-		console.log(response)
 		$scope.studysheets = response.studysheets
+		$scope.hierarchy = response.hierarchy
+		console.log($scope.hierarchy)
 	})
 
 	$scope.searchFilter = function(card) {
