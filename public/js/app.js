@@ -49,15 +49,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 app.run(function($rootScope, $state, $stateParams) {
-    $rootScope.$on("$locationChangeStart", function(event, next, current) {
-        // handle route changes
-        console.log("State change "+$state.current.name)
+	$rootScope.$on("$locationChangeStart", function(event, next, current) {
+		// handle route changes
+		console.log("State change "+$state.current.name)
 		$rootScope.stateIcon = "fa-" + icons[$state.current.name]
 		$rootScope.$state = $state;
 		$rootScope.$stateParams = $stateParams;
 
-    });
+	});
 });
+
 
 // Helper directive for uploading files as base64 equivalents.
 app.directive("fileread", [function () {

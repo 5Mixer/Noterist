@@ -94,7 +94,7 @@ app.controller("studysheets", function($scope,$http) {
 
 		//If this point is reached, a node has been opened with no corresponding document. Make one.
 		console.log("Creating new study sheet.")
-		var studysheetId = node.documentid || ""+Math.random()*9999999999;
+		var studysheetId = node.documentid || id();
 		var newStudysheet = {
 			"title": node.title || "New studysheet",
 			"tags":[],
@@ -104,6 +104,16 @@ app.controller("studysheets", function($scope,$http) {
 		node.documentid = studysheetId;
 		$scope.studysheets.push(newStudysheet)
 		$scope.studydoc = newStudysheet
+
+		// With the new (opened) document, go into edit mode and select the input for changing the title.
+		// Is this hacky? Yes. Does it work fine? Yes.
+		// The correct angular way of doing this involves setting up a directive, and is complete overkill.
+		$scope.editingDoc = true;
+		//setTimeout used with 0 delay so that the selection is added to the end of the event que, when the input has loaded.
+		setTimeout(function () {
+			document.getElementById("editDocTitleInput").select();
+		}, 0);
+
 		$http({
 			method: "POST",
 			url : "/studysheets",
@@ -157,7 +167,7 @@ app.controller("studysheets", function($scope,$http) {
 		})
 	}
 
-	setInterval(saveSheet, 2000) //Periodically check if anything has changed from last save, and if so, save it.
+	setInterval(saveSheet, 5000) //Periodically check if anything has changed from last save, and if so, save it.
 
 	hierarchyModified = function (){
 		$http({
@@ -169,22 +179,120 @@ app.controller("studysheets", function($scope,$http) {
 		console.log("Sending server hierarchy update")
 	}
 
-	$scope.remove = function (scope) {
-		scope.remove();
+	// For the hierarchy, it is easier to watch for any changes than try and predict when they happen
+	// Many things can cause a hierarchy change, adding, deleting, dragging, renaming...
+	// The third arguement specifies that the hierarchy should be watched deeply.
+	$scope.$watch("hierarchy",hierarchyModified, true)
+
+	//Edit the title/tags of the document.
+	$scope.editingDoc = false;
+	$scope.editdoc = function (){
+		$scope.editingDoc = !$scope.editingDoc;
+		if (!$scope.editingDoc)
+			$scope.activeNode.title = $scope.studydoc.title;
+	}
+	$scope.$watch("studydoc.title",function(title){
+		// if ($scope.activeNode != undefined)
+		// 	$scope.activeNode.title = title;
+	})
+
+	// naming functions dealing with nests be like
+	function flattenChildren(node){
+		var nodes = []
+		nodes.push(node)
+		if (node.nodes == undefined)
+			return nodes;
+		if (node.nodes.length > 0){
+			for (var i = 0; i < node.nodes.length; i++){
+				var childNodeChildren = flattenChildren(node.nodes[i])
+				for (var n = 0; n < childNodeChildren.length; n++){
+					nodes.push(childNodeChildren[n])
+				}
+			}
+		}
+
+		return nodes;
+	}
+
+	$scope.treeOptions = {
+		// removed: function(node) {
+		// }
 	};
 
-	$scope.toggle = function (scope) {
-		scope.toggle();
-	};
+	$scope.removeNodeAndDoc = function (node){
+		//This function is only confusing because the ui tree stores things differently to the apps datastructure.
+		//Essentailly, $scope.activeNode only contains OUR object, where as node contains ui tree stuff,
+		//so $modelValue must be accessed, where our object is stored. node.$parent.$parent contains the deleted nodes parent.
+		//If confused, log everything and read through the objects.
+
+		//Removal in the hierarchy will cause a hierarchy PATCH
+		//However the document associated with it needs a DELETE
+		console.log("Deleting sheet "+node.$modelValue.id+" from the server.")
+
+		// $http({
+		// 	method: "DELETE",
+		// 	url : "/studysheets",
+		// 	data: {id:node.id},
+		// 	headers : { 'Content-Type': "application/json" }
+		// })
+		//AND ALL THAT NODES CHILDREN AHHH
+		var childNodes = flattenChildren(node.$modelValue)
+		var sheets = []
+		for (var i = 0; i < childNodes.length; i++){
+			sheets.push(childNodes[i].documentid)
+		}
+		console.log("Deleting child sheet/s ("+childNodes.length+") from the server.")
+		console.log(sheets);
+		$http({
+			method: "DELETE",
+			url : "/studysheets",
+			data: {sheets:sheets},
+			headers : { 'Content-Type': "application/json" }
+		})
+
+		//If the node's sheet was active/open, we should open something else.
+		if ($scope.activeNode == undefined)
+			return;
+		if ($scope.activeNode.id == node.$modelValue.id){
+			console.log("Deleted node was active document")
+			if (node.$parent.$parent != undefined){
+				console.log("Opening parent "+node.$parent.$parent.node.title)
+				//Open parent in hierarchy
+				$scope.activeNode = node.$parent.$parent.node
+				for (var i = 0; i < $scope.studysheets.length; i++){
+					if ($scope.studysheets[i].id == $scope.activeNode.documentid){
+						//Open found parent document.
+						$scope.studydoc = $scope.studysheets[i]
+					}
+				}
+			}
+
+		}
+	}
+
+	//Move to server?
+	function id(){
+		var id = "";
+		var valid = "abdefghjklmnopqrtuvwkyzABDEFGHJKLMNOPQRTUVWXYZ1234567890" //56 long
+		var buf = new Uint8Array(8);
+		window.crypto.getRandomValues(buf);
+		for (var i = 0; i < buf.length; i++){
+			id += valid[Math.floor(buf[i]/255*56)]
+		}
+		return id;
+	}
 
 	$scope.newSubItem = function (scope) {
 		var nodeData = scope.$modelValue;
-		nodeData.nodes.push({
-			id: ""+Math.random()*9999999999,
+		var newNode = {
+			id: ""+id(),
 			title: nodeData.title + '.' + (nodeData.nodes.length + 1),
 			documentid: undefined, //No assosiated document yet. When opened, a doc will be created.
 			nodes: []
-		});
+		}
+		nodeData.nodes.push(newNode);
+		//Switch to the created item.
+		$scope.open(newNode,scope)
 	};
 
 	$scope.collapseAll = function () {
@@ -195,12 +303,9 @@ app.controller("studysheets", function($scope,$http) {
 		$scope.$broadcast('angular-ui-tree:expand-all');
 	};
 
-	// For the hierarchy, it is easier to watch for any changes than try and predict when they happen
-	// Many things can cause a hierarchy change, adding, deleting, dragging, renaming...
-	// The third arguement specifies that the hierarchy should be watched deeply.
-	$scope.$watch("hierarchy",hierarchyModified, true)
-
 	$scope.studysheets = []
+
+	// Download databaes
 	$http({
 		method: 'GET',
 		url: '/db'
@@ -210,25 +315,4 @@ app.controller("studysheets", function($scope,$http) {
 		console.log($scope.hierarchy)
 	})
 
-	$scope.searchFilter = function(card) {
-		if ($scope.search.length == 0)
-			return true;
-
-		var searchWords = $scope.search.toLowerCase().split(" ");
-		var cardTitleWords = card.title.toLowerCase().split(" ");
-		var cardTags = card.tags;
-		for (var n = 0; n < searchWords.length; n++){
-			for (var i = 0; i < cardTitleWords.length; i++){
-				if (cardTitleWords[i].toLowerCase().indexOf(searchWords[n].toLowerCase()) != -1){
-					return true;
-				}
-			}
-			for (var i = 0; i < cardTags.length; i++){
-				if (cardTags[i].toLowerCase().indexOf(searchWords[n].toLowerCase()) != -1){
-					return true;
-				}
-			}
-		}
-		return false;
-	};
 })

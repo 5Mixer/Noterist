@@ -7,13 +7,8 @@ var db = undefined;
 
 module.exports = function (db) {
 	router.patch('/', function (req,res) {
-		var studysheet = req.body
-		console.log("Modifying hierarchy.")
-
-		// Deletion goes off title. This could/should be changed to id.
-		// Searching/deleting based off the full studysheet object seems to fail, probably due to difference in representation of image.
 		db.get("hierarchy").assign(req.body).write()
-		res.send(db.get("hierarchy"))
+		res.sendStatus(200)
 	})
 
 	return router;

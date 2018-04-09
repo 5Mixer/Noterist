@@ -1,9 +1,9 @@
-<div class="treenavigator">
+<div class="treenavigator" ng-cloak>
 
 	<button ng-click="expandAll()">Expand all</button>
 	<button ng-click="collapseAll()">Collapse all</button>
 	<script type="text/ng-template" id="nodes_renderer.html">
-		<div class="treenode" ng-class="{'tree-node-active' : activeNode.title==node.title}" ng-click="open(node,this)">
+		<div class="treenode" ng-class="{'tree-node-active' : activeNode.id==node.id}" ng-click="open(node,this)">
 			<a ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
 				<span
 				class="fa"
@@ -12,13 +12,13 @@
 					'fa-chevron-down': !collapsed
 				}"></span>
 			</a>
-			{{node.title}}
+			<label>{{node.title}}</label>
 
 			<!-- Drag element -->
 			<span class="treebutton right fa fa-arrows-alt" ui-tree-handle></span>
 
 			<!-- Remove/add buttons -->
-			<span class="treebutton right" data-nodrag ng-click="remove(this); $event.stopPropagation()">
+			<span class="treebutton right" data-nodrag ng-click="removeNodeAndDoc(this); remove(this); $event.stopPropagation()">
 				<span class="fa fa-times"></span>
 			</span>
 
@@ -33,7 +33,7 @@
 		</ol>
 	</script>
 
-	<div ui-tree>
+	<div ui-tree="treeOptions">
 		<ol ui-tree-nodes="" ng-model="hierarchy" id="tree-root" data-max-depth="4">
 			<li ng-repeat="node in hierarchy" ui-tree-node ng-include="'nodes_renderer.html'"></li>
 		</ol>
@@ -43,7 +43,12 @@
 <section class="studysheetspanel">
 
 	<div>
-		<h1>{{studydoc.title || ''}}</h1>
+		<h1>
+			<span ng-hide="editingDoc">{{studydoc.title || ''}}</span>
+			<span ng-show="editingDoc"><input type="text" name="title" id="editDocTitleInput" ng-model="studydoc.title"></input></span>
+
+			<i ng-show="studydoc != undefined" ng-click="editdoc()" class="right editbtn far fa-edit"></i>
+		</h1>
 
 		<div ng-repeat="tag in studydoc.tags" class="tag">
 			<span>{{tag}}</span>

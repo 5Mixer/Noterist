@@ -68,6 +68,10 @@ tr.angular-ui-tree-empty {
 	box-sizing: border-box;
 }
 
+.editbtn {
+	cursor:pointer;
+}
+
 
 /* The full view */
 .studysheetspanel {

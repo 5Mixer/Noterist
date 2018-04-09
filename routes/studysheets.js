@@ -14,16 +14,15 @@ module.exports = function (db) {
 		var studysheet = {title: req.body.title, tags: req.body.tags, pages:req.body.pages, id: req.body.id}
 		db.get("studysheets").push(studysheet).write()
 
-		res.json(studysheet)
+		res.sendStatus(200)
 	});
 
 	router.delete('/', function (req,res) {
-		var studysheet = req.body
-		console.log("Deleting studysheet. (Title: "+studysheet.title+")")
+		// NOTE: Deletions have no data in req.body except an array of sheet id's! Do not look for other data.
+		console.log("Deleting studysheet/s. "+req.body.sheets)
 
-		// Deletion goes off title. This could/should be changed to id.
-		// Searching/deleting based off the full studysheet object seems to fail, probably due to difference in representation of image.
-		db.get("studysheets").remove({title: studysheet.title}).write()
+		db.get("studysheets").remove(function(studysheet){ return req.body.sheets.indexOf(studysheet.id) != -1}).write()
+		res.sendStatus(200)
 	})
 	router.patch('/', function (req,res) {
 		console.log("Updating studysheet")
@@ -37,8 +36,8 @@ module.exports = function (db) {
 
 
 		var studysheet = req.body
-		console.log("Updating studysheet. (Title: "+studysheet.title+")")
 		db.get("studysheets").find({id:studysheet.id}).merge(studysheet).write()
+		res.sendStatus(200)
 	})
 
 	return router;
