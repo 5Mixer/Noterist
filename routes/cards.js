@@ -18,6 +18,7 @@ module.exports = function (db) {
 
 		var id = shortid.generate()
 		var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), description: req.body.description, id: id}
+		card.uploadedAt = Date.now()
 		db.get("cards").push(card).write()
 
 		res.json(card)

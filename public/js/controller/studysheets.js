@@ -80,6 +80,7 @@ app.controller("studysheets", function($scope,$http) {
 	$scope.open = function (node,scope){
 		saveSheet(); //Save whatever was open before hand so that changes aren't lost.
 		$scope.activeNode = node;
+		$scope.editingDoc = false;
 		if (node.documentid != undefined){
 			var studysheet = undefined
 			for (var i = 0; i < $scope.studysheets.length; i++){
