@@ -76,6 +76,11 @@ app.controller("studysheets", function($scope,$http) {
 	$scope.studydoc = undefined
 	$scope.activeNode = undefined;
 
+	$scope.quillContentChange = function(editor, html, text, delta, oldDelta, source){
+		var fullEditorDelta = editor.getContents()
+		//Don't need to save to db or anything. ng-model automatically handles that.
+	}
+
 	// A node has been clicked, open it, showing images etc. (Don't 'expand')
 	$scope.open = function (node,scope){
 		saveSheet(); //Save whatever was open before hand so that changes aren't lost.
@@ -310,9 +315,9 @@ app.controller("studysheets", function($scope,$http) {
 	$http({
 		method: 'GET',
 		url: '/db'
-	}).success(function(response){
-		$scope.studysheets = response.studysheets
-		$scope.hierarchy = response.hierarchy
+	}).then(function(response){
+		$scope.studysheets = response.data.studysheets
+		$scope.hierarchy = response.data.hierarchy
 		console.log($scope.hierarchy)
 	})
 

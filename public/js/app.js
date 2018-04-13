@@ -1,4 +1,4 @@
-var app = angular.module("studycloud", ["ui.router","ui.tree"]);
+var app = angular.module("studycloud", ["ngQuill", "ui.router","ui.tree"]);
 
 var icons = {
 	"home":"home",
@@ -10,7 +10,33 @@ var icons = {
 	"listen":"file-video"
 }
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider) {
+	var colours = [
+		"rgb(147, 190, 255)",
+		"rgb(247, 236, 95)",
+		"rgb(167, 246, 156)",
+		"rgb(241, 152, 159)",
+		"rgb(209, 173, 255)",
+		"rgb(255, 112, 112)",
+		"rgb(96, 242, 237)"
+	]
+
+	ngQuillConfigProvider.set({
+		theme: 'snow',
+		modules: {
+			toolbar: [
+				[{ header: [1, 2, 3, false] }],
+				[{ 'font': [] }],
+				['bold', 'italic', 'underline'],
+				[{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+				['link', 'image', 'video'],
+				[{ 'background': colours }],          // dropdown with defaults from theme
+				[{ 'align': [] }],
+				['clean']
+			]
+		}
+	});
+
 	$stateProvider
 	.state("home", {
 		url: "/",

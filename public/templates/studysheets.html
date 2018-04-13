@@ -54,6 +54,7 @@
 			<span>{{tag}}</span>
 		</div><br><br>
 
+
 		<div class="studysheet" ng-repeat="studysheet in studydoc.pages | filter:searchFilter as filtered">
 			<!-- Resizable annotation box thingy -->
 			<!-- <div class="resize-drag">
@@ -63,7 +64,7 @@
 				<img class="studysheetimg" ng-src="{{'studysheets/'+studysheet.img}}" alt="">
 			</div>
 			<div ng-show="studysheet.type == 'text'">
-				<textarea name="name" rows="20" cols="140" ng-model="studysheet.text"></textarea>
+				<ng-quill-editor  ng-model="studysheet.text" on-content-changed="quillContentChange(editor, html, text, delta, oldDelta, source)"></ng-quill-editor>
 			</div>
 		</div>
 

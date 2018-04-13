@@ -256,7 +256,6 @@
         "unzip",
         "DNA",
         "Okazaki",
-        "lagging",
         "lagging"
       ],
       "id": "Hy21aQdjM",
@@ -599,6 +598,12 @@
               "nodes": []
             }
           ]
+        },
+        {
+          "id": "ENAbnoqA",
+          "title": "Molecules of life molecules",
+          "documentid": "mDhjG2GG",
+          "nodes": []
         }
       ]
     },
@@ -620,16 +625,23 @@
           "nodes": []
         },
         {
-          "id": "qELnC6Az",
-          "title": "Signalling molecules",
-          "documentid": "AN7gK2TRsmL",
-          "nodes": []
-        },
-        {
-          "id": "jsdkfli",
-          "title": "Signal transduction pathway",
-          "documentid": "jdsafhlkjsdf",
-          "nodes": []
+          "id": "QqKLZk4t",
+          "title": "Cell signalling",
+          "documentid": "Fd6q1hgz",
+          "nodes": [
+            {
+              "id": "qELnC6Az",
+              "title": "Signalling molecules",
+              "documentid": "AN7gK2TRsmL",
+              "nodes": []
+            },
+            {
+              "id": "jsdkfli",
+              "title": "Signal transduction pathway",
+              "documentid": "jdsafhlkjsdf",
+              "nodes": []
+            }
+          ]
         },
         {
           "id": "Yk8joPfw",
@@ -805,7 +817,7 @@
       "pages": [
         {
           "type": "text",
-          "text": "- Make notes and understand the details of the complement system: https://edrolo.com.au/s/240606/"
+          "text": "<p>- Make notes and understand the details of the complement system: <a href=\" https://edrolo.com.au/s/240606/\" target=\"_blank\">Edrolo complement system</a></p>"
         }
       ],
       "id": "MkDKwPO8"
@@ -825,13 +837,23 @@
     {
       "title": "Variables",
       "tags": [],
-      "pages": [],
+      "pages": [
+        {
+          "type": "text",
+          "text": "<h2>Control variable</h2><p>The independent variable is removed from the experiment. This ensures that the dependent variable is controlled only by the influence of the dependent variable, and not other, random environmental factors.</p><h2><br></h2><h2>Independent variable</h2><p>Controlled by the experimenter, and typically the x axis of graphs.</p><h2>Dependent variable</h2><p>Dependent on the independent variable, and typically the y axis of graphs.</p>"
+        }
+      ],
       "id": "kLtmPt0L"
     },
     {
       "title": "Aim, hypothesis, conclusion",
       "tags": [],
-      "pages": [],
+      "pages": [
+        {
+          "type": "text",
+          "text": "<h2>Aim</h2><p>To ...</p><h2>Hypothesis</h2><p>As (IV) (IV Unit) (increases/decreases/is changed to etc), the (DV) (DV Unit) will (increase/decrease/become/etc)</p><h2>Conclusion</h2>"
+        }
+      ],
       "id": "dTbT0P4L"
     },
     {
@@ -840,7 +862,7 @@
       "pages": [
         {
           "type": "text",
-          "text": ""
+          "text": "<h2>General tips</h2><ul><li>Never write vague statements, always be specific</li><li>If there is a picture, diagram or table, etc, it's not there to look pretty. Refer to it in our answers. Only sometimes will it say 'refer to the diagram'. Even if it is just a generic picture of a protein and is asking about quaternary structure, refer to number of polypeptides in depicted protein.</li><li>If there is a graph, use the data to use your point. \"It reached a maximum of six PH\"</li><li>Use a ruler with graphs and be neat.</li><li>Make sure you know the question verbs. Explain, justify, describe, compare, define, etc.</li></ul><p><br></p><h2>Wording and structure</h2><p>PRO</p><p>Premise:</p><ul><li>As x___, y _____.</li><li>Reasoning</li><li class=\"ql-indent-1\">…because…</li><li>Outcome</li><li class=\"ql-indent-1\">…therefore…</li></ul><p><br></p><h2><br></h2><h2>Comparison questions</h2><p>Definition of first term <strong>whereas </strong>definition of second term.</p>"
         }
       ],
       "id": "DAWn5N5p"
@@ -854,13 +876,26 @@
     {
       "title": "Photosynthesis",
       "tags": [],
-      "pages": [],
+      "pages": [
+        {
+          "type": "text",
+          "text": "<p>Photosynthesis inputs/outputs and <strong>movement of input elements to output elements.</strong></p><p>Useful for questions relating to putting in 'radioactive oxygen and tracing to outputs'. Just <span style=\"background-color: rgb(247, 236, 95);\">remembering </span>where they move can be easier than trying to understand question's wording.</p><iframe class=\"ql-video\" allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/OlzbVr7XEeU?showinfo=0\" frameborder=\"0\"></iframe><p><br></p>"
+        }
+      ],
       "id": "2FfhAhFq"
     },
     {
       "title": "Cellular Respiration",
       "tags": [],
-      "pages": [],
+      "pages": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "text",
+          "text": null
+        }
+      ],
       "id": "YFyohAHN"
     },
     {
@@ -902,7 +937,12 @@
     {
       "title": "Cell membrane",
       "tags": [],
-      "pages": [],
+      "pages": [
+        {
+          "type": "text",
+          "text": "<h2>Components/terms</h2><p>Intergral/Peripheral</p><ul><li>Intergral proteins are permanent</li><li>Peripheral proteins are temporary</li></ul><p>Transmembrane</p><ul><li>Crossing across the membrane (ie. reaching both sides.)</li></ul><p><br></p><p><br></p><h2>Permeability</h2><p><br></p>"
+        }
+      ],
       "id": "VvOaf9Vn"
     },
     {
@@ -946,6 +986,28 @@
       "tags": [],
       "pages": [],
       "id": "Bew4jUfd"
+    },
+    {
+      "title": "Cell signalling",
+      "tags": [],
+      "pages": [
+        {
+          "type": "text",
+          "text": "<h2>Khan academy intro video</h2><p><br></p><iframe class=\"ql-video\" allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/FQFBygnIONU?showinfo=0\" frameborder=\"0\"></iframe><p><br></p>"
+        }
+      ],
+      "id": "Fd6q1hgz"
+    },
+    {
+      "title": "Molecules of life molecules",
+      "tags": [],
+      "pages": [
+        {
+          "type": "text",
+          "text": "<ul><li>Types of biological molecules</li><li class=\"ql-indent-1\">Water, proteins, lipids, nucleic acids, carbohydrates</li></ul><p>&nbsp;</p><ul><li>There are several ways of expressing a molecules structural formulas. Straight form, ring form, ball and stick model, space filling model</li></ul><p>&nbsp;</p><ul><li>Organical compounds contain</li><li class=\"ql-indent-1\">Carbon, hydrogen, oxygen, nitrogen, sulfer</li><li>Bonds between dfferent molecules are called hydrogen bonds</li><li>A water molecule has a slight positive charge on the hydrogens and a slight negative charge on the oxygen.</li><li>Hydrogen bonding is also important in the formation of proteins and nucelic acids, eg - DNA</li></ul><p>&nbsp;</p><ul><li>Functional groups</li><li>Determine the characteristics and chemical reactivity of molecules. Hydroxyl, Carbonyl, Carboxyl, Amino, Sulgydryl, Phosphate, etc.</li></ul><p>&nbsp;</p><ul><li><strong>Need to recognise amino groups and where they are attached</strong></li></ul><p>&nbsp;</p><ul><li>Organic molecules containing amino groups are called amines. Amines are weak bases. The amino group is common to all amino acids, which are in turn the building blocks of proteins.</li></ul><p>&nbsp;</p><ul><li>Water provides an environment in which metabolic reactions can take place.</li><li>Water has a dipole nature, meaning it has two charges. It is polar.</li></ul><p>&nbsp;</p><ul><li>Water has many properties which are critical for life.</li><li class=\"ql-indent-1\">High surface tention</li><li class=\"ql-indent-1\">Low viscosity</li><li class=\"ql-indent-1\">Liquid at room temperature</li><li class=\"ql-indent-1\">Colourless with a high transmission of visible light</li><li class=\"ql-indent-1\">Strong cohesive properties and high tensile strength</li><li class=\"ql-indent-1\">Many substances can dissolve in water, it is classifies as a univeral solvent.</li><li class=\"ql-indent-1\">High latent heat of fusion, significant amounts of energy are required before water will change state</li><li class=\"ql-indent-1\">Has high latent heat of vaporization.</li><li class=\"ql-indent-1\">High specific heat capacity, can absorb heat energy.</li><li class=\"ql-indent-1\">Latent heat - Energy released or absorbed by a body during a constant temperature process, while it is changing state.</li></ul><p><br></p><ul><li>Carbohydrates</li><li class=\"ql-indent-1\">Family of organic molecules made up of carbon, hydrgogen and oxygen.</li><li class=\"ql-indent-1\">Some small, simple, others long, forming polymoers</li><li class=\"ql-indent-1\">Carbohydrates have gen general formula (CH2O)x</li><li class=\"ql-indent-1\">Simple carbohydrates are generally called sugars. The most common arrangements found in sugar</li><li class=\"ql-indent-2\">Pentose, five side sugar. Ribose and deoxyribose.</li><li class=\"ql-indent-2\">Hexose</li><li class=\"ql-indent-2\">Naturally form rings rather than straight chain structures</li><li class=\"ql-indent-2\"><strong>Have to recognise them</strong></li><li class=\"ql-indent-1\">Important as both energy storage molecules asnd as the structural elements inc ells and tissues</li><li class=\"ql-indent-1\">The structure is closely related to their function</li><li class=\"ql-indent-2\">Sugars (mono, di, tri saccharides) play a central role in energy storage </li><li class=\"ql-indent-2\">Carbohydrates are the major component of most plants, (60-90% dry weight)</li><li class=\"ql-indent-1\">Used as food, fuel, weaving cloth and for building materials (grass as thatch, etc)</li><li class=\"ql-indent-1\">Monosaccharides</li><li class=\"ql-indent-2\">Primary energy source for cellular metabolism</li><li class=\"ql-indent-2\">Single sugar molecules.</li><li class=\"ql-indent-2\">Include glucose, fructose</li><li class=\"ql-indent-2\">Generally contain between three and seven carbon atoms in their carbon chains, 6C hexose sugar most common</li><li class=\"ql-indent-2\">Reducing sugars, meaning they can participate in reduction reactions.</li><li class=\"ql-indent-1\">Disaccharides</li><li class=\"ql-indent-2\">Double sugar molecules joined with a glyosidic bond</li><li class=\"ql-indent-2\">Used as energy sources and as building blocks for larger molecules</li><li class=\"ql-indent-2\">Convenient way to transport glucose</li><li class=\"ql-indent-2\">The type of disaccharide formed depends on the monomers involved and whether they are in their alpha or beta form</li><li class=\"ql-indent-2\">Only a few, like lactose, are classified as reducing sugars.</li><li class=\"ql-indent-1\">Alpha and beta glucose</li><li class=\"ql-indent-2\">When alpha glucose molecules join they form starch</li><li class=\"ql-indent-2\">When beta glucose molecules join together they form cellulose</li><li class=\"ql-indent-2\">They differ only in the direction that the OH group is pointing</li><li class=\"ql-indent-1\">Disaccharide examples <strong>(Know what each are made of)</strong></li><li class=\"ql-indent-2\">Sucrose (alpha glucose + beta fructose)</li><li class=\"ql-indent-2\">Maltose (alpha glucose + alpha glucose)</li><li class=\"ql-indent-2\">Lactose (glucose + galactose)</li><li class=\"ql-indent-2\">Cellubiose (beta glucose + beta glucose)</li><li class=\"ql-indent-1\">Hydrolysis</li><li class=\"ql-indent-2\">Chemical breakdown of a compound due to reaction with water</li><li class=\"ql-indent-1\">Polysaccharides</li><li class=\"ql-indent-2\">Cellulose is a glucose polymer. Structural material in plant</li><li class=\"ql-indent-2\">Made up of chains of beta glucose molecules held together</li><li class=\"ql-indent-2\">Parallel chains are cross linked by drogen bonds to form bundles with microfibrils</li><li class=\"ql-indent-2\">Very strong bonds</li><li class=\"ql-indent-2\">Glycogen</li><li class=\"ql-indent-3\">Form of energy storage in animals</li><li class=\"ql-indent-3\">Absorbed into bloodstream with digestions of carbohydrates</li><li class=\"ql-indent-3\">Carried to the liver and then to all cells</li><li class=\"ql-indent-3\">If there is excess it is converted to glyogen byh the liver for storage (100g)</li><li class=\"ql-indent-3\">Muscles can store around 300g</li><li class=\"ql-indent-2\">Starch</li><li class=\"ql-indent-3\">Polymer of glucose, made up of long chains of alpha glucose molecules.</li><li class=\"ql-indent-3\">Contains a mixture of amylose and amylopectin</li><li class=\"ql-indent-3\">Starch is an energy storage molecules in plants</li><li class=\"ql-indent-4\">Found cconcentrated in insoluble starch granules within plant cells</li><li class=\"ql-indent-3\">Easily hydralised to glucose when required</li><li class=\"ql-indent-2\">Modified polysaccharides</li><li class=\"ql-indent-3\">Chitin is a tough modified polysaccharide made up of chains of beta glucose molecules</li><li class=\"ql-indent-3\">Similar to cellulose but Oh group at carbon atom 2 is replaced bitin forms bundles of long parallel chainsy a nitrogen containing group</li><li class=\"ql-indent-1\">Condensation and hydrolysis</li><li class=\"ql-indent-2\">Condensation</li><li class=\"ql-indent-3\">Monosaccharides are joined together to form disaccharides and polysaccharides</li><li class=\"ql-indent-3\">Water is released in the process</li><li class=\"ql-indent-3\">Energy is supplied by nucleotide sugar such as ADP</li><li class=\"ql-indent-2\">Hydrolysis</li><li class=\"ql-indent-3\">Compound sugars can be broken down with water</li><li class=\"ql-indent-3\">Can change PH of solution</li><li class=\"ql-indent-1\">Lipids</li><li class=\"ql-indent-2\">Group of organic compunds. (Oily, greasy, waxy)</li><li class=\"ql-indent-2\">Much smaller proportion of oxygen than carbohdrates</li><li class=\"ql-indent-2\">Relatively insoluble inw ater, tend of be hydrophobic</li><li class=\"ql-indent-2\">Lipdids are soluble in organic solvents such as ethanol</li><li class=\"ql-indent-2\">Many functions (fuels, hormones, structural components of membranes)</li><li class=\"ql-indent-2\">Twice as much energy as carbohydrates</li><li class=\"ql-indent-2\">Not macromolecules, byh because of hydrophobic properties, aggrgate into globules</li><li class=\"ql-indent-1\">Lipid uses</li><li class=\"ql-indent-2\">Concentrated sources of energy</li><li class=\"ql-indent-2\">Provide waterproofing in plants and animals</li><li class=\"ql-indent-2\">Form structural membranes</li><li class=\"ql-indent-2\">Absorbs shocks (organs are prone to bumps and shocks). Suchioned with fat</li><li class=\"ql-indent-2\">Source of metabolic water</li><li class=\"ql-indent-2\">Provide insulation in extreme environments</li><li class=\"ql-indent-1\">Fats and oils</li><li class=\"ql-indent-2\">Most neutral fats</li><li class=\"ql-indent-2\">Monogly …. (need more notes)</li><li class=\"ql-indent-1\">Fats/oils</li><li class=\"ql-indent-2\">Difference is physical state at 20 degrees </li><li class=\"ql-indent-2\">Fats solid</li><li class=\"ql-indent-2\">Oils liquid</li><li class=\"ql-indent-2\">Saturated versus unsaturated (number of hydrogens) saturated = maximum hydrogens</li><li class=\"ql-indent-2\">Saturated forms straight chains. All single bonds.</li><li class=\"ql-indent-2\">Unsaturated contain some carbon atoms that are double bonded with each other</li><li class=\"ql-indent-2\">Kinks in molecule cause them to be liquid</li><li class=\"ql-indent-1\">Phospholipid</li><li class=\"ql-indent-2\"><strong>A glycerol molecule, two fatty acid chains, and a phosphate group</strong></li><li class=\"ql-indent-1\">Steroids</li><li class=\"ql-indent-2\">Classified as liquid, but act differently from other lipiids</li><li class=\"ql-indent-2\">Basic structure is</li><li class=\"ql-indent-3\">Three six carbon atom rings</li><li class=\"ql-indent-3\">One five carbon atom ring</li><li class=\"ql-indent-2\">Include sex hormones and other hormones</li><li class=\"ql-indent-2\">Cholesterol is sterol lipid</li><li class=\"ql-indent-1\">Nucleic acids</li><li class=\"ql-indent-2\">Biochemical macromolecules involved with the transmission of inherited information</li><li class=\"ql-indent-2\">Two types of nucleic acids involved with inheritance</li><li class=\"ql-indent-3\">Deoxyribonucleic acid (DNA)</li><li class=\"ql-indent-3\">Ribonucleic acid (RNA)</li><li class=\"ql-indent-2\">Nucleotide</li><li class=\"ql-indent-3\">Basic unit of nucleic acid</li><li class=\"ql-indent-4\">Phosphate group</li><li class=\"ql-indent-4\">Sugar</li><li class=\"ql-indent-4\">Base</li><li class=\"ql-indent-3\">Five nucleotide bases found in nucleic acids (ACGT &amp; U)</li><li class=\"ql-indent-2\">In chromosomes, mitochondria, chloroplasts</li><li class=\"ql-indent-2\">RNA consists of single strand</li><li class=\"ql-indent-3\">Transfer RNA</li><li class=\"ql-indent-3\">Messenger RNA</li></ul><p class=\"ql-indent-3\">Ribosomal RNA</p>"
+        }
+      ],
+      "id": "mDhjG2GG"
     }
   ]
 }

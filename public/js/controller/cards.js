@@ -18,8 +18,8 @@ app.controller("cards", function($scope,$http,header) {
 			url     : '/cards',
 			data    : $scope.newcard,
 			headers : { 'Content-Type': "application/json" }  // set the headers so angular passing info as form data (not request payload)
-		}).success(function (response){
-			$scope.cards.push(response)
+		}).then(function (response){
+			$scope.cards.push(response.data)
 		})
 		$scope.newCardDialogOpen = false;
 		$scope.newcard = {title:"",tags:"",file:undefined}
@@ -83,9 +83,8 @@ app.controller("cards", function($scope,$http,header) {
 	$http({
 		method: 'GET',
 		url: '/db'
-	}).success(function(response){
-		console.log(response)
-		$scope.cards = response.cards
-
+	}).then(function(response){
+		console.log(response.data)
+		$scope.cards = response.data.cards
 	})
 })

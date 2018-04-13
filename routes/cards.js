@@ -31,11 +31,14 @@ module.exports = function (db) {
 		// Deletion goes off title. This could/should be changed to id.
 		// Searching/deleting based off the full card object seems to fail, probably due to difference in representation of image.
 		db.get("cards").remove({title: card.title}).write()
+		res.sendStatus(200);
 	})
 	router.patch('/', function (req,res) {
 		var card = req.body
 		console.log("Updating card. (Title: "+card.title+")")
-		db.get("cards").find({id:card.id}).merge(card).write()
+		console.log(card)
+		db.get("cards").find({id:card.id}).assign(card).write()
+		res.sendStatus(200);
 	})
 
 	return router;
