@@ -59,7 +59,11 @@
 			<!-- Resizable annotation box thingy -->
 			<!-- <div class="resize-drag">
 			</div> -->
-
+			<div class="">
+				<button type="button" name="button" ng-click="moveUp(studysheet)"><i class="fas fa-sort-up"></i></button>
+				<button type="button" name="button" ng-click="moveDown(studysheet)"><i class="fas fa-sort-down"></i></button>
+				<button type="button" name="button" ng-click="removePage(studysheet)"><i class="fa fa-times"></i> Remove</button>
+			</div>
 			<div ng-show="studysheet.type == 'image'">
 				<img class="studysheetimg" ng-src="{{'studysheets/'+studysheet.img}}" alt="">
 			</div>

@@ -80,6 +80,27 @@ app.controller("studysheets", function($scope,$http) {
 		var fullEditorDelta = editor.getContents()
 		//Don't need to save to db or anything. ng-model automatically handles that.
 	}
+	move = function(array, element, delta) {
+		var index = array.indexOf(element);
+		var newIndex = index + delta;
+		if (newIndex < 0  || newIndex == array.length) return; //Already at the top or bottom.
+		var indexes = [index, newIndex].sort(); //Sort the indixes
+		array.splice(indexes[0], 2, array[indexes[1]], array[indexes[0]]); //Replace from lowest index, two elements, reverting the order
+	};
+	$scope.moveUp = function(studySheetPage){
+		move($scope.studydoc.pages,studySheetPage,-1)
+		saveSheet()
+	}
+	$scope.moveDown = function(studySheetPage){
+		move($scope.studydoc.pages,studySheetPage,1)
+		saveSheet()
+	}
+	$scope.removePage = function(studySheetPage){
+		if ($scope.studydoc.pages.indexOf(studySheetPage) != -1){
+			$scope.studydoc.pages.splice($scope.studydoc.pages.indexOf(studySheetPage),1)
+			saveSheet()
+		}
+	}
 
 	// A node has been clicked, open it, showing images etc. (Don't 'expand')
 	$scope.open = function (node,scope){
@@ -92,6 +113,7 @@ app.controller("studysheets", function($scope,$http) {
 				if ($scope.studysheets[i].id == node.documentid){
 					console.log("Found study sheet, opening.")
 					$scope.studydoc = $scope.studysheets[i]
+					$scope.lastSave = JSON.stringify($scope.studydoc)
 					return; //Break once the study sheet is found.
 				}
 			}
@@ -110,6 +132,7 @@ app.controller("studysheets", function($scope,$http) {
 		node.documentid = studysheetId;
 		$scope.studysheets.push(newStudysheet)
 		$scope.studydoc = newStudysheet
+		$scope.lastSave = JSON.stringify($scope.studydoc) //So that the interval save mechanism doesn't trigger every time studydoc changed.
 
 		// With the new (opened) document, go into edit mode and select the input for changing the title.
 		// Is this hacky? Yes. Does it work fine? Yes.
@@ -154,14 +177,15 @@ app.controller("studysheets", function($scope,$http) {
 		})
 	}
 
-	var lastSave = undefined;
+	$scope.lastSave = undefined;
 	saveSheet = function(){
 		if ($scope.studydoc == undefined)
 			return;
-		if (JSON.stringify($scope.studydoc) == lastSave)
+
+		if (JSON.stringify($scope.studydoc) == $scope.lastSave)
 			return; //No neat to send off something that the server already has a copy of...
 
-		lastSave = JSON.stringify($scope.studydoc); //Deep save, otherwise they will be assigned to same instance
+		$scope.lastSave = JSON.stringify($scope.studydoc); //Deep save, otherwise they will be assigned to same instance
 
 		console.log("...saving sheet...")
 
@@ -269,6 +293,7 @@ app.controller("studysheets", function($scope,$http) {
 					if ($scope.studysheets[i].id == $scope.activeNode.documentid){
 						//Open found parent document.
 						$scope.studydoc = $scope.studysheets[i]
+						$scope.lastSave = JSON.stringify($scope.studyDoc)
 					}
 				}
 			}
@@ -280,7 +305,7 @@ app.controller("studysheets", function($scope,$http) {
 	function id(){
 		var id = "";
 		var valid = "abdefghjklmnopqrtuvwkyzABDEFGHJKLMNOPQRTUVWXYZ1234567890" //56 long
-		var buf = new Uint8Array(8);
+		var buf = new Uint8Array(10);
 		window.crypto.getRandomValues(buf);
 		for (var i = 0; i < buf.length; i++){
 			id += valid[Math.floor(buf[i]/255*56)]
@@ -318,7 +343,6 @@ app.controller("studysheets", function($scope,$http) {
 	}).then(function(response){
 		$scope.studysheets = response.data.studysheets
 		$scope.hierarchy = response.data.hierarchy
-		console.log($scope.hierarchy)
 	})
 
 })
