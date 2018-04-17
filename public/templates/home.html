@@ -1,15 +1,20 @@
 <div class="home">
-	<div class="homepanel">
-		<h1>Biology Study</h1><br>
+</div>
+<div class="homepanel">
+	<h1>Biology Study</h1><br>
 
-		<div class="homebuttons">
-			<a class="homebutton" ui-sref="test">Test <i class="fa fa-lightbulb"></i></a>
-			<a class="homebutton" ui-sref="glossary">Glossary <i class="fa fa-book"></i></a>
-			<a class="homebutton" ui-sref="cards">Cards <i class="fa fa-list-alt"></i></a>
-			<a class="homebutton" ui-sref="studysheets">Study Sheets <i class="fa fa-file-alt"></i></a>
-			<a class="homebutton" ui-sref="sacs">Past SACs <i class="fa fa-vial"></i></a>
-			<a class="homebutton" ui-sref="listen">Listen <i class="fa fa-file-video"></i></a>
+	<div class="homebuttons">
+		<a class="homebutton" ui-sref="test">Test <i class="fa fa-lightbulb"></i></a>
+		<a class="homebutton" ui-sref="glossary">Glossary <i class="fa fa-book"></i></a>
+		<a class="homebutton" ui-sref="cards">Cards <i class="fa fa-list-alt"></i></a>
+		<a class="homebutton" ui-sref="studysheets">Study Sheets <i class="fa fa-file-alt"></i></a>
+		<a class="homebutton" ui-sref="sacs">Past SACs <i class="fa fa-vial"></i></a>
+		<a class="homebutton" ui-sref="listen">Listen <i class="fa fa-file-video"></i></a>
+	</div>
+	<input placeholder="Search" class="mastersearch" name="search" type="text" ng-model="search"><br>
+	<div class="">
+		<div class="cardSearchItem" ng-repeat="card in databaseItems.cards | filter:searchFilter | limitTo:10 ">
+			<span>{{card.title}}</span>
 		</div>
-		<input placeholder="Search" class="mastersearch" name="search" type="text" ng-model="search"><br>
 	</div>
 </div>

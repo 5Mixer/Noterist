@@ -43,7 +43,7 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 	$stateProvider
 	.state("home", {
 		url: "/",
-		views: { 'content' : { templateUrl : "templates/home.html", controller: "core" } },
+		views: { 'content' : { templateUrl : "templates/home.html", controller: "home" } },
 
 	})
 	.state("test", {
