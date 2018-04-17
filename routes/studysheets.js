@@ -7,7 +7,7 @@ var db = undefined;
 
 module.exports = function (db) {
 	var clearTextHtml = true;
-	var writeImages = false;
+	var writeImages = true;
 
 	var studysheets = db.get("studysheets").value()
 	for (var i = 0; i < studysheets.length; i++){
@@ -31,15 +31,21 @@ module.exports = function (db) {
 					console.log("Processing base64 image")
 					console.log("length: "+base64Data.length)
 
-					var imgpath = '/embeddedImages/'+studysheets[i].title+" "+p+".jpg"
+					if (base64Data.length<100){
+						console.log("SKIPPING TINY")
+						continue;
+					}
+
+					var imgpath = '/qimg/'+studysheets[i].title+" "+p+".jpg"
 					var targetPath = path.resolve('./public'+imgpath);
-					/*fs.writeFile(targetPath, base64Data, 'base64', function(err) {
+					op.insert.image = imgpath
+					fs.writeFile(targetPath, base64Data, 'base64', function(err) {
 						if(err) console.log("Error: "+err);
 						this.op.insert.image = this.imgpath
 						console.log(this.imgpath)
 						console.log(op)
 
-					}.bind({imgpath:imgpath, op:op, qtext:page.qtext}));*/
+					}.bind({imgpath:imgpath, op:op, qtext:page.qtext}));
 
 
 				}
