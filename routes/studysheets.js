@@ -6,8 +6,10 @@ var fs = require("fs")
 var db = undefined;
 
 module.exports = function (db) {
-	var clearTextHtml = true;
-	var writeImages = true;
+	// Warning: Can and probably will lead to headaches with images, html and git if you set these to true
+	// Basically, this cleans up the old quill data from base64 to Delta with saved images.
+	var clearTextHtml = false;
+	var writeImages = false;
 
 	var studysheets = db.get("studysheets").value()
 	for (var i = 0; i < studysheets.length; i++){

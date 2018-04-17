@@ -1,12 +1,16 @@
 <div ng-app="cards" id="newCardSection" ng-show="newCardDialogOpen">
 	<h2>New Card</h2>
-	<input placeholder="Title" name="title" type="text" ng-model="newcard.title"><br>
-	<input placeholder="Tags" name="tags" type="text" ng-model="newcard.tags"><br>
-	​<textarea placeholder="Description" style="width:calc(100% - 10px)" rows="1" cols="10" ng-model="newcard.description"></textarea><br>
+	<form class="pure-form">
 
-	<input type="file" name="file" accept="image/*" fileread="newcard.file">
-	<br>
-	<button type="submit" ng-click="newCard()" class="pure-button pure-button-primary">Upload</button>
+		<input placeholder="Title" name="title" type="text" ng-model="newcard.title"><br>
+		<input placeholder="Tags" name="tags" type="text" ng-model="newcard.tags"><br>
+		​<textarea placeholder="Description" style="width:calc(100% - 10px)" rows="1" cols="10" ng-model="newcard.description"></textarea><br>
+
+		<input type="file" name="file" accept="image/*" fileread="newcard.file" class="pure-button"><br>
+		<br>
+		<button type="submit" ng-click="newCard()" class="pure-button pure-button-primary">Add Card</button>
+		<button ng-click="cancelCard()" class="pure-button">Cancel</button>
+	</form>
 </div>
 
 <section id="workbench">
@@ -32,7 +36,7 @@
 					<span>{{tag}}</span>
 				</div><br>
 				<span ng-show="card.beingEdited">​<textarea placeholder="Card tags" style="width:calc(100% - 10px)" rows="1" cols="10" ng-model="card.edits.tags"></textarea><br></span>
-				<span ng-show="card.beingEdited">​<textarea placeholder="Description and notes regarding card" style="width:calc(100% - 10px)" rows="5" cols="10" ng-model="card.edits.description"></textarea><br></span>
+				<span ng-show="card.beingEdited">​<textarea placeholder="Description and notes regarding card" style="width:calc(100% - 10px)" rows="5" ng-model="card.edits.description"></textarea><br></span>
 
 				<div class="cardDescription" ng-hide="card.beingEdited">
 					{{card.description || "Notes and comments. (None added to this card yet)." }}

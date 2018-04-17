@@ -31,6 +31,10 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 		$scope.newCardDialogOpen = false;
 		$scope.newcard = {title:"",tags:"",file:undefined}
 	}
+	$scope.cancelCard = function () {
+		$scope.newCardDialogOpen = false;
+		$scope.newcard = {title:"",tags:"",file:undefined}
+	}
 
 	$scope.delete = function(card){
 		$http({

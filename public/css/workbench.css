@@ -52,15 +52,26 @@ body {
 #newCard {
 	margin-right: 20px;
 	cursor: pointer;
+
 }
 
 #newCardSection {
 	position: fixed;
-	top: 100px;
-	right: 20px;
+	top: 80px;
+	right: 30px;
 	z-index: 50;
-	background-color: rgb(245, 237, 237);
+	background-color: rgb(251, 251, 251);
 	padding: 30px;
+	padding-top: 10px;
+
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 4px;
+}
+#newCardSection > form > input,textarea {
+	width: 100% !important;
+	margin-top: 10px;
+	margin-right: 0px;
+	padding-right: 0px;
 }
 
 .card {
