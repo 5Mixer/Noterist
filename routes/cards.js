@@ -41,5 +41,6 @@ module.exports = function (db) {
 		res.sendStatus(200);
 	})
 
+
 	return router;
 }

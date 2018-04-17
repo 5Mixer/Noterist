@@ -1,16 +1,23 @@
-app.controller("cards", function($scope,$http,header) {
+app.controller("cards", function($scope,$http,$stateParams,header,database) {
 
 	$scope.search = header.getSearch
+	console.log($stateParams)
+		header.setSearch(""+($stateParams.search))
 
 	header.openNewCard = function () {
 		$scope.newCardDialogOpen = !$scope.newCardDialogOpen
 	}
 
 	$scope.cards = []
+	database.get().then(function(db){
+		console.log(db)
+		$scope.cards = db.cards
+		console.log($scope.cards)
+		$scope.$apply();
+	})
 
 	$scope.newcard = {title:"",tags:"",file:undefined}
 	$scope.newCardDialogOpen = false;
-
 
 	$scope.newCard = function () {
 		$http({
@@ -79,12 +86,4 @@ app.controller("cards", function($scope,$http,header) {
 		}
 		return false;
 	};
-
-	$http({
-		method: 'GET',
-		url: '/db'
-	}).then(function(response){
-		console.log(response.data)
-		$scope.cards = response.data.cards
-	})
 })

@@ -68,7 +68,7 @@ function dragMoveListener(event) {
 }
 
 
-app.controller("studysheets", function($scope,$http) {
+app.controller("studysheets", function($scope,$http,database) {
 	$scope.search = ""
 
 	$scope.hierarchy = [];
@@ -336,13 +336,10 @@ app.controller("studysheets", function($scope,$http) {
 
 	$scope.studysheets = []
 
-	// Download databaes
-	$http({
-		method: 'GET',
-		url: '/db'
-	}).then(function(response){
-		$scope.studysheets = response.data.studysheets
-		$scope.hierarchy = response.data.hierarchy
+	database.get().then(function(db){
+		$scope.studysheets = db.studysheets
+		$scope.hierarchy = db.hierarchy
+		$scope.$apply();
 	})
 
 })

@@ -10,7 +10,10 @@ var icons = {
 	"listen":"file-video"
 }
 
-app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider) {
+app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $locationProvider) {
+	$locationProvider.hashPrefix(''); //Remove ! in url.
+	// $locationProvider.html5Mode(true);
+
 	var colours = [
 		"rgb(147, 190, 255)",
 		"rgb(247, 236, 95)",
@@ -53,7 +56,7 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider) {
 
 	})
 	.state("cards", {
-		url: "/cards",
+		url: "/cards?search",
 		views: {
 			'header' : { templateUrl: "templates/cardHeader.html", controller: "cardHeader"},
 			'content': { templateUrl : "templates/cards.html", controller: "cards"}

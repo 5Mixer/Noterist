@@ -6,6 +6,29 @@ var fs = require("fs")
 var db = undefined;
 
 module.exports = function (db) {
+	var studysheets = db.get("studysheets").value()
+	for (var i = 0; i < studysheets.length; i++){
+		for (var p = 0; p < studysheets[i].pages.length; p++){
+			var page = studysheets[i].pages[p]
+			if (page.type == "text"){
+				if (page.text == undefined)
+					break;
+				// console.log(page.text)
+				var rawImageText = page.text.slice(page.text.indexOf("<img src=")+9,page.text.substring(page.text.indexOf("<img src=")).indexOf("\">"))
+
+				var base64Data = page.text.replace(/^data:([A-Za-z-+/]+);base64,/, '');
+					console.log(base64Data
+				)
+				// var targetPath = path.resolve('./public/embeddedImages/'+req.body.title+".jpg");
+				// fs.writeFile(targetPath, base64Data, 'base64', function(err) {
+				// 	if(err) console.log("Error: "+err);
+				// });
+
+			}
+		}
+	}
+
+
 	router.post('/', function (req, res) {
 		console.log("Adding studysheet. (Title: "+req.body.title+")")
 
