@@ -76,10 +76,21 @@ app.controller("studysheets", function($scope,$http,database) {
 	$scope.studydoc = undefined
 	$scope.activeNode = undefined;
 
-	$scope.quillContentChange = function(editor, html, text, delta, oldDelta, source){
-		var fullEditorDelta = editor.getContents()
-		//Don't need to save to db or anything. ng-model automatically handles that.
+	$scope.quillEditorCreated = function(editor,studysheetpage){
+		if (studysheetpage.qtext != undefined){
+			var fullEditorDelta = editor.setContents(studysheetpage.qtext)
+		}else{
+			var fullEditorDelta = editor.getContents()
+			studysheetpage.qtext = fullEditorDelta
+		}
 	}
+	$scope.quillContentChange = function(editor, html, text, delta, oldDelta, source, studysheetpage){
+		var fullEditorDelta = editor.getContents()
+		studysheetpage.qtext = fullEditorDelta
+
+		$scope.studydoc.saveStatus = "Saving..."
+	}
+
 	move = function(array, element, delta) {
 		var index = array.indexOf(element);
 		var newIndex = index + delta;
@@ -186,18 +197,25 @@ app.controller("studysheets", function($scope,$http,database) {
 			return; //No neat to send off something that the server already has a copy of...
 
 		$scope.lastSave = JSON.stringify($scope.studydoc); //Deep save, otherwise they will be assigned to same instance
-
+		var toBeSaved = JSON.parse($scope.lastSave)
+		for (var i = 0; i < toBeSaved.pages.length; i++){
+			toBeSaved.pages[i].text = undefined
+			delete toBeSaved.pages[i].text
+			delete toBeSaved.pages[i].saveStatus
+		}
 		console.log("...saving sheet...")
+
+		$scope.studydoc.saveStatus = "Saved."
 
 		$http({
 			method: "PATCH",
 			url : "/studysheets",
-			data: $scope.studydoc,
+			data: toBeSaved,
 			headers : { 'Content-Type': "application/json" }
 		})
 	}
 
-	setInterval(saveSheet, 5000) //Periodically check if anything has changed from last save, and if so, save it.
+	setInterval(saveSheet, 1000) //Periodically check if anything has changed from last save, and if so, save it.
 
 	hierarchyModified = function (){
 		$http({
