@@ -201,7 +201,7 @@ app.controller("studysheets", function($scope,$http,database) {
 		for (var i = 0; i < toBeSaved.pages.length; i++){
 			toBeSaved.pages[i].text = undefined
 			delete toBeSaved.pages[i].text
-			delete toBeSaved.pages[i].saveStatus
+			delete toBeSaved.saveStatus
 		}
 		console.log("...saving sheet...")
 

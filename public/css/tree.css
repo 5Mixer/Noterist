@@ -1,11 +1,15 @@
 .treenavigator {
-	margin-top: 100px;
+	margin-top: 80px;
+	margin-bottom: 100px;
 	margin-left: 20px;
 	max-width: 300px;
 	width: 100%;
-	position:absolute;
+	position:fixed;
+	max-height: calc(100% - 80px);
+
+	overflow-y: scroll;
 	left: 0;
-	display: inline-block;
+	display: block;
 }
 
 .treenode {
@@ -14,6 +18,8 @@
 	color: #383636;
 	padding: 10px 10px;
 	cursor: pointer;
+	max-height: 50px;
+	overflow: auto;
 }
 .treebutton {
 	border-radius: 3px;
@@ -22,6 +28,7 @@
 }
 .treenode:hover > .treebutton {
 	display: inline-block;
+	white-space:nowrap;
 }
 
 .treenode:hover {
@@ -36,7 +43,6 @@
 .tree-node-active:hover {
 	background: #ffff99;
 }
-
 
 .angular-ui-tree-placeholder {
 	background: #fffef0;
