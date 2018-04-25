@@ -31,7 +31,7 @@
 						<a ui-sref-active="active" ui-sref="glossary"><i class="fa fa-book"></i> Glossary</a>
 						<a ui-sref-active="active" ui-sref="cards"><i class="fa fa-list-alt"></i> Cards</a>
 						<a ui-sref-active="active" ui-sref="studysheets"><i class="fa fa-file-alt"></i> Study Sheets</a>
-						<a ui-sref-active="active" ui-sref="sacs"><i class="fa fa-vial"></i> Past SAC's</a>
+						<a ui-sref-active="active" ui-sref="improve"><i class="fa fas fa-chart-line"></i> Improve</a>
 						<a ui-sref-active="active" ui-sref="listen"><i class="fa fa-file-video"></i> Listen</a>
 					</div>
 
@@ -41,20 +41,33 @@
 			<div ui-view="content" ng-cloak></div>
 		</div>
 
-		<!-- Include a promise library, just because it gives the most basic of modern IE support -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 		<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-tree/2.22.6/angular-ui-tree.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.core.min.js"></script> -->
 		<script src="https://unpkg.com/interactjs@1.3.3/dist/interact.min.js"></script>
 		<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-quill/3.6.0/ng-quill.js"></script>
+
+		<script src="lib/modernizr.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			function loadJS(u){
+				var r=document.getElementsByTagName("script")[0],s = document.createElement("script");s.src = u;r.parentNode.insertBefore(s,r);
+			}
+			if (!Modernizr.promises){
+				loadJS("https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js")
+			}
+
+		</script>
+
 		<script src="js/app.js"></script>
 		<script src="js/service/database.js"></script>
 		<script src="js/service/header.js"></script>
 		<script src="js/controller/core.js"></script>
 		<script src="js/controller/home.js"></script>
+		<script src="js/controller/improve.js"></script>
 		<script src="js/controller/studysheets.js"></script>
 		<script src="js/controller/glossary.js"></script>
 		<script src="js/controller/cardHeader.js"></script>

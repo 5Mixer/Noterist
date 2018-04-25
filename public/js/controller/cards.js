@@ -1,6 +1,22 @@
+function Card(){
+	this.title = "";
+	this.tags = ""
+	this.file = undefined;
+	this.stats = {
+		flags: {
+			strength: 0,
+			weakness: 0,
+			important: 0,
+			understood: 0
+		},
+		presented: 0
+	}
+	return this;
+}
 app.controller("cards", function($scope,$http,$stateParams,header,database) {
 	$scope.cards = []
 
+	//Load any search from the url.
 	setTimeout(function(){
 		$scope.$watch(function(){return $scope.filteredCards.length},function (a){
 			header.filteredCards = a
@@ -9,7 +25,6 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 		header.search = $stateParams.search
 		$scope.$apply()
 	},0)
-	console.log($stateParams)
 
 
 	header.openNewCard = function () {
@@ -17,13 +32,11 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 	}
 
 	database.get().then(function(db){
-		console.log(db)
 		$scope.cards = db.cards
-		console.log($scope.cards)
 		$scope.$apply();
 	})
 
-	$scope.newcard = {title:"",tags:"",file:undefined}
+	$scope.newcard = new Card()
 	$scope.newCardDialogOpen = false;
 
 	$scope.newCard = function () {
@@ -74,7 +87,6 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 		card.beingEdited = false;
 		card.edits = undefined;
 	}
-
 
 	$scope.searchFilter = function(card) {
 		if (header.search == undefined)

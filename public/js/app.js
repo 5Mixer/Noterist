@@ -66,9 +66,9 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 		url: "/studysheets",
 		views: { 'content' : { templateUrl : "templates/studysheets.html", controller: "studysheets" } }
 	})
-	.state("sacs", {
-		url: "/sacs",
-		views: { 'content' : { templateUrl : "templates/SACs.html", controller: "core" } },
+	.state("improve", {
+		url: "/improve",
+		views: { 'content' : { templateUrl : "templates/improve.html", controller: "improve" } },
 	})
 	.state("listen", {
 		url: "/listen",
