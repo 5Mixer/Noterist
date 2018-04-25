@@ -1,10 +1,14 @@
-app.controller("home", function($scope,$http,header,database) {
+app.controller("home", function($scope,$http,$state,header,database) {
 	$scope.databaseItems = {}
 	database.get().then(function(db){
 		$scope.databaseItems = db;
 		$scope.$apply()
 	})
 	$scope.search = ""
+
+	$scope.openCard = function(card){
+		$state.go("cards",{search:"#"+card.id})
+	}
 
 	$scope.searchFilter = function(card) {
 		if ($scope.search.length == 0)

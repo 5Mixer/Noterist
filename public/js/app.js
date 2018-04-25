@@ -56,7 +56,7 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 
 	})
 	.state("cards", {
-		url: "/cards?search",
+		url: "/cards?search&id",
 		views: {
 			'header' : { templateUrl: "templates/cardHeader.html", controller: "cardHeader"},
 			'content': { templateUrl : "templates/cards.html", controller: "cards"}

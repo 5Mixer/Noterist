@@ -1,14 +1,21 @@
 app.controller("cards", function($scope,$http,$stateParams,header,database) {
+	$scope.cards = []
 
-	$scope.search = header.getSearch
+	setTimeout(function(){
+		$scope.$watch(function(){return $scope.filteredCards.length},function (a){
+			header.filteredCards = a
+			header.totalCards = $scope.cards.length
+		})
+		header.search = $stateParams.search
+		$scope.$apply()
+	},0)
 	console.log($stateParams)
-		header.setSearch(""+($stateParams.search))
+
 
 	header.openNewCard = function () {
 		$scope.newCardDialogOpen = !$scope.newCardDialogOpen
 	}
 
-	$scope.cards = []
 	database.get().then(function(db){
 		console.log(db)
 		$scope.cards = db.cards
@@ -70,10 +77,12 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 
 
 	$scope.searchFilter = function(card) {
-		if ($scope.search().length == 0)
+		if (header.search == undefined)
+			return true;
+		if (header.search.length == 0)
 			return true;
 
-		var searchWords = $scope.search().toLowerCase().split(" ");
+		var searchWords = header.search.toLowerCase().split(" ");
 		var cardTitleWords = card.title.toLowerCase().split(" ");
 		var cardTags = card.tags;
 		for (var n = 0; n < searchWords.length; n++){
@@ -84,6 +93,12 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 			}
 			for (var i = 0; i < cardTags.length; i++){
 				if (cardTags[i].toLowerCase().indexOf(searchWords[n].toLowerCase()) != -1){
+					return true;
+				}
+			}
+			if (searchWords[n][0] == "#" && searchWords[n].length > 1){
+				var id = header.search.split(" ")[n].slice(1) //Not that no case function is called, H/h is kept as in search
+				if (card.id.indexOf(id) == 0){
 					return true;
 				}
 			}

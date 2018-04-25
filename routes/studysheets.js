@@ -90,8 +90,35 @@ module.exports = function (db) {
 		// 	if(err) console.log("Error: "+err);
 		// });
 
-
+		//Any new images introduced in patch MAY BE BASE64 encoded, and should be replaced here.
 		var studysheet = req.body
+		for (var p = 0; p < studysheet.pages.length; p++){
+			var page = studysheet.pages[p]
+			for (n = 0; n < page.qtext.ops.length; n++){
+				var op = page.qtext.ops[n]
+				if (op.insert.image != undefined){
+					var base64Data = op.insert.image.replace(/^data:([A-Za-z-+/]+);base64,/, '');
+					// console.log(base64Data
+					console.log("Processing base64 image")
+
+					if (base64Data.length<200){
+						console.log("SKIPPING, TINY, NOT BASE64?")
+						continue;
+					}
+
+					var imgpath = '/qimg/'+studysheet.title+" "+p+".jpg"
+					var targetPath = path.resolve('./public'+imgpath);
+					op.insert.image = imgpath
+					fs.writeFile(targetPath, base64Data, 'base64', function(err) {
+						if(err) console.log("Error: "+err);
+						console.log(this.imgpath)
+						console.log(op)
+					}.bind({imgpath:imgpath, op:op, qtext:page.qtext}));
+					db.get("studysheets").find({id:studysheet.id}).assign(studysheet).write()
+				}
+			}
+		}
+
 		db.get("studysheets").find({id:studysheet.id}).assign(studysheet).write()
 		res.sendStatus(200)
 	})

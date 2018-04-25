@@ -14,7 +14,7 @@
 	<input placeholder="Search" class="mastersearch" name="search" type="text" ng-model="search"><br>
 	<div class="">
 		<div class="cardSearchItem" ng-repeat="card in databaseItems.cards | filter:searchFilter | limitTo:10 ">
-			<span>{{card.title}}</span>
+			<span ng-click="openCard(card)">{{card.title}}</span>
 		</div>
 	</div>
 </div>

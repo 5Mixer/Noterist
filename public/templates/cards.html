@@ -14,8 +14,7 @@
 </div>
 
 <section id="workbench">
-	<div class="card" ng-repeat="card in cards | filter:searchFilter as filtered">
-		<!-- <input id="{{::$id}} toggle" class="toggle" type="checkbox" checked> -->
+	<div class="card" ng-repeat="card in (filteredCards = (cards | filter:searchFilter))">
 		<input id="{{::$id}} toggle" class="toggle" type="checkbox">
 		<label ng-hide="card.beingEdited" class="toggleBtn" for="{{::$id}} toggle" class="toggle"></label>
 		<div id="front">
@@ -23,10 +22,12 @@
 		</div>
 		<div id="expand">
 			<h3 ng-hide="card.beingEdited">{{card.title}}</h3>
+			<span ng-hide="card.beingEdited" class="cardId">ID: #{{card.id}}</span>
 			<h3 ng-show="card.beingEdited"><input type="text" name="" class="wide" ng-model="card.edits.title"></h3>
 
 			<div>
 				<button type="button" class="pure-button" ng-click="edit(card)" ng-hide="card.beingEdited"><i class="fas fa-edit"></i> Edit</button>
+
 				<button type="button" class="pure-button" ng-click="saveEdits(card)" ng-show="card.beingEdited"><i class="fas fa-check"></i> Save edits</button>
 				<button type="button" class="pure-button" ng-click="cancelEdits(card)" ng-show="card.beingEdited"><i class="fas fa-times"></i> Cancel edits</button>
 				<button type="button" class="pure-button" ng-click="delete(card)" ng-show="card.beingEdited"><i class="fas fa-trash"></i> Delete</button>

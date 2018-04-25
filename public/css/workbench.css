@@ -28,6 +28,10 @@ body {
 	padding: 0;
 	width: 480px;
 }
+.cardId {
+	color: rgba(17, 17, 17, 0.68);
+	font-size: .7em;
+}
 .cardNotes {
 	overflow-y:auto;
 	/* max-height: auto; */
