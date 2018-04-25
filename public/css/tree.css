@@ -10,7 +10,9 @@
 	overflow-y: scroll;
 	left: 0;
 	display: block;
-
+}
+.angular-ui-tree-empty {
+	display:none;
 }
 
 .treenode {

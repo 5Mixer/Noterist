@@ -1,12 +1,27 @@
 .glossaryCard {
-	width: calc(100% - 200px);
+	/* width: calc(50% - 200px); */
+	width: 500px;
 	/* width: 40%; */
 	margin: 100px;
-	margin-top: 10px;
+	margin-top: 0px;
 	margin-bottom: 20px;
-	padding: 40px;
+	padding: 15px;
 	background-color: rgb(252, 252, 250);
 	box-sizing: border-box;
 
+	line-height: 1.6em;
+	display: block;
+	vertical-align: top;
+
 	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+}
+.glossaryTerm {
+	color: rgb(246, 246, 246);
+	background-color: rgb(62, 66, 66);
+	padding: 4px;
+	font-weight: bold;
+}
+.glossaryDefinition {
+	color: rgb(26, 28, 29);
+
 }
