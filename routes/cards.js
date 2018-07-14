@@ -24,7 +24,7 @@ module.exports = function (db) {
 	// 	db.set("cards",cards).write()
 	//
 	// },2000)
-	
+
 	router.post('/', function (req, res) {
 		console.log("Adding card. (Title: "+req.body.title+")")
 
@@ -47,9 +47,8 @@ module.exports = function (db) {
 		var card = req.body
 		console.log("Deleting card. (Title: "+card.title+")")
 
-		// Deletion goes off title. This could/should be changed to id.
 		// Searching/deleting based off the full card object seems to fail, probably due to difference in representation of image.
-		db.get("cards").remove({title: card.title}).write()
+		db.get("cards").remove({id: card.id}).write()
 		res.sendStatus(200);
 	})
 	router.patch('/', function (req,res) {

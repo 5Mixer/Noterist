@@ -1,14 +1,48 @@
-app.controller("glossary", function($scope,$http) {
+function GlossaryTerm(){
+	this.term = "";
+	this.definition = ""
+	this.beingEdited = false;
+	return this;
+}
+app.controller("glossary", function($scope,$http,database) {
 	$scope.search = ""
 	$scope.terms = []
 
-	$scope.terms = [
-		{ term: "Enhancer", definition: "A segment of DNA that can be bound to by activator proteins to increase the likelihood that transcription of a gene will occur."},
-		{ term: "Operator", definition: " A segment of DNA that a transcription factor binds to in order to block RNA polymerase and thus transcription."},
-		{ term: "Endocytosis", definition: "The energy requiring process in which vescicles bring foreign matierlal into a cell."},
-		{ term: "Repressor", definition: "The energy requiring process in which vescicles bring foreign matierlal into a cell."},
-		{ term: "Exocytosis", definition: " A protein that can inhibit the expression of one or more genes by binding to the operator."}
-	]
+	$scope.newcard = new GlossaryTerm()
+	$scope.newCardDialogOpen = false;
+
+	$scope.newTerm = function () {
+		$http({
+			method  : 'POST',
+			url     : '/glossary',
+			data    : $scope.newterm,
+			headers : { 'Content-Type': "application/json" }  // set the headers so angular passing info as form data (not request payload)
+		}).then(function (response){
+			$scope.terms.push(response.data)
+		})
+		$scope.newCardDialogOpen = false;
+		$scope.newterm = {term:"",definition:""}
+	}
+	$scope.cancelTerm = function () {
+		$scope.newCardDialogOpen = false;
+		$scope.newterm = {term:"",definition:""}
+	}
+	$scope.delete = function(term){
+		$http({
+			method: "DELETE",
+			url : "/glossary",
+			data: term,
+			headers : { 'Content-Type': "application/json" }
+		}).then(function(response){
+			$scope.terms.splice($scope.terms.indexOf(term),1)
+		})
+	}
+
+	$scope.terms = []
+	database.get().then(function(db){
+		$scope.terms = db.glossary
+		$scope.$apply();
+	})
 
 	$scope.searchFilter = function(card) {
 		if ($scope.search.length == 0)

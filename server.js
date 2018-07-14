@@ -8,6 +8,8 @@ const fs = require("fs")
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 
+const shortid = require('shortid');
+
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
@@ -28,16 +30,25 @@ for (var i = 0; i < cards.length; i++){
 }
 db.get("cards").merge(cards).write();
 cards = undefined;
+var terms = db.get("glossary").value();
+for (var i = 0; i < terms.length; i++){
+	if (terms[i].id == undefined)
+		terms[i].id = shortid.generate();
+}
+db.get("glossary").merge(terms).write();
+terms = undefined;
 
 var cards = require('./routes/cards.js')(db)
 var studysheets = require('./routes/studysheets.js')(db)
 var hierarchy = require('./routes/hierarchy.js')(db)
+var glossary = require('./routes/glossary.js')(db)
 app.use("/cards",cards)
 app.use("/studysheets",studysheets)
+app.use("/glossary",glossary)
 app.use("/hierarchy",hierarchy)
 
 app.get("/db", function (req,res){
 	res.json(db.value())
 })
 
-app.listen(8000, () => console.log('Cards app listening on port 8000!'))
+app.listen(8000, () => console.log('Study app active. Port 8000.'))

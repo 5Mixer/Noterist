@@ -1,0 +1,2929 @@
+.glossaryCard {
+	/* width: calc(50% - 200px); */
+	width: 500px;
+	/* width: 40%; */
+	margin: 100px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: rgb(252, 252, 250);
+	box-sizing: border-box;
+
+	line-height: 1.6em;
+	display: block;
+	vertical-align: top;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+}
+.glossaryTerm {
+	color: rgb(246, 246, 246);
+	background-color: rgb(62, 66, 66);
+	padding: 4px;
+	font-weight: bold;
+}
+.glossaryDefinition {
+	color: rgb(26, 28, 29);
+}
+.termButton {
+	display: none;
+}
+.glossaryCard:hover>.termButton{
+	display: inline-block;
+}
+.termDelete {
+	border-radius: 2px;
+	background-color: rgb(224, 70, 49);
+}
+
+header {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0;
+	background-color: rgb(246, 244, 130);
+	/* background: url("../resources/halftone-yellow.png"); */
+	color: rgb(48, 48, 48);
+
+	height: 60px;
+
+	z-index: 100;
+
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+header,.header {
+	font-weight: bold;
+
+
+
+	vertical-align: middle;
+	line-height: 60px;
+
+	font-size: 30px;
+	margin: 0;
+
+	padding-top: 0;
+	padding-bottom: 15px;
+	padding-right: 10px;
+	padding-left: 5px;
+	display: inline;
+}
+.standardHeader {
+	cursor: pointer;
+}
+.standardHeader:hover .icon-bar {
+	display:block;
+}
+.icon-bar:hover .icon-bar {
+	display:block;
+}
+
+.search {
+	vertical-align: middle;
+	line-height: 60px;
+	padding: 0;
+	font-size: 20px;
+	height: 30px;
+	margin-right: 15px;
+	margin-top: 10px;
+	padding: 5px;
+
+}
+
+.homepanel {
+	width: 800px;
+	/* height: 400px; */
+	background-color: rgb(246, 242, 239);
+	padding: 20px;
+
+	position: absolute;
+	/* top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+.mastersearch {
+	padding: 1em;
+	margin-top: 20px;
+	font-style: 2em;
+	width: calc(100% - 40px);
+}
+.cardSearchItem {
+	background-color: rgb(233, 236, 218);
+	border-radius: 4px;
+	/* width: 100%; */
+	display:inline-block;
+	color: rgb(29, 29, 28);
+	font-size: 1em;
+
+	margin: 6px;
+	padding: 12px;
+	box-sizing: border-box;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.home {
+	padding: 0;
+	margin: 0;
+	min-width: 100%;
+	min-height: 100%;
+	position:fixed; /*
+
+	/* display: block; */
+
+	/* overflow-y: visible; */
+
+	background: url(../resources/rnapolymerase.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.homebutton {
+	width: 100px;
+	height: 130px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+	text-align: center;
+	padding: 15px;
+	margin: 10px;
+	background-color: rgb(244, 243, 236);
+	border-bottom: rgb(246, 244, 130) 15px solid;
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Icons */
+.homebutton .fa{
+	font-size: 2.4em;
+	text-align: center;
+	display: block;
+	position: relative;
+	vertical-align: top;
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 10px;
+	color: rgba(27, 26, 26, 0.9);
+}
+
+.homebutton:hover {
+	/* border-bottom: rgb(233, 231, 90) 80px solid; */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.improveInfo {
+	width: calc(100% - 240px);
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(243, 244, 239);
+	margin: 80px;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+#improveGraph {
+	max-width: 100%;
+}
+.improveWorkbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+}
+.cardResponses {
+	height: 20px;
+	z-index: 10;
+	vertical-align:bottom;
+	margin-left: 20px;
+	position: absolute;
+	bottom: 50px;
+}
+.cardInteraction{
+	margin-top: 15px;
+	z-index: 50;
+}
+.improveCard {
+	/* margin-bottom: 100px; */
+	padding-bottom: 60px;
+	max-height: none;
+}
+
+.right {
+	float:right;
+}
+input[type="checkbox"] {
+	display: none;
+	visibility: hidden;
+}
+.card:hover .toggleBtn{
+	opacity:.25;
+}
+.toggleBtn {
+	background-color: rgb(240, 240, 234);
+	color: rgb(231, 217, 221);
+	display: inline-block;
+	position: absolute;
+	z-index: 10;
+
+	transition: opacity .5s;
+	opacity: .01;
+
+	right:0px;
+	top:0px;
+	width: calc(100% - 20px);
+	height: 50px;
+
+	padding: 10px;
+
+	float:right;
+}
+label {
+}
+label:hover {
+}
+label::before {
+	/* vertical-align: text-top;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px; */
+}
+#expand {
+	display:none;
+	transition: width 0.2s;
+
+	background: rgb(217, 226, 209);
+	/* display: inline-block; */
+	margin: .7rem;
+}
+#front {
+	/* display:none; */
+}
+.toggle:checked ~ #expand {
+	display:inline-block;
+}
+.toggle:checked ~ #front {
+	display:none;
+}
+a {
+	color: black;
+	text-decoration:none;
+}
+.wide {
+	width: 100%;
+}
+.ng-cloak { display:none; }
+
+[ng-quill-editor] { display: block; }
+.ql-editor {
+	background-color: rgb(254, 255, 250);
+}
+.ql-toolbar {
+	background-color: rgb(254, 255, 250);
+}
+
+.icon-bar {
+	/* width: 50px; /* Set a specific width */
+	background-color: #555; /* Dark-grey background */
+	position: fixed;
+	/* height: 100%; */
+	top: 60px;
+	left: 0;
+	width: 150px;
+	padding-top: 0;
+
+	display:none;
+	cursor: pointer;
+
+
+	z-index: 101;
+}
+
+.icon-bar a {
+	display: block; /* Make the links appear below each other instead of side-by-side */
+	text-align: center; /* Center-align text */
+	text-decoration: none;
+	padding: 10px; /* Add some padding */
+	/* transition: all 0.1s ease; */
+	color: white; /* White text color */
+	font-size: 18px; /* Increased font-size */
+
+
+	vertical-align: middle;
+	line-height: 30px;
+
+	font-size: 15px;
+}
+
+.icon-bar a:hover {
+	background-color: #000; /* Add a hover color */
+}
+
+.active {
+	background-color: #4CAF50; /* Add an active/current color */
+}
+
+.editbtn {
+	cursor:pointer;
+}
+
+/* The full view */
+.studysheetspanel {
+	display: inline-block;
+	width: calc(100% - 400px);
+	padding-top: 90px;
+	margin-left: 350px;
+	max-width: 900px;
+}
+.studysheet {
+	max-width: 100%;
+	width: 100%;
+}
+
+.studysheetimg {
+	width: 900px;
+	max-width: 80%;
+	max-width: 80%;
+	min-width: 30%;
+}
+
+.addelementbtn {
+	min-width: 200px;
+
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	cursor: pointer;
+
+	vertical-align: top;
+
+	background-color: rgb(252, 252, 252);
+
+	box-sizing: border-box;
+	display: inline-block;
+
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.resize-drag {
+	border: 3px solid rgba(247, 231, 75,.7);
+	background-color: rgba(247, 231, 75, 0.3);
+	color: rgb(29, 29, 29);
+	border-radius: 2px;
+	padding: 20px;
+	margin: 30px 20px;
+
+	width: 120px;
+
+	box-sizing: border-box;
+
+	position: absolute;
+	display: block;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.resize-container {
+	display: inline-block;
+
+}
+
+.treenavigator {
+	margin-top: 80px;
+	margin-bottom: 100px;
+	margin-left: 20px;
+	max-width: 300px;
+	width: 100%;
+	position:fixed;
+	max-height: calc(100% - 80px);
+
+	overflow-y: scroll;
+	left: 0;
+	display: block;
+}
+.angular-ui-tree-empty {
+	display:none;
+}
+
+.treenode {
+	background: #fefff9;
+	border: 1px solid #e8ebda;
+	color: #383636;
+	padding: 10px 10px;
+	cursor: pointer;
+	max-height: 50px;
+	overflow: auto;
+}
+.treebutton {
+	border-radius: 3px;
+	margin-right: 5px;
+	display: none;
+}
+.treenode:hover > .treebutton {
+	display: inline-block;
+	white-space:nowrap;
+}
+
+.treenode:hover {
+	color: #19191a;
+	background: #f9f8ef;
+	border-color: #e6e8dc;
+}
+
+.tree-node-active {
+	background: #ffff99;
+}
+.tree-node-active:hover {
+	background: #ffff99;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fffef0;
+	border: 2px dashed #dbdabf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+tr.angular-ui-tree-empty {
+	height:100px
+}
+
+.tree-node-content {
+	margin: 10px;
+}
+.tree-handle {
+	padding: 10px;
+	background: #c9bd41;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fefff0;
+	border: 2px dashed #dbdbbf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Includes styles for the background, cards, and anything related to the general panning area. */
+body {
+	background-color: rgb(228, 227, 194);
+}
+#workbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+	padding-top: 100px;
+}
+
+.card {
+	background: rgb(217, 226, 209);
+	display: inline-block;
+	vertical-align: top;
+	margin: .7rem;
+	/* margin-bottom: 100px; */
+	max-height: 300px;
+	/* height: 300px; */
+}
+.card, .cardimg {
+	position:relative;
+	max-height: 300px;
+	padding: 0;
+	/* width: 480px; */
+	width: 420px;
+}
+.cardId {
+	color: rgba(17, 17, 17, 0.68);
+	font-size: .7em;
+}
+.cardNotes {
+	overflow-y:auto;
+	/* max-height: auto; */
+	position:absolute;
+	max-height: 180px;
+	width:calc(100% - 25px);
+	height: 100%;
+}
+.tag {
+	background-color: rgb(218, 215, 135);
+	padding: 6px;
+	margin: 3px;
+	display: inline-block;
+	border-radius: 4px;
+	font-size: .8em;
+}
+
+.cardDescription {
+	white-space: pre-line;
+}
+
+#newCard {
+	margin-right: 20px;
+	cursor: pointer;
+
+}
+
+#newCardSection {
+	position: fixed;
+	top: 80px;
+	right: 30px;
+	z-index: 50;
+	background-color: rgb(251, 251, 251);
+	padding: 30px;
+	padding-top: 10px;
+
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 4px;
+}
+#newCardSection > form > input,textarea {
+	width: 100% !important;
+	margin-top: 10px;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.card {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.glossaryCard {
+	/* width: calc(50% - 200px); */
+	width: 500px;
+	/* width: 40%; */
+	margin: 100px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: rgb(252, 252, 250);
+	box-sizing: border-box;
+
+	line-height: 1.6em;
+	display: block;
+	vertical-align: top;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+}
+.glossaryTerm {
+	color: rgb(246, 246, 246);
+	background-color: rgb(62, 66, 66);
+	padding: 4px;
+	font-weight: bold;
+}
+.glossaryDefinition {
+	color: rgb(26, 28, 29);
+}
+.termButton {
+	display: none;
+}
+.glossaryCard:hover>.termButton{
+	display: inline-block;
+}
+.termDelete {
+	border-radius: 2px;
+	background-color: rgb(224, 70, 49);
+}
+
+header {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0;
+	background-color: rgb(246, 244, 130);
+	/* background: url("../resources/halftone-yellow.png"); */
+	color: rgb(48, 48, 48);
+
+	height: 60px;
+
+	z-index: 100;
+
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+header,.header {
+	font-weight: bold;
+
+
+
+	vertical-align: middle;
+	line-height: 60px;
+
+	font-size: 30px;
+	margin: 0;
+
+	padding-top: 0;
+	padding-bottom: 15px;
+	padding-right: 10px;
+	padding-left: 5px;
+	display: inline;
+}
+.standardHeader {
+	cursor: pointer;
+}
+.standardHeader:hover .icon-bar {
+	display:block;
+}
+.icon-bar:hover .icon-bar {
+	display:block;
+}
+
+.search {
+	vertical-align: middle;
+	line-height: 60px;
+	padding: 0;
+	font-size: 20px;
+	height: 30px;
+	margin-right: 15px;
+	margin-top: 10px;
+	padding: 5px;
+
+}
+
+.homepanel {
+	width: 800px;
+	/* height: 400px; */
+	background-color: rgb(246, 242, 239);
+	padding: 20px;
+
+	position: absolute;
+	/* top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+.mastersearch {
+	padding: 1em;
+	margin-top: 20px;
+	font-style: 2em;
+	width: calc(100% - 40px);
+}
+.cardSearchItem {
+	background-color: rgb(233, 236, 218);
+	border-radius: 4px;
+	/* width: 100%; */
+	display:inline-block;
+	color: rgb(29, 29, 28);
+	font-size: 1em;
+
+	margin: 6px;
+	padding: 12px;
+	box-sizing: border-box;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.home {
+	padding: 0;
+	margin: 0;
+	min-width: 100%;
+	min-height: 100%;
+	position:fixed; /*
+
+	/* display: block; */
+
+	/* overflow-y: visible; */
+
+	background: url(../resources/rnapolymerase.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.homebutton {
+	width: 100px;
+	height: 130px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+	text-align: center;
+	padding: 15px;
+	margin: 10px;
+	background-color: rgb(244, 243, 236);
+	border-bottom: rgb(246, 244, 130) 15px solid;
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Icons */
+.homebutton .fa{
+	font-size: 2.4em;
+	text-align: center;
+	display: block;
+	position: relative;
+	vertical-align: top;
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 10px;
+	color: rgba(27, 26, 26, 0.9);
+}
+
+.homebutton:hover {
+	/* border-bottom: rgb(233, 231, 90) 80px solid; */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.improveInfo {
+	width: calc(100% - 240px);
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(243, 244, 239);
+	margin: 80px;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+#improveGraph {
+	max-width: 100%;
+}
+.improveWorkbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+}
+.cardResponses {
+	height: 20px;
+	z-index: 10;
+	vertical-align:bottom;
+	margin-left: 20px;
+	position: absolute;
+	bottom: 50px;
+}
+.cardInteraction{
+	margin-top: 15px;
+	z-index: 50;
+}
+.improveCard {
+	/* margin-bottom: 100px; */
+	padding-bottom: 60px;
+	max-height: none;
+}
+
+.right {
+	float:right;
+}
+input[type="checkbox"] {
+	display: none;
+	visibility: hidden;
+}
+.card:hover .toggleBtn{
+	opacity:.25;
+}
+.toggleBtn {
+	background-color: rgb(240, 240, 234);
+	color: rgb(231, 217, 221);
+	display: inline-block;
+	position: absolute;
+	z-index: 10;
+
+	transition: opacity .5s;
+	opacity: .01;
+
+	right:0px;
+	top:0px;
+	width: calc(100% - 20px);
+	height: 50px;
+
+	padding: 10px;
+
+	float:right;
+}
+label {
+}
+label:hover {
+}
+label::before {
+	/* vertical-align: text-top;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px; */
+}
+#expand {
+	display:none;
+	transition: width 0.2s;
+
+	background: rgb(217, 226, 209);
+	/* display: inline-block; */
+	margin: .7rem;
+}
+#front {
+	/* display:none; */
+}
+.toggle:checked ~ #expand {
+	display:inline-block;
+}
+.toggle:checked ~ #front {
+	display:none;
+}
+a {
+	color: black;
+	text-decoration:none;
+}
+.wide {
+	width: 100%;
+}
+.ng-cloak { display:none; }
+
+[ng-quill-editor] { display: block; }
+.ql-editor {
+	background-color: rgb(254, 255, 250);
+}
+.ql-toolbar {
+	background-color: rgb(254, 255, 250);
+}
+
+.icon-bar {
+	/* width: 50px; /* Set a specific width */
+	background-color: #555; /* Dark-grey background */
+	position: fixed;
+	/* height: 100%; */
+	top: 60px;
+	left: 0;
+	width: 150px;
+	padding-top: 0;
+
+	display:none;
+	cursor: pointer;
+
+
+	z-index: 101;
+}
+
+.icon-bar a {
+	display: block; /* Make the links appear below each other instead of side-by-side */
+	text-align: center; /* Center-align text */
+	text-decoration: none;
+	padding: 10px; /* Add some padding */
+	/* transition: all 0.1s ease; */
+	color: white; /* White text color */
+	font-size: 18px; /* Increased font-size */
+
+
+	vertical-align: middle;
+	line-height: 30px;
+
+	font-size: 15px;
+}
+
+.icon-bar a:hover {
+	background-color: #000; /* Add a hover color */
+}
+
+.active {
+	background-color: #4CAF50; /* Add an active/current color */
+}
+
+.editbtn {
+	cursor:pointer;
+}
+
+/* The full view */
+.studysheetspanel {
+	display: inline-block;
+	width: calc(100% - 400px);
+	padding-top: 90px;
+	margin-left: 350px;
+	max-width: 900px;
+}
+.studysheet {
+	max-width: 100%;
+	width: 100%;
+}
+
+.studysheetimg {
+	width: 900px;
+	max-width: 80%;
+	max-width: 80%;
+	min-width: 30%;
+}
+
+.addelementbtn {
+	min-width: 200px;
+
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	cursor: pointer;
+
+	vertical-align: top;
+
+	background-color: rgb(252, 252, 252);
+
+	box-sizing: border-box;
+	display: inline-block;
+
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.resize-drag {
+	border: 3px solid rgba(247, 231, 75,.7);
+	background-color: rgba(247, 231, 75, 0.3);
+	color: rgb(29, 29, 29);
+	border-radius: 2px;
+	padding: 20px;
+	margin: 30px 20px;
+
+	width: 120px;
+
+	box-sizing: border-box;
+
+	position: absolute;
+	display: block;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.resize-container {
+	display: inline-block;
+
+}
+
+.treenavigator {
+	margin-top: 80px;
+	margin-bottom: 100px;
+	margin-left: 20px;
+	max-width: 300px;
+	width: 100%;
+	position:fixed;
+	max-height: calc(100% - 80px);
+
+	overflow-y: scroll;
+	left: 0;
+	display: block;
+}
+.angular-ui-tree-empty {
+	display:none;
+}
+
+.treenode {
+	background: #fefff9;
+	border: 1px solid #e8ebda;
+	color: #383636;
+	padding: 10px 10px;
+	cursor: pointer;
+	max-height: 50px;
+	overflow: auto;
+}
+.treebutton {
+	border-radius: 3px;
+	margin-right: 5px;
+	display: none;
+}
+.treenode:hover > .treebutton {
+	display: inline-block;
+	white-space:nowrap;
+}
+
+.treenode:hover {
+	color: #19191a;
+	background: #f9f8ef;
+	border-color: #e6e8dc;
+}
+
+.tree-node-active {
+	background: #ffff99;
+}
+.tree-node-active:hover {
+	background: #ffff99;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fffef0;
+	border: 2px dashed #dbdabf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+tr.angular-ui-tree-empty {
+	height:100px
+}
+
+.tree-node-content {
+	margin: 10px;
+}
+.tree-handle {
+	padding: 10px;
+	background: #c9bd41;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fefff0;
+	border: 2px dashed #dbdbbf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Includes styles for the background, cards, and anything related to the general panning area. */
+body {
+	background-color: rgb(228, 227, 194);
+}
+#workbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+	padding-top: 100px;
+}
+
+.card {
+	background: rgb(217, 226, 209);
+	display: inline-block;
+	vertical-align: top;
+	margin: .7rem;
+	/* margin-bottom: 100px; */
+	max-height: 300px;
+	/* height: 300px; */
+}
+.card, .cardimg {
+	position:relative;
+	max-height: 300px;
+	padding: 0;
+	/* width: 480px; */
+	width: 420px;
+}
+.cardId {
+	color: rgba(17, 17, 17, 0.68);
+	font-size: .7em;
+}
+.cardNotes {
+	overflow-y:auto;
+	/* max-height: auto; */
+	position:absolute;
+	max-height: 180px;
+	width:calc(100% - 25px);
+	height: 100%;
+}
+.tag {
+	background-color: rgb(218, 215, 135);
+	padding: 6px;
+	margin: 3px;
+	display: inline-block;
+	border-radius: 4px;
+	font-size: .8em;
+}
+
+.cardDescription {
+	white-space: pre-line;
+}
+
+#newCard {
+	margin-right: 20px;
+	cursor: pointer;
+
+}
+
+#newCardSection {
+	position: fixed;
+	top: 80px;
+	right: 30px;
+	z-index: 50;
+	background-color: rgb(251, 251, 251);
+	padding: 30px;
+	padding-top: 10px;
+
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 4px;
+}
+#newCardSection > form > input,textarea {
+	width: 100% !important;
+	margin-top: 10px;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.card {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.glossaryCard {
+	/* width: calc(50% - 200px); */
+	width: 500px;
+	/* width: 40%; */
+	margin: 100px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: rgb(252, 252, 250);
+	box-sizing: border-box;
+
+	line-height: 1.6em;
+	display: block;
+	vertical-align: top;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+}
+.glossaryTerm {
+	color: rgb(246, 246, 246);
+	background-color: rgb(62, 66, 66);
+	padding: 4px;
+	font-weight: bold;
+}
+.glossaryDefinition {
+	color: rgb(26, 28, 29);
+}
+.termButton {
+	display: none;
+}
+.glossaryCard:hover>.termButton{
+	display: inline-block;
+}
+.termDelete {
+	border-radius: 2px;
+	background-color: rgb(224, 70, 49);
+}
+
+header {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0;
+	background-color: rgb(246, 244, 130);
+	/* background: url("../resources/halftone-yellow.png"); */
+	color: rgb(48, 48, 48);
+
+	height: 60px;
+
+	z-index: 100;
+
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+header,.header {
+	font-weight: bold;
+
+
+
+	vertical-align: middle;
+	line-height: 60px;
+
+	font-size: 30px;
+	margin: 0;
+
+	padding-top: 0;
+	padding-bottom: 15px;
+	padding-right: 10px;
+	padding-left: 5px;
+	display: inline;
+}
+.standardHeader {
+	cursor: pointer;
+}
+.standardHeader:hover .icon-bar {
+	display:block;
+}
+.icon-bar:hover .icon-bar {
+	display:block;
+}
+
+.search {
+	vertical-align: middle;
+	line-height: 60px;
+	padding: 0;
+	font-size: 20px;
+	height: 30px;
+	margin-right: 15px;
+	margin-top: 10px;
+	padding: 5px;
+
+}
+
+.homepanel {
+	width: 800px;
+	/* height: 400px; */
+	background-color: rgb(246, 242, 239);
+	padding: 20px;
+
+	position: absolute;
+	/* top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+.mastersearch {
+	padding: 1em;
+	margin-top: 20px;
+	font-style: 2em;
+	width: calc(100% - 40px);
+}
+.cardSearchItem {
+	background-color: rgb(233, 236, 218);
+	border-radius: 4px;
+	/* width: 100%; */
+	display:inline-block;
+	color: rgb(29, 29, 28);
+	font-size: 1em;
+
+	margin: 6px;
+	padding: 12px;
+	box-sizing: border-box;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.home {
+	padding: 0;
+	margin: 0;
+	min-width: 100%;
+	min-height: 100%;
+	position:fixed; /*
+
+	/* display: block; */
+
+	/* overflow-y: visible; */
+
+	background: url(../resources/rnapolymerase.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.homebutton {
+	width: 100px;
+	height: 130px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+	text-align: center;
+	padding: 15px;
+	margin: 10px;
+	background-color: rgb(244, 243, 236);
+	border-bottom: rgb(246, 244, 130) 15px solid;
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Icons */
+.homebutton .fa{
+	font-size: 2.4em;
+	text-align: center;
+	display: block;
+	position: relative;
+	vertical-align: top;
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 10px;
+	color: rgba(27, 26, 26, 0.9);
+}
+
+.homebutton:hover {
+	/* border-bottom: rgb(233, 231, 90) 80px solid; */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.improveInfo {
+	width: calc(100% - 240px);
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(243, 244, 239);
+	margin: 80px;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+#improveGraph {
+	max-width: 100%;
+}
+.improveWorkbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+}
+.cardResponses {
+	height: 20px;
+	z-index: 10;
+	vertical-align:bottom;
+	margin-left: 20px;
+	position: absolute;
+	bottom: 50px;
+}
+.cardInteraction{
+	margin-top: 15px;
+	z-index: 50;
+}
+.improveCard {
+	/* margin-bottom: 100px; */
+	padding-bottom: 60px;
+	max-height: none;
+}
+
+.right {
+	float:right;
+}
+input[type="checkbox"] {
+	display: none;
+	visibility: hidden;
+}
+.card:hover .toggleBtn{
+	opacity:.25;
+}
+.toggleBtn {
+	background-color: rgb(240, 240, 234);
+	color: rgb(231, 217, 221);
+	display: inline-block;
+	position: absolute;
+	z-index: 10;
+
+	transition: opacity .5s;
+	opacity: .01;
+
+	right:0px;
+	top:0px;
+	width: calc(100% - 20px);
+	height: 50px;
+
+	padding: 10px;
+
+	float:right;
+}
+label {
+}
+label:hover {
+}
+label::before {
+	/* vertical-align: text-top;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px; */
+}
+#expand {
+	display:none;
+	transition: width 0.2s;
+
+	background: rgb(217, 226, 209);
+	/* display: inline-block; */
+	margin: .7rem;
+}
+#front {
+	/* display:none; */
+}
+.toggle:checked ~ #expand {
+	display:inline-block;
+}
+.toggle:checked ~ #front {
+	display:none;
+}
+a {
+	color: black;
+	text-decoration:none;
+}
+.wide {
+	width: 100%;
+}
+.ng-cloak { display:none; }
+
+[ng-quill-editor] { display: block; }
+.ql-editor {
+	background-color: rgb(254, 255, 250);
+}
+.ql-toolbar {
+	background-color: rgb(254, 255, 250);
+}
+
+.icon-bar {
+	/* width: 50px; /* Set a specific width */
+	background-color: #555; /* Dark-grey background */
+	position: fixed;
+	/* height: 100%; */
+	top: 60px;
+	left: 0;
+	width: 150px;
+	padding-top: 0;
+
+	display:none;
+	cursor: pointer;
+
+
+	z-index: 101;
+}
+
+.icon-bar a {
+	display: block; /* Make the links appear below each other instead of side-by-side */
+	text-align: center; /* Center-align text */
+	text-decoration: none;
+	padding: 10px; /* Add some padding */
+	/* transition: all 0.1s ease; */
+	color: white; /* White text color */
+	font-size: 18px; /* Increased font-size */
+
+
+	vertical-align: middle;
+	line-height: 30px;
+
+	font-size: 15px;
+}
+
+.icon-bar a:hover {
+	background-color: #000; /* Add a hover color */
+}
+
+.active {
+	background-color: #4CAF50; /* Add an active/current color */
+}
+
+.editbtn {
+	cursor:pointer;
+}
+
+/* The full view */
+.studysheetspanel {
+	display: inline-block;
+	width: calc(100% - 400px);
+	padding-top: 90px;
+	margin-left: 350px;
+	max-width: 900px;
+}
+.studysheet {
+	max-width: 100%;
+	width: 100%;
+}
+
+.studysheetimg {
+	width: 900px;
+	max-width: 80%;
+	max-width: 80%;
+	min-width: 30%;
+}
+
+.addelementbtn {
+	min-width: 200px;
+
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	cursor: pointer;
+
+	vertical-align: top;
+
+	background-color: rgb(252, 252, 252);
+
+	box-sizing: border-box;
+	display: inline-block;
+
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.resize-drag {
+	border: 3px solid rgba(247, 231, 75,.7);
+	background-color: rgba(247, 231, 75, 0.3);
+	color: rgb(29, 29, 29);
+	border-radius: 2px;
+	padding: 20px;
+	margin: 30px 20px;
+
+	width: 120px;
+
+	box-sizing: border-box;
+
+	position: absolute;
+	display: block;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.resize-container {
+	display: inline-block;
+
+}
+
+.treenavigator {
+	margin-top: 80px;
+	margin-bottom: 100px;
+	margin-left: 20px;
+	max-width: 300px;
+	width: 100%;
+	position:fixed;
+	max-height: calc(100% - 80px);
+
+	overflow-y: scroll;
+	left: 0;
+	display: block;
+}
+.angular-ui-tree-empty {
+	display:none;
+}
+
+.treenode {
+	background: #fefff9;
+	border: 1px solid #e8ebda;
+	color: #383636;
+	padding: 10px 10px;
+	cursor: pointer;
+	max-height: 50px;
+	overflow: auto;
+}
+.treebutton {
+	border-radius: 3px;
+	margin-right: 5px;
+	display: none;
+}
+.treenode:hover > .treebutton {
+	display: inline-block;
+	white-space:nowrap;
+}
+
+.treenode:hover {
+	color: #19191a;
+	background: #f9f8ef;
+	border-color: #e6e8dc;
+}
+
+.tree-node-active {
+	background: #ffff99;
+}
+.tree-node-active:hover {
+	background: #ffff99;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fffef0;
+	border: 2px dashed #dbdabf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+tr.angular-ui-tree-empty {
+	height:100px
+}
+
+.tree-node-content {
+	margin: 10px;
+}
+.tree-handle {
+	padding: 10px;
+	background: #c9bd41;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fefff0;
+	border: 2px dashed #dbdbbf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Includes styles for the background, cards, and anything related to the general panning area. */
+body {
+	background-color: rgb(228, 227, 194);
+}
+#workbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+	padding-top: 100px;
+}
+
+.card {
+	background: rgb(217, 226, 209);
+	display: inline-block;
+	vertical-align: top;
+	margin: .7rem;
+	/* margin-bottom: 100px; */
+	max-height: 300px;
+	/* height: 300px; */
+}
+.card, .cardimg {
+	position:relative;
+	max-height: 300px;
+	padding: 0;
+	/* width: 480px; */
+	width: 420px;
+}
+.cardId {
+	color: rgba(17, 17, 17, 0.68);
+	font-size: .7em;
+}
+.cardNotes {
+	overflow-y:auto;
+	/* max-height: auto; */
+	position:absolute;
+	max-height: 180px;
+	width:calc(100% - 25px);
+	height: 100%;
+}
+.tag {
+	background-color: rgb(218, 215, 135);
+	padding: 6px;
+	margin: 3px;
+	display: inline-block;
+	border-radius: 4px;
+	font-size: .8em;
+}
+
+.cardDescription {
+	white-space: pre-line;
+}
+
+#newCard {
+	margin-right: 20px;
+	cursor: pointer;
+
+}
+
+#newCardSection {
+	position: fixed;
+	top: 80px;
+	right: 30px;
+	z-index: 50;
+	background-color: rgb(251, 251, 251);
+	padding: 30px;
+	padding-top: 10px;
+
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 4px;
+}
+#newCardSection > form > input,textarea {
+	width: 100% !important;
+	margin-top: 10px;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.card {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.glossaryCard {
+	/* width: calc(50% - 200px); */
+	width: 500px;
+	/* width: 40%; */
+	margin: 100px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: rgb(252, 252, 250);
+	box-sizing: border-box;
+
+	line-height: 1.6em;
+	display: block;
+	vertical-align: top;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+}
+.glossaryTerm {
+	color: rgb(246, 246, 246);
+	background-color: rgb(62, 66, 66);
+	padding: 4px;
+	font-weight: bold;
+}
+.glossaryDefinition {
+	color: rgb(26, 28, 29);
+}
+.termButton {
+	display: none;
+}
+.glossaryCard:hover>.termButton{
+	display: inline-block;
+}
+.termDelete {
+	border-radius: 2px;
+	background-color: rgb(224, 70, 49);
+}
+
+header {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0;
+	background-color: rgb(246, 244, 130);
+	/* background: url("../resources/halftone-yellow.png"); */
+	color: rgb(48, 48, 48);
+
+	height: 60px;
+
+	z-index: 100;
+
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+header,.header {
+	font-weight: bold;
+
+
+
+	vertical-align: middle;
+	line-height: 60px;
+
+	font-size: 30px;
+	margin: 0;
+
+	padding-top: 0;
+	padding-bottom: 15px;
+	padding-right: 10px;
+	padding-left: 5px;
+	display: inline;
+}
+.standardHeader {
+	cursor: pointer;
+}
+.standardHeader:hover .icon-bar {
+	display:block;
+}
+.icon-bar:hover .icon-bar {
+	display:block;
+}
+
+.search {
+	vertical-align: middle;
+	line-height: 60px;
+	padding: 0;
+	font-size: 20px;
+	height: 30px;
+	margin-right: 15px;
+	margin-top: 10px;
+	padding: 5px;
+
+}
+
+.homepanel {
+	width: 800px;
+	/* height: 400px; */
+	background-color: rgb(246, 242, 239);
+	padding: 20px;
+
+	position: absolute;
+	/* top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+.mastersearch {
+	padding: 1em;
+	margin-top: 20px;
+	font-style: 2em;
+	width: calc(100% - 40px);
+}
+.cardSearchItem {
+	background-color: rgb(233, 236, 218);
+	border-radius: 4px;
+	/* width: 100%; */
+	display:inline-block;
+	color: rgb(29, 29, 28);
+	font-size: 1em;
+
+	margin: 6px;
+	padding: 12px;
+	box-sizing: border-box;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.home {
+	padding: 0;
+	margin: 0;
+	min-width: 100%;
+	min-height: 100%;
+	position:fixed; /*
+
+	/* display: block; */
+
+	/* overflow-y: visible; */
+
+	background: url(../resources/rnapolymerase.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.homebutton {
+	width: 100px;
+	height: 130px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+	text-align: center;
+	padding: 15px;
+	margin: 10px;
+	background-color: rgb(244, 243, 236);
+	border-bottom: rgb(246, 244, 130) 15px solid;
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Icons */
+.homebutton .fa{
+	font-size: 2.4em;
+	text-align: center;
+	display: block;
+	position: relative;
+	vertical-align: top;
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 10px;
+	color: rgba(27, 26, 26, 0.9);
+}
+
+.homebutton:hover {
+	/* border-bottom: rgb(233, 231, 90) 80px solid; */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.improveInfo {
+	width: calc(100% - 240px);
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(243, 244, 239);
+	margin: 80px;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+#improveGraph {
+	max-width: 100%;
+}
+.improveWorkbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+}
+.cardResponses {
+	height: 20px;
+	z-index: 10;
+	vertical-align:bottom;
+	margin-left: 20px;
+	position: absolute;
+	bottom: 50px;
+}
+.cardInteraction{
+	margin-top: 15px;
+	z-index: 50;
+}
+.improveCard {
+	/* margin-bottom: 100px; */
+	padding-bottom: 60px;
+	max-height: none;
+}
+
+.right {
+	float:right;
+}
+input[type="checkbox"] {
+	display: none;
+	visibility: hidden;
+}
+.card:hover .toggleBtn{
+	opacity:.25;
+}
+.toggleBtn {
+	background-color: rgb(240, 240, 234);
+	color: rgb(231, 217, 221);
+	display: inline-block;
+	position: absolute;
+	z-index: 10;
+
+	transition: opacity .5s;
+	opacity: .01;
+
+	right:0px;
+	top:0px;
+	width: calc(100% - 20px);
+	height: 50px;
+
+	padding: 10px;
+
+	float:right;
+}
+label {
+}
+label:hover {
+}
+label::before {
+	/* vertical-align: text-top;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px; */
+}
+#expand {
+	display:none;
+	transition: width 0.2s;
+
+	background: rgb(217, 226, 209);
+	/* display: inline-block; */
+	margin: .7rem;
+}
+#front {
+	/* display:none; */
+}
+.toggle:checked ~ #expand {
+	display:inline-block;
+}
+.toggle:checked ~ #front {
+	display:none;
+}
+a {
+	color: black;
+	text-decoration:none;
+}
+.wide {
+	width: 100%;
+}
+.ng-cloak { display:none; }
+
+[ng-quill-editor] { display: block; }
+.ql-editor {
+	background-color: rgb(254, 255, 250);
+}
+.ql-toolbar {
+	background-color: rgb(254, 255, 250);
+}
+
+.icon-bar {
+	/* width: 50px; /* Set a specific width */
+	background-color: #555; /* Dark-grey background */
+	position: fixed;
+	/* height: 100%; */
+	top: 60px;
+	left: 0;
+	width: 150px;
+	padding-top: 0;
+
+	display:none;
+	cursor: pointer;
+
+
+	z-index: 101;
+}
+
+.icon-bar a {
+	display: block; /* Make the links appear below each other instead of side-by-side */
+	text-align: center; /* Center-align text */
+	text-decoration: none;
+	padding: 10px; /* Add some padding */
+	/* transition: all 0.1s ease; */
+	color: white; /* White text color */
+	font-size: 18px; /* Increased font-size */
+
+
+	vertical-align: middle;
+	line-height: 30px;
+
+	font-size: 15px;
+}
+
+.icon-bar a:hover {
+	background-color: #000; /* Add a hover color */
+}
+
+.active {
+	background-color: #4CAF50; /* Add an active/current color */
+}
+
+.editbtn {
+	cursor:pointer;
+}
+
+/* The full view */
+.studysheetspanel {
+	display: inline-block;
+	width: calc(100% - 400px);
+	padding-top: 90px;
+	margin-left: 350px;
+	max-width: 900px;
+}
+.studysheet {
+	max-width: 100%;
+	width: 100%;
+}
+
+.studysheetimg {
+	width: 900px;
+	max-width: 80%;
+	max-width: 80%;
+	min-width: 30%;
+}
+
+.addelementbtn {
+	min-width: 200px;
+
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	cursor: pointer;
+
+	vertical-align: top;
+
+	background-color: rgb(252, 252, 252);
+
+	box-sizing: border-box;
+	display: inline-block;
+
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.resize-drag {
+	border: 3px solid rgba(247, 231, 75,.7);
+	background-color: rgba(247, 231, 75, 0.3);
+	color: rgb(29, 29, 29);
+	border-radius: 2px;
+	padding: 20px;
+	margin: 30px 20px;
+
+	width: 120px;
+
+	box-sizing: border-box;
+
+	position: absolute;
+	display: block;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.resize-container {
+	display: inline-block;
+
+}
+
+.treenavigator {
+	margin-top: 80px;
+	margin-bottom: 100px;
+	margin-left: 20px;
+	max-width: 300px;
+	width: 100%;
+	position:fixed;
+	max-height: calc(100% - 80px);
+
+	overflow-y: scroll;
+	left: 0;
+	display: block;
+}
+.angular-ui-tree-empty {
+	display:none;
+}
+
+.treenode {
+	background: #fefff9;
+	border: 1px solid #e8ebda;
+	color: #383636;
+	padding: 10px 10px;
+	cursor: pointer;
+	max-height: 50px;
+	overflow: auto;
+}
+.treebutton {
+	border-radius: 3px;
+	margin-right: 5px;
+	display: none;
+}
+.treenode:hover > .treebutton {
+	display: inline-block;
+	white-space:nowrap;
+}
+
+.treenode:hover {
+	color: #19191a;
+	background: #f9f8ef;
+	border-color: #e6e8dc;
+}
+
+.tree-node-active {
+	background: #ffff99;
+}
+.tree-node-active:hover {
+	background: #ffff99;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fffef0;
+	border: 2px dashed #dbdabf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+tr.angular-ui-tree-empty {
+	height:100px
+}
+
+.tree-node-content {
+	margin: 10px;
+}
+.tree-handle {
+	padding: 10px;
+	background: #c9bd41;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fefff0;
+	border: 2px dashed #dbdbbf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Includes styles for the background, cards, and anything related to the general panning area. */
+body {
+	background-color: rgb(228, 227, 194);
+}
+#workbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+	padding-top: 100px;
+}
+
+.card {
+	background: rgb(217, 226, 209);
+	display: inline-block;
+	vertical-align: top;
+	margin: .7rem;
+	/* margin-bottom: 100px; */
+	max-height: 300px;
+	/* height: 300px; */
+}
+.card, .cardimg {
+	position:relative;
+	max-height: 300px;
+	padding: 0;
+	/* width: 480px; */
+	width: 420px;
+}
+.cardId {
+	color: rgba(17, 17, 17, 0.68);
+	font-size: .7em;
+}
+.cardNotes {
+	overflow-y:auto;
+	/* max-height: auto; */
+	position:absolute;
+	max-height: 180px;
+	width:calc(100% - 25px);
+	height: 100%;
+}
+.tag {
+	background-color: rgb(218, 215, 135);
+	padding: 6px;
+	margin: 3px;
+	display: inline-block;
+	border-radius: 4px;
+	font-size: .8em;
+}
+
+.cardDescription {
+	white-space: pre-line;
+}
+
+#newCard {
+	margin-right: 20px;
+	cursor: pointer;
+
+}
+
+#newCardSection {
+	position: fixed;
+	top: 80px;
+	right: 30px;
+	z-index: 50;
+	background-color: rgb(251, 251, 251);
+	padding: 30px;
+	padding-top: 10px;
+
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 4px;
+}
+#newCardSection > form > input,textarea {
+	width: 100% !important;
+	margin-top: 10px;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.card {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.glossaryCard {
+	/* width: calc(50% - 200px); */
+	width: 500px;
+	/* width: 40%; */
+	margin: 100px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: rgb(252, 252, 250);
+	box-sizing: border-box;
+
+	line-height: 1.6em;
+	display: block;
+	vertical-align: top;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+}
+.glossaryTerm {
+	color: rgb(246, 246, 246);
+	background-color: rgb(62, 66, 66);
+	padding: 4px;
+	font-weight: bold;
+}
+.glossaryDefinition {
+	color: rgb(26, 28, 29);
+}
+.termButton {
+	display: none;
+}
+.glossaryCard:hover>.termButton{
+	display: inline-block;
+}
+.termDelete {
+	border-radius: 2px;
+	background-color: rgb(224, 70, 49);
+}
+
+header {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0;
+	background-color: rgb(246, 244, 130);
+	/* background: url("../resources/halftone-yellow.png"); */
+	color: rgb(48, 48, 48);
+
+	height: 60px;
+
+	z-index: 100;
+
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+header,.header {
+	font-weight: bold;
+
+
+
+	vertical-align: middle;
+	line-height: 60px;
+
+	font-size: 30px;
+	margin: 0;
+
+	padding-top: 0;
+	padding-bottom: 15px;
+	padding-right: 10px;
+	padding-left: 5px;
+	display: inline;
+}
+.standardHeader {
+	cursor: pointer;
+}
+.standardHeader:hover .icon-bar {
+	display:block;
+}
+.icon-bar:hover .icon-bar {
+	display:block;
+}
+
+.search {
+	vertical-align: middle;
+	line-height: 60px;
+	padding: 0;
+	font-size: 20px;
+	height: 30px;
+	margin-right: 15px;
+	margin-top: 10px;
+	padding: 5px;
+
+}
+
+.homepanel {
+	width: 800px;
+	/* height: 400px; */
+	background-color: rgb(246, 242, 239);
+	padding: 20px;
+
+	position: absolute;
+	/* top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+.mastersearch {
+	padding: 1em;
+	margin-top: 20px;
+	font-style: 2em;
+	width: calc(100% - 40px);
+}
+.cardSearchItem {
+	background-color: rgb(233, 236, 218);
+	border-radius: 4px;
+	/* width: 100%; */
+	display:inline-block;
+	color: rgb(29, 29, 28);
+	font-size: 1em;
+
+	margin: 6px;
+	padding: 12px;
+	box-sizing: border-box;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.home {
+	padding: 0;
+	margin: 0;
+	min-width: 100%;
+	min-height: 100%;
+	position:fixed; /*
+
+	/* display: block; */
+
+	/* overflow-y: visible; */
+
+	background: url(../resources/rnapolymerase.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.homebutton {
+	width: 100px;
+	height: 130px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+	text-align: center;
+	padding: 15px;
+	margin: 10px;
+	background-color: rgb(244, 243, 236);
+	border-bottom: rgb(246, 244, 130) 15px solid;
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Icons */
+.homebutton .fa{
+	font-size: 2.4em;
+	text-align: center;
+	display: block;
+	position: relative;
+	vertical-align: top;
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 10px;
+	color: rgba(27, 26, 26, 0.9);
+}
+
+.homebutton:hover {
+	/* border-bottom: rgb(233, 231, 90) 80px solid; */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.improveInfo {
+	width: calc(100% - 240px);
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(243, 244, 239);
+	margin: 80px;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+#improveGraph {
+	max-width: 100%;
+}
+.improveWorkbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+}
+.cardResponses {
+	height: 20px;
+	z-index: 10;
+	vertical-align:bottom;
+	margin-left: 20px;
+	position: absolute;
+	bottom: 50px;
+}
+.cardInteraction{
+	margin-top: 15px;
+	z-index: 50;
+}
+.improveCard {
+	/* margin-bottom: 100px; */
+	padding-bottom: 60px;
+	max-height: none;
+}
+
+.right {
+	float:right;
+}
+input[type="checkbox"] {
+	display: none;
+	visibility: hidden;
+}
+.card:hover .toggleBtn{
+	opacity:.25;
+}
+.toggleBtn {
+	background-color: rgb(240, 240, 234);
+	color: rgb(231, 217, 221);
+	display: inline-block;
+	position: absolute;
+	z-index: 10;
+
+	transition: opacity .5s;
+	opacity: .01;
+
+	right:0px;
+	top:0px;
+	width: calc(100% - 20px);
+	height: 50px;
+
+	padding: 10px;
+
+	float:right;
+}
+label {
+}
+label:hover {
+}
+label::before {
+	/* vertical-align: text-top;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px; */
+}
+#expand {
+	display:none;
+	transition: width 0.2s;
+
+	background: rgb(217, 226, 209);
+	/* display: inline-block; */
+	margin: .7rem;
+}
+#front {
+	/* display:none; */
+}
+.toggle:checked ~ #expand {
+	display:inline-block;
+}
+.toggle:checked ~ #front {
+	display:none;
+}
+a {
+	color: black;
+	text-decoration:none;
+}
+.wide {
+	width: 100%;
+}
+.ng-cloak { display:none; }
+
+[ng-quill-editor] { display: block; }
+.ql-editor {
+	background-color: rgb(254, 255, 250);
+}
+.ql-toolbar {
+	background-color: rgb(254, 255, 250);
+}
+
+.icon-bar {
+	/* width: 50px; /* Set a specific width */
+	background-color: #555; /* Dark-grey background */
+	position: fixed;
+	/* height: 100%; */
+	top: 60px;
+	left: 0;
+	width: 150px;
+	padding-top: 0;
+
+	display:none;
+	cursor: pointer;
+
+
+	z-index: 101;
+}
+
+.icon-bar a {
+	display: block; /* Make the links appear below each other instead of side-by-side */
+	text-align: center; /* Center-align text */
+	text-decoration: none;
+	padding: 10px; /* Add some padding */
+	/* transition: all 0.1s ease; */
+	color: white; /* White text color */
+	font-size: 18px; /* Increased font-size */
+
+
+	vertical-align: middle;
+	line-height: 30px;
+
+	font-size: 15px;
+}
+
+.icon-bar a:hover {
+	background-color: #000; /* Add a hover color */
+}
+
+.active {
+	background-color: #4CAF50; /* Add an active/current color */
+}
+
+.editbtn {
+	cursor:pointer;
+}
+
+/* The full view */
+.studysheetspanel {
+	display: inline-block;
+	width: calc(100% - 400px);
+	padding-top: 90px;
+	margin-left: 350px;
+	max-width: 900px;
+}
+.studysheet {
+	max-width: 100%;
+	width: 100%;
+}
+
+.studysheetimg {
+	width: 900px;
+	max-width: 80%;
+	max-width: 80%;
+	min-width: 30%;
+}
+
+.addelementbtn {
+	min-width: 200px;
+
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	cursor: pointer;
+
+	vertical-align: top;
+
+	background-color: rgb(252, 252, 252);
+
+	box-sizing: border-box;
+	display: inline-block;
+
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.resize-drag {
+	border: 3px solid rgba(247, 231, 75,.7);
+	background-color: rgba(247, 231, 75, 0.3);
+	color: rgb(29, 29, 29);
+	border-radius: 2px;
+	padding: 20px;
+	margin: 30px 20px;
+
+	width: 120px;
+
+	box-sizing: border-box;
+
+	position: absolute;
+	display: block;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.resize-container {
+	display: inline-block;
+
+}
+
+.treenavigator {
+	margin-top: 80px;
+	margin-bottom: 100px;
+	margin-left: 20px;
+	max-width: 300px;
+	width: 100%;
+	position:fixed;
+	max-height: calc(100% - 80px);
+
+	overflow-y: scroll;
+	left: 0;
+	display: block;
+}
+.angular-ui-tree-empty {
+	display:none;
+}
+
+.treenode {
+	background: #fefff9;
+	border: 1px solid #e8ebda;
+	color: #383636;
+	padding: 10px 10px;
+	cursor: pointer;
+	max-height: 50px;
+	overflow: auto;
+}
+.treebutton {
+	border-radius: 3px;
+	margin-right: 5px;
+	display: none;
+}
+.treenode:hover > .treebutton {
+	display: inline-block;
+	white-space:nowrap;
+}
+
+.treenode:hover {
+	color: #19191a;
+	background: #f9f8ef;
+	border-color: #e6e8dc;
+}
+
+.tree-node-active {
+	background: #ffff99;
+}
+.tree-node-active:hover {
+	background: #ffff99;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fffef0;
+	border: 2px dashed #dbdabf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+tr.angular-ui-tree-empty {
+	height:100px
+}
+
+.tree-node-content {
+	margin: 10px;
+}
+.tree-handle {
+	padding: 10px;
+	background: #c9bd41;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.angular-ui-tree-placeholder {
+	background: #fefff0;
+	border: 2px dashed #dbdbbf;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Includes styles for the background, cards, and anything related to the general panning area. */
+body {
+	background-color: rgb(228, 227, 194);
+}
+#workbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+	padding-top: 100px;
+}
+
+.card {
+	background: rgb(217, 226, 209);
+	display: inline-block;
+	vertical-align: top;
+	margin: .7rem;
+	/* margin-bottom: 100px; */
+	max-height: 300px;
+	/* height: 300px; */
+}
+.card, .cardimg {
+	position:relative;
+	max-height: 300px;
+	padding: 0;
+	/* width: 480px; */
+	width: 420px;
+}
+.cardId {
+	color: rgba(17, 17, 17, 0.68);
+	font-size: .7em;
+}
+.cardNotes {
+	overflow-y:auto;
+	/* max-height: auto; */
+	position:absolute;
+	max-height: 180px;
+	width:calc(100% - 25px);
+	height: 100%;
+}
+.tag {
+	background-color: rgb(218, 215, 135);
+	padding: 6px;
+	margin: 3px;
+	display: inline-block;
+	border-radius: 4px;
+	font-size: .8em;
+}
+
+.cardDescription {
+	white-space: pre-line;
+}
+
+#newCard {
+	margin-right: 20px;
+	cursor: pointer;
+
+}
+
+#newCardSection {
+	position: fixed;
+	top: 80px;
+	right: 30px;
+	z-index: 50;
+	background-color: rgb(251, 251, 251);
+	padding: 30px;
+	padding-top: 10px;
+
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 4px;
+}
+#newCardSection > form > input,textarea {
+	width: 100% !important;
+	margin-top: 10px;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.card {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

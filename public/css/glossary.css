@@ -23,5 +23,14 @@
 }
 .glossaryDefinition {
 	color: rgb(26, 28, 29);
-
+}
+.termButton {
+	display: none;
+}
+.glossaryCard:hover>.termButton{
+	display: inline-block;
+}
+.termDelete {
+	border-radius: 2px;
+	background-color: rgb(224, 70, 49);
 }

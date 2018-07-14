@@ -1,6 +1,20 @@
+<div id="newCardSection">
+	<h2>New Glossary Term</h2>
+	<form class="pure-form">
+
+		<input autocomplete="off" placeholder="Term" name="title" type="text" ng-model="newterm.term"><br>
+		​<textarea placeholder="Definition" style="width:calc(100% - 10px); margin-bottom:10px;" rows="6" cols="10" ng-model="newterm.definition"></textarea><br>
+
+		<button type="submit" ng-click="newTerm()" class="pure-button pure-button-primary">Add Term</button>
+		<button ng-click="cancelTerm()" class="pure-button">Cancel</button>
+	</form>
+</div>
 <section id="workbench">
 	<p class="glossaryCard" ng-repeat="term in terms | filter:searchFilter as filtered">
 		<span class="glossaryTerm">{{term.term}}</span>
-		<span class="glossaryDefinition">{{term.definition}}</span>
+		<span class="glossaryDefinition" ng-hide="term.beingEdited" >{{term.definition}}</span>
+		<textarea name="name" rows="2" cols="2" ng-show="term.beingEdited" ng-model="term.definition"></textarea>
+		<button type="button" class="termButton pure-button" ng-click="term.beingEdited = !term.beingEdited"><i class="fas fa-edit"></i> Edit</button>
+		<button type="button" class="termButton termDelete pure-button" ng-click="delete(term)"><i class="fas fa-trash"></i> Delete</button>
 	</p>
 </section>
