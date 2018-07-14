@@ -6,7 +6,7 @@ var icons = {
 	"glossary":"book",
 	"cards":"list-alt",
 	"studysheets":"file-alt",
-	"sacs":"vial",
+	"improve":"chart-line",
 	"listen":"file-video"
 }
 
@@ -86,6 +86,7 @@ app.run(function($rootScope, $state, $stateParams) {
 		$rootScope.$stateParams = $stateParams;
 
 	});
+
 });
 
 

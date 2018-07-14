@@ -6,6 +6,25 @@ var fs = require("fs")
 var db = undefined;
 
 module.exports = function (db) {
+	// var cards = db.get("cards").value()
+	// for (var c = 0; c < cards.length; c++){
+	// 	if (cards[c].stats == undefined){
+	// 		cards[c].stats = {
+	// 			flags: {
+	// 				strength: 0,
+	// 				weakness: 0,
+	// 				important: 0
+	// 			},
+	// 			presented: 0
+	// 		}
+	// 	}
+	// }
+	// setTimeout(function(){
+	// 	console.log("saving")
+	// 	db.set("cards",cards).write()
+	//
+	// },2000)
+	
 	router.post('/', function (req, res) {
 		console.log("Adding card. (Title: "+req.body.title+")")
 

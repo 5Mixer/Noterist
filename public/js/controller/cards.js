@@ -7,7 +7,6 @@ function Card(){
 			strength: 0,
 			weakness: 0,
 			important: 0,
-			understood: 0
 		},
 		presented: 0
 	}

@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="/css/glossary.css">
 		<link rel="stylesheet" href="/css/studysheets.css">
 		<link rel="stylesheet" href="/css/workbench.css">
+		<link rel="stylesheet" href="/css/improve.css">
 		<link rel="stylesheet" href="/css/home.css">
 		<base href="/">
 	</head>
@@ -23,7 +24,7 @@
 		<div ng-app="studycloud" ng-controller="core">
 
 			<header ng-cloak>
-				<span class="standardHeader header"><i class="fa {{stateIcon}}"></i> {{capitalizeFirstLetter($state.current.name)}}
+				<span class="standardHeader header"><i class="fa fas {{stateIcon}}"></i> {{capitalizeFirstLetter($state.current.name)}}
 
 					<div class="icon-bar">
 						<a ui-sref-active="active" ui-sref="home"><i class="fa fa-home"></i> Home</a>
@@ -40,6 +41,9 @@
 			</header>
 			<div ui-view="content" ng-cloak></div>
 		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 		<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.js"></script>

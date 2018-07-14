@@ -14,7 +14,15 @@
       ],
       "id": "H1m96Rbif",
       "beingEdited": false,
-      "description": ""
+      "description": "",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "photosynthesis io.jpg",
@@ -27,7 +35,15 @@
         "dependent"
       ],
       "id": "BJlm5pR-jz",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "polymerisation.jpg",
@@ -41,7 +57,15 @@
       ],
       "id": "BJZ7cTC-oz",
       "beingEdited": false,
-      "description": "The 'opposite' of condensation reactions are hydrolysis reactions. For the molecule that makes these, take a look at !H1m96Rbif\n\nCondensation reactions are anabolic, endergonic reactions that require energy to function (i.e synthesis of proteins takes energy)\n\nPolymerisation can be remembered through through it's prefix poly - many. Many monomers are joined.\n\nIf answering questions about identifying polymers, remember to be specific and identify properties unique to them, for instance, their bonds being peptide bonds for amino acids."
+      "description": "The 'opposite' of condensation reactions are hydrolysis reactions. For the molecule that makes these, take a look at !H1m96Rbif\n\nCondensation reactions are anabolic, endergonic reactions that require energy to function (i.e synthesis of proteins takes energy)\n\nPolymerisation can be remembered through through it's prefix poly - many. Many monomers are joined.\n\nIf answering questions about identifying polymers, remember to be specific and identify properties unique to them, for instance, their bonds being peptide bonds for amino acids.",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "protein structure.jpg",
@@ -52,7 +76,15 @@
       ],
       "id": "HkGQ9a0bsz",
       "beingEdited": false,
-      "description": "Primary is just the chain."
+      "description": "Primary is just the chain.",
+      "stats": {
+        "flags": {
+          "strength": 2,
+          "weakness": 0,
+          "important": 2
+        },
+        "presented": 0
+      }
     },
     {
       "img": "enzyme substrate fit.jpg",
@@ -62,7 +94,15 @@
         "key",
         "induced fit"
       ],
-      "id": "Hymmqp0Wof"
+      "id": "Hymmqp0Wof",
+      "stats": {
+        "flags": {
+          "strength": 2,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "endocytosis exocytosis.jpg",
@@ -75,7 +115,15 @@
         "pinocytosis",
         "phagocytosis"
       ],
-      "id": "HyV7caA-jM"
+      "id": "HyV7caA-jM",
+      "stats": {
+        "flags": {
+          "strength": 1,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "coenzymes.jpg",
@@ -88,7 +136,15 @@
         "NADPH+",
         "ADP"
       ],
-      "id": "SkSQc6AZjz"
+      "id": "SkSQc6AZjz",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "1.jpg",
@@ -99,7 +155,16 @@
         "codon",
         "anti-codon"
       ],
-      "id": "BJU79pAZiG"
+      "id": "BJU79pAZiG",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0,
+        "weakness": null
+      }
     },
     {
       "img": "2.jpg",
@@ -107,7 +172,15 @@
       "tags": [
         "vocabulary"
       ],
-      "id": "ByDmc6C-if"
+      "id": "ByDmc6C-if",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "3.jpg",
@@ -115,7 +188,15 @@
       "tags": [
         "vocabulary"
       ],
-      "id": "Hkum960-iz"
+      "id": "Hkum960-iz",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "4.jpg",
@@ -123,7 +204,15 @@
       "tags": [
         "diagram"
       ],
-      "id": "SkF75a0WjM"
+      "id": "SkF75a0WjM",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "5.jpg",
@@ -131,7 +220,15 @@
       "tags": [
         "diagram"
       ],
-      "id": "HyqmqaA-if"
+      "id": "HyqmqaA-if",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 1,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "6.jpg",
@@ -144,7 +241,15 @@
         "aos1"
       ],
       "id": "S1j7qaAWjf",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 3,
+          "important": 2
+        },
+        "presented": 0
+      }
     },
     {
       "img": "7.jpg",
@@ -157,7 +262,15 @@
         "aos1"
       ],
       "id": "S1hQcaRbjz",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "8.jpg",
@@ -167,7 +280,15 @@
         "aos1"
       ],
       "id": "BkaX5aAbsG",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 1,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "9.jpg",
@@ -180,7 +301,15 @@
         "aos1"
       ],
       "id": "SkCm9TAWoG",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "10.jpg",
@@ -191,7 +320,15 @@
         "aos1"
       ],
       "id": "B1keXq6Abif",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "11.jpg",
@@ -202,7 +339,15 @@
         "aos1"
       ],
       "id": "HJleXq6AWoz",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "12.jpg",
@@ -214,7 +359,15 @@
       ],
       "id": "B1Zl756CWjz",
       "beingEdited": false,
-      "description": "Seem to struggle remembering the word 'protein channel'. Also, make sure you nail the whole polar=water soluble=can't diffuse through the membrane."
+      "description": "Seem to struggle remembering the word 'protein channel'. Also, make sure you nail the whole polar=water soluble=can't diffuse through the membrane.",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "13.jpg",
@@ -228,7 +381,15 @@
         "aos1"
       ],
       "id": "rkMlQ5TA-if",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "14.jpg",
@@ -238,7 +399,15 @@
         "aos1"
       ],
       "id": "HJ7g75TRbiG",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 1,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Forms of signalling molecules.jpg",
@@ -249,7 +418,15 @@
         "paracrine",
         "autocrine"
       ],
-      "id": "B1c5sQOof"
+      "id": "B1c5sQOof",
+      "stats": {
+        "flags": {
+          "strength": 1,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "DNA replication.jpg",
@@ -262,7 +439,15 @@
         "lagging"
       ],
       "id": "Hy21aQdjM",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Kinds of signalling molecules.jpg",
@@ -275,7 +460,15 @@
         "pheromones",
         "neurohormones"
       ],
-      "id": "H12VgN_sz"
+      "id": "H12VgN_sz",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Plant growth regulators.jpg",
@@ -284,7 +477,15 @@
         "AOS2"
       ],
       "id": "ryQEXE_if",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 1,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Stimulus response model.jpg",
@@ -297,7 +498,15 @@
       ],
       "id": "rJR7jVOsz",
       "beingEdited": false,
-      "description": "#error: The right most box labelled 'receptor' should be labeled 'response'"
+      "description": "#error: The right most box labelled 'receptor' should be labeled 'response'",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Malfunctions in apoptosis.jpg",
@@ -308,7 +517,15 @@
         "AOS2"
       ],
       "id": "rJKY4eFjG",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 1,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "MHC self and non-self.jpg",
@@ -320,7 +537,15 @@
         "immunity",
         "aos2"
       ],
-      "id": "SkvhQuKjz"
+      "id": "SkvhQuKjz",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 1,
+          "important": 2
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Red blood cell antigens.jpg",
@@ -331,7 +556,15 @@
         "AOS"
       ],
       "id": "ryhrAOYsG",
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Pathogen and bacteria terms.jpg",
@@ -341,7 +574,15 @@
         "aos2",
         "bacteria"
       ],
-      "id": "ByEIsqYsG"
+      "id": "ByEIsqYsG",
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Viruses.jpg",
@@ -350,7 +591,15 @@
         "Aos2"
       ],
       "id": "H1g1xiKoz",
-      "uploadedAt": 1523326935606
+      "uploadedAt": 1523326935606,
+      "stats": {
+        "flags": {
+          "strength": 1,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Components of the first line of defence.jpg",
@@ -359,7 +608,15 @@
         "Aos2"
       ],
       "id": "Hy6DXsFoz",
-      "uploadedAt": 1523327845054
+      "uploadedAt": 1523327845054,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Phagocytes.jpg",
@@ -375,7 +632,15 @@
       ],
       "id": "ry90EaKof",
       "uploadedAt": 1523336401996,
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 2,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Natural killer (NK) cells.jpg",
@@ -388,7 +653,15 @@
       ],
       "id": "Bk-VFTtiM",
       "uploadedAt": 1523337513110,
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 1,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Mast cells and the inflammatory response.jpg",
@@ -399,7 +672,15 @@
         "histamines"
       ],
       "id": "HJYq6TtsM",
-      "uploadedAt": 1523338641453
+      "uploadedAt": 1523338641453,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 1,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Interferons.jpg",
@@ -410,7 +691,15 @@
         "virus"
       ],
       "id": "BylJuy9sz",
-      "uploadedAt": 1523345367692
+      "uploadedAt": 1523345367692,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Complement system.jpg",
@@ -423,7 +712,15 @@
         "chemoattractants"
       ],
       "id": "rymyhy9oG",
-      "uploadedAt": 1523346395412
+      "uploadedAt": 1523346395412,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 2,
+          "important": 1
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Lymphatic system and its role in immunity.jpg",
@@ -435,7 +732,15 @@
         "adaptive"
       ],
       "id": "rk-jqWcjf",
-      "uploadedAt": 1523354265163
+      "uploadedAt": 1523354265163,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 0,
+          "important": 0
+        },
+        "presented": 0
+      }
     },
     {
       "img": "Antibody structure.jpg",
@@ -448,7 +753,15 @@
       ],
       "id": "HkS0LQ5iG",
       "uploadedAt": 1523361484549,
-      "beingEdited": false
+      "beingEdited": false,
+      "stats": {
+        "flags": {
+          "strength": 0,
+          "weakness": 1,
+          "important": 0
+        },
+        "presented": 0
+      }
     }
   ],
   "hierarchy": [

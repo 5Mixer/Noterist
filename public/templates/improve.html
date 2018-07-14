@@ -1,9 +1,30 @@
-<section id="workbench">
-	<div class="card" ng-repeat="card in presentedCards">
+<br>
+<section class="improveInfo">
+	<h2>Retain your notes mentally through targetted revision</h2>
+	<p class="left">
+		Once you have made study notes, this page can help you retain what you have written on them.
+		Every day, this page will give you six cards to mentally review.
+		Indicate whether or not you are confident with cards and whether or not they are particularly important cards.
+		Over time, your responses will influence the page into showing cards that you are weakest with so that you can improve.
+	</p>
+	<section>
+		<h2>{{improveMessage}}</h2>
+	</section>
+	<section>
+		<canvas id="improveGraph" width="8" height="1"></canvas>
+	</section>
+</section>
+<section id="improveWorkbench">
+	<div class="improveCard card" ng-repeat="card in presentedCards">
 		<!-- <input id="{{::$id}} toggle" class="toggle" type="checkbox">
 		<label ng-hide="card.beingEdited" class="toggleBtn" for="{{::$id}} toggle" class="toggle"></label> -->
 		<div id="front">
 			<img class="cardimg" src="cards/{{card.img}}" alt="">
+			<div class="cardResponses">
+				<button type="button" class="pure-button cardInteraction" ng-click="flagStrong(card)" name="button">👍 Strong ({{card.stats.flags.strength}})</button>
+				<button type="button" class="pure-button cardInteraction" ng-click="flagWeak(card)" name="button">👎 Weak ({{card.stats.flags.weakness}})</button>
+				<button type="button" class="pure-button cardInteraction" ng-click="flagImportant(card)" name="button">❕ Important ({{card.stats.flags.important}})</button>
+			</div>
 		</div>
 	</div>
 </section>
