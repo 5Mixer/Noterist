@@ -1,20 +1,47 @@
 <div class="home">
-</div>
-<div class="homepanel">
-	<h1>Biology Study</h1><br>
+	<div class="homepanel">
+		<h1>Happy studying, {{user.name}}</h1><br>
+		<p class="quote">
+			"{{quotes[quoteIndex].quote}}"<br>
+			<i>{{quotes[quoteIndex].author}}</i>
+		</p>
 
-	<div class="homebuttons">
-		<a class="homebutton" ui-sref="test">Test <i class="fa fa-lightbulb"></i></a>
-		<a class="homebutton" ui-sref="glossary">Glossary <i class="fa fa-book"></i></a>
-		<a class="homebutton" ui-sref="cards">Cards <i class="fa fa-list-alt"></i></a>
-		<a class="homebutton" ui-sref="studysheets">Study Sheets <i class="fa fa-file-alt"></i></a>
-		<a class="homebutton" ui-sref="improve">Improve <i class="fa fas fa-chart-line"></i></a>
-		<a class="homebutton" ui-sref="listen">Listen <i class="fa fa-file-video"></i></a>
-	</div>
-	<input placeholder="Search" class="mastersearch" name="search" type="text" ng-model="search"><br>
-	<div class="">
-		<div class="cardSearchItem" ng-repeat="card in databaseItems.cards | filter:searchFilter | limitTo:10 ">
-			<span ng-click="openCard(card)">{{card.title}}</span>
+		<div class="homebuttons">
+			<a class="homebutton" ui-sref="test">Test <i class="fa fa-lightbulb"></i></a>
+			<a class="homebutton" ui-sref="glossary">Glossary <i class="fa fa-book"></i></a>
+			<a class="homebutton" ui-sref="cards">Cards <i class="fa fa-list-alt"></i></a>
+			<a class="homebutton" ui-sref="studysheets">Study Sheets <i class="fa fa-file-alt"></i></a>
+			<a class="homebutton" ui-sref="improve">Improve <i class="fa fas fa-chart-line"></i></a>
+			<a class="homebutton" ui-sref="listen">Listen <i class="fa fa-file-video"></i></a>
 		</div>
+		<input placeholder="Search" class="mastersearch" name="search" type="text" ng-model="search"><br>
+		<div class="">
+			<div class="cardSearchItem" ng-repeat="card in databaseItems.cards | filter:searchFilter | limitTo:10 ">
+				<span ng-click="openCard(card)">{{card.title}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="sidepanel">
+		<div class="homesidepanel">
+				<span class="panelTitle">Random Glossary Term</span>
+				<span class="panelContents">{{databaseItems.glossary[glossaryIndex].term}}</span>
+				<!-- <span class="answer">{{databaseItems.glossary[glossaryIndex].definition}}</span> -->
+		</div>
+		<div class="">
+			<div class="homesidepanel">
+				<span class="panelTitle">Cards</span>
+				<span class="panelContents">{{databaseItems.cards.length}}</span>
+			</div>
+			<div class="homesidepanel">
+				<span class="panelTitle">Study Pages</span>
+				<span class="panelContents">{{databaseItems.studysheets.length}}</span>
+			</div>
+			<div class="homesidepanel">
+				<span class="panelTitle">Glossary Terms</span>
+				<span class="panelContents">{{databaseItems.glossary.length}}</span>
+			</div>
+
+		</div>
+
 	</div>
 </div>

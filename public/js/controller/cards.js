@@ -31,7 +31,7 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 	}
 
 	database.get().then(function(db){
-		$scope.cards = db.cards
+		$scope.cards = db.notes.cards
 		$scope.$apply();
 	})
 

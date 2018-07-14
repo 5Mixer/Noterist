@@ -38,7 +38,7 @@ module.exports = function (db) {
 		var id = shortid.generate()
 		var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), description: req.body.description, id: id}
 		card.uploadedAt = Date.now()
-		db.get("cards").push(card).write()
+		db.get("notes").get("cards").push(card).write()
 
 		res.json(card)
 	});
@@ -48,14 +48,14 @@ module.exports = function (db) {
 		console.log("Deleting card. (Title: "+card.title+")")
 
 		// Searching/deleting based off the full card object seems to fail, probably due to difference in representation of image.
-		db.get("cards").remove({id: card.id}).write()
+		db.get("notes").get("cards").remove({id: card.id}).write()
 		res.sendStatus(200);
 	})
 	router.patch('/', function (req,res) {
 		var card = req.body
 		console.log("Updating card. (Title: "+card.title+")")
 		console.log(card)
-		db.get("cards").find({id:card.id}).assign(card).write()
+		db.get("notes").get("cards").find({id:card.id}).assign(card).write()
 		res.sendStatus(200);
 	})
 

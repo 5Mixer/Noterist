@@ -12,7 +12,7 @@ module.exports = function (db) {
 		var id = shortid.generate()
 		var glossaryItem = {term: req.body.term, definition: req.body.definition, id: id}
 		glossaryItem.uploadedAt = Date.now()
-		db.get("glossary").push(glossaryItem).write()
+		db.get("notes").get("glossary").push(glossaryItem).write()
 
 		res.json(glossaryItem)
 	});
@@ -21,13 +21,13 @@ module.exports = function (db) {
 		var glossaryItem = req.body
 		console.log("Deleting glossary item. (Title: "+glossaryItem.term+")")
 
-		db.get("glossary").remove({id: glossaryItem.id}).write()
+		db.get("notes").get("glossary").remove({id: glossaryItem.id}).write()
 		res.sendStatus(200);
 	})
 	router.patch('/', function (req,res) {
 		var glossaryItem = req.body
 		console.log("Updating glossary item. (Term: "+glossaryItem.term+")")
-		db.get("glossary").find({id:glossaryItem.id}).assign(glossaryItem).write()
+		db.get("notes").get("glossary").find({id:glossaryItem.id}).assign(glossaryItem).write()
 		res.sendStatus(200);
 	})
 

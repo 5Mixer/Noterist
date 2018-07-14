@@ -69,7 +69,7 @@ app.controller("improve", function($scope,$http,$stateParams,header,database) {
 	}
 
 	database.get().then(function(db){
-		$scope.cards = db.cards
+		$scope.cards = db.notes.cards
 		var numberOfPresentedCards = 6;
 		var sortedCards = _.sortBy(db.cards,function (card){
 			// The magic function that calculated how much something should be shown.

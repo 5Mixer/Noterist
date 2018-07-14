@@ -30,7 +30,7 @@ for (var i = 0; i < cards.length; i++){
 }
 db.get("cards").merge(cards).write();
 cards = undefined;
-var terms = db.get("glossary").value();
+var terms = db.get("notes").get("glossary").value();
 for (var i = 0; i < terms.length; i++){
 	if (terms[i].id == undefined)
 		terms[i].id = shortid.generate();

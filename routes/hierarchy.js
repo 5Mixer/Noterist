@@ -7,7 +7,7 @@ var db = undefined;
 
 module.exports = function (db) {
 	router.patch('/', function (req,res) {
-		db.get("hierarchy").assign(req.body).write()
+		db.get("notes").get("hierarchy").assign(req.body).write()
 		res.sendStatus(200)
 	})
 

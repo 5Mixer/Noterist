@@ -40,7 +40,7 @@ app.controller("glossary", function($scope,$http,database) {
 
 	$scope.terms = []
 	database.get().then(function(db){
-		$scope.terms = db.glossary
+		$scope.terms = db.notes.glossary
 		$scope.$apply();
 	})
 

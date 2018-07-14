@@ -355,8 +355,8 @@ app.controller("studysheets", function($scope,$http,database) {
 	$scope.studysheets = []
 
 	database.get().then(function(db){
-		$scope.studysheets = db.studysheets
-		$scope.hierarchy = db.hierarchy
+		$scope.studysheets = db.notes.studysheets
+		$scope.hierarchy = db.notes.hierarchy
 		$scope.$apply();
 	})
 

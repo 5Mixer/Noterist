@@ -11,7 +11,7 @@ module.exports = function (db) {
 	var clearTextHtml = false;
 	var writeImages = false;
 
-	var studysheets = db.get("studysheets").value()
+	var studysheets = db.get("notes").get("studysheets").value()
 	for (var i = 0; i < studysheets.length; i++){
 		for (var p = 0; p < studysheets[i].pages.length; p++){
 			var page = studysheets[i].pages[p]
@@ -56,8 +56,7 @@ module.exports = function (db) {
 		}
 	}
 	setTimeout(function(){
-		console.log("saving")
-		db.set("studysheets",studysheets).write()
+		db.get("notes").set("studysheets",studysheets).write()
 
 	},2000)
 
@@ -68,7 +67,7 @@ module.exports = function (db) {
 		// var id = shortid.generate()
 
 		var studysheet = {title: req.body.title, tags: req.body.tags, pages:req.body.pages, id: req.body.id}
-		db.get("studysheets").push(studysheet).write()
+		db.get("notes").get("studysheets").push(studysheet).write()
 
 		res.sendStatus(200)
 	});
@@ -77,11 +76,10 @@ module.exports = function (db) {
 		// NOTE: Deletions have no data in req.body except an array of sheet id's! Do not look for other data.
 		console.log("Deleting studysheet/s. "+req.body.sheets)
 
-		db.get("studysheets").remove(function(studysheet){ return req.body.sheets.indexOf(studysheet.id) != -1}).write()
+		db.get("notes").get("studysheets").remove(function(studysheet){ return req.body.sheets.indexOf(studysheet.id) != -1}).write()
 		res.sendStatus(200)
 	})
 	router.patch('/', function (req,res) {
-		console.log("Updating studysheet")
 		// For images?
 		// var base64Data = req.body.file.replace(/^data:([A-Za-z-+/]+);base64,/, '');
 
@@ -114,12 +112,12 @@ module.exports = function (db) {
 						console.log(this.imgpath)
 						console.log(op)
 					}.bind({imgpath:imgpath, op:op, qtext:page.qtext}));
-					db.get("studysheets").find({id:studysheet.id}).assign(studysheet).write()
+					db.get("notes").get("studysheets").find({id:studysheet.id}).assign(studysheet).write()
 				}
 			}
 		}
 
-		db.get("studysheets").find({id:studysheet.id}).assign(studysheet).write()
+		db.get("notes").get("studysheets").find({id:studysheet.id}).assign(studysheet).write()
 		res.sendStatus(200)
 	})
 

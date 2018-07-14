@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
+const print = require('gulp-print').default;
 
 gulp.task('stream', function () {
 	console.log("Gulp is watching for changes and working when required.")
@@ -26,14 +27,16 @@ gulp.task('pack-js', function () {
 	var allJS = ['./public/js/*.js'];
 
 	return gulp.src(jsFiles)
+		.pipe(print())
 		.pipe(concat('bundle.js'))
 		.pipe(gulp.dest('./public/bundles/'));
 });
 
 gulp.task('pack-css', function () {
-	return gulp.src(['./public/css/*.css'])
-		.pipe(concat('stylesheet.css'))
-		.pipe(gulp.dest('./public/bundles'));
+	return gulp.src(['./public/css/*.css',"!public/bundles/**"])
+		.pipe(print())
+		.pipe(concat({path:'stylesheet.css'}))
+		.pipe(gulp.dest('./public/bundles'))
 });
 
 gulp.task('default', ['pack-js', 'pack-css']);
