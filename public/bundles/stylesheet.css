@@ -91,6 +91,8 @@ header,.header {
 
 	margin-bottom: 20px;
 	margin-right: 20px;
+	
+	cursor: pointer;
 
 	/* width: 200px; */
 }
@@ -138,7 +140,7 @@ header,.header {
 
 	/* background-color: rgb(244, 239, 239); */
 	/* background: url(../resources/rnapolymerase.jpg) no-repeat center center fixed; */
-	background: url('../resources/pink dust.png') center center fixed;
+	background: url('../resources/diamond_upholstery.png') center center fixed;
 
 	/* -webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -174,7 +176,6 @@ header,.header {
 	cursor: pointer;
 
 	box-sizing: border-box;
-
 
 	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
