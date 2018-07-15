@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "gulp-print": "^5.0.0",
     "gulp-watch": "^5.0.0",
     "lowdb": "^1.0.0",
     "multer": "^1.3.0",

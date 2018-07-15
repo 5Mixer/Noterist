@@ -10,6 +10,10 @@ var icons = {
 	"listen":"file-video"
 }
 
+app.filter('encodeURIComponent', function() {
+	return window.encodeURIComponent;
+});
+
 app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $locationProvider) {
 	$locationProvider.hashPrefix(''); //Remove ! in url.
 	// $locationProvider.html5Mode(true);

@@ -17,11 +17,12 @@
 	<div class="card" ng-repeat="card in (filteredCards = (cards | filter:searchFilter))">
 		<input id="{{::$id}} toggle" class="toggle" type="checkbox">
 		<label ng-hide="card.beingEdited" class="toggleBtn" for="{{::$id}} toggle" class="toggle"></label>
+
 		<div id="front">
 			<picture>
-				<source class="cardimg" srcset="compressedwebp/{{card.img.split('.')[0]}}.webp"  type='image/webp'>
-				<source class="cardimg" srcset="compressedjpg/{{card.img.split('.')[0]}}.jpg" type='image/jpeg'>
-				<img class="cardimg" src="compressedjpg/{{card.img}}" alt="">
+				<source class="cardimg" ng-srcset="{{('compressedwebp/'+card.img.split('.')[0]+'.webp') | encodeURIComponent}}" type='image/webp'>
+				<source class="cardimg" ng-srcset="{{encodeURI('compressedjpg/'+card.img.split('.')[0]+'.jpg')}}" type='image/jpeg'>
+				<img class="cardimg" ng-src="compressedjpg/{{card.img}}" alt="">
 				<!-- <img class="cardimg" src="cards/{{card.img}}" alt=""> -->
 			</picture>
 		</div>
