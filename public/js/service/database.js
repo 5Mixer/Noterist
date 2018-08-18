@@ -1,5 +1,15 @@
 app.service('database',function($http){
 	var database = undefined
+	this.getCards = function () {
+		return new Promise(function(resolve, reject) {
+			$http({
+				method: 'GET',
+				url: '/cards'
+			}).then(function (response){
+				resolve (response.data)
+			})
+		})
+	}
 	this.get = function (){
 		return new Promise(function(resolve, reject) {
 			if (database != {} && database != undefined){

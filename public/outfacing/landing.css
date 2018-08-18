@@ -1,0 +1,57 @@
+section {
+  width: 100%;
+  padding: 3em;
+  background-color: rgb(252, 251, 252);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+h1 {
+    /* text-shadow: 2px 2px rgb(236, 234, 17); */
+    font-size: 3em;
+    /*background-color: rgb(250, 255, 22);*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline;
+    line-height: 1.5em;
+
+
+  /*box-shadow: 10px 0 0 rgb(250, 255, 22), -10px 0 0 rgb(250, 255, 22);*/
+}
+
+.topSection {
+  background: #2BC0E4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: rgb(38, 37, 37);
+
+  background: url(bg.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.registerInterest {
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 2px;
+  display: inline-block;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 5px;
+}
+
+.panel {
+  width: 50%;
+}
+
+.signup {
+  font-weight: bold;
+  font-size: 1.3em;
+  padding: 5px;
+  color: rgb(250, 242, 242);
+  background-color: rgb(68, 63, 63);
+  margin-bottom: 5px;
+  display: inline-block;
+}

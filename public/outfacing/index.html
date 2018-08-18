@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Noterist</title>
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+		<link rel="stylesheet" href="./landing.css">
+	</head>
+	<body ng-app="">
+    <section class="topSection">
+      <div class="panel">
+        <h1>Study smarter with noterist.</h1>
+        <h2>Store and search notes, cards, definitions and more.</h2>
+      </div>
+
+      <form class="registerInterest pure-form pure-form-stacked">
+        <fieldset>
+            <span class='signup'>Sign up</span>
+
+            <input id="email" type="email" placeholder="Email">
+            <!-- <span class="pure-form-message">This is a required field.</span> -->
+
+            <input id="password" type="password" placeholder="Password">
+
+            <button type="submit" class="pure-button pure-button-primary">Sign up</button>
+        </fieldset>
+      </form>
+
+      <form class="registerInterest pure-form pure-form-stacked">
+        <fieldset>
+            <span class='signup'>Login</span>
+
+            <input id="email" type="email" placeholder="Email">
+            <!-- <span class="pure-form-message">This is a required field.</span> -->
+
+            <input id="password" type="password" placeholder="Password">
+
+
+            <label for="remember" class="pure-checkbox">
+                <input id="remember" type="checkbox"> Remember me
+            </label>
+
+            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+        </fieldset>
+      </form>
+    </section>
+    <section>
+      <div class="panel">
+        <h2>Noterist is a tool that stores images of your notes, so you can access them anywhere.</h2>
+        <p>
+          Use your phone to snap a photo of your notes, give it a quick tag and description. Now, on any device, a simple search on noterist will show those notes, wherever you are.
+          <ul>
+            <li>Don't leave revision to the night before exams, with a continous improvement system that tracks your progress.</li>
+            <li>Make sure you study the right stuff by using the study design in an effective manner.</li>
+            <li>Create study documents with embedded videos and text formatting.</li>
+          </ul>
+        </p>
+
+      </div>
+    </section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+	</body>
+</html>

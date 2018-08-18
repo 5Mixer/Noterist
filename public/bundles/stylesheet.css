@@ -1,3 +1,40 @@
+.glossaryCard {
+	/* width: calc(50% - 200px); */
+	width: 500px;
+	/* width: 40%; */
+	margin: 100px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: rgb(252, 252, 250);
+	box-sizing: border-box;
+
+	line-height: 1.6em;
+	display: block;
+	vertical-align: top;
+
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
+}
+.glossaryTerm {
+	color: rgb(246, 246, 246);
+	background-color: rgb(62, 66, 66);
+	padding: 4px;
+	font-weight: bold;
+}
+.glossaryDefinition {
+	color: rgb(26, 28, 29);
+}
+.termButton {
+	display: none;
+}
+.glossaryCard:hover>.termButton{
+	display: inline-block;
+}
+.termDelete {
+	border-radius: 2px;
+	background-color: rgb(224, 70, 49);
+}
+
 header {
 	width: 100%;
 	padding: 1em;
@@ -199,6 +236,47 @@ header,.header {
 .homebutton:hover {
 	/* border-bottom: rgb(233, 231, 90) 80px solid; */
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.improveInfo {
+	width: calc(100% - 240px);
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(243, 244, 239);
+	margin: 80px;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+#improveGraph {
+	max-width: 100%;
+}
+.improveWorkbench {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	/* padding-left: 40px; */
+
+	background-color: rgb(228, 227, 194);
+	background-repeat: repeat;
+}
+.cardResponses {
+	height: 20px;
+	z-index: 10;
+	vertical-align:bottom;
+	margin-left: 20px;
+	position: absolute;
+	bottom: 50px;
+}
+.cardInteraction{
+	margin-top: 15px;
+	z-index: 50;
+}
+.improveCard {
+	/* margin-bottom: 100px; */
+	padding-bottom: 60px;
+	max-height: none;
 }
 
 .right {
@@ -466,84 +544,6 @@ tr.angular-ui-tree-empty {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-.improveInfo {
-	width: calc(100% - 240px);
-	height: 100%;
-	min-height: 100%;
-	/* padding-left: 40px; */
-
-	background-color: rgb(243, 244, 239);
-	margin: 80px;
-	padding: 10px;
-	margin-bottom: 40px;
-}
-#improveGraph {
-	max-width: 100%;
-}
-.improveWorkbench {
-	width: 100%;
-	height: 100%;
-	min-height: 100%;
-	/* padding-left: 40px; */
-
-	background-color: rgb(228, 227, 194);
-	background-repeat: repeat;
-}
-.cardResponses {
-	height: 20px;
-	z-index: 10;
-	vertical-align:bottom;
-	margin-left: 20px;
-	position: absolute;
-	bottom: 50px;
-}
-.cardInteraction{
-	margin-top: 15px;
-	z-index: 50;
-}
-.improveCard {
-	/* margin-bottom: 100px; */
-	padding-bottom: 60px;
-	max-height: none;
-}
-
-.glossaryCard {
-	/* width: calc(50% - 200px); */
-	width: 500px;
-	/* width: 40%; */
-	margin: 100px;
-	margin-top: 0px;
-	margin-bottom: 20px;
-	padding: 15px;
-	background-color: rgb(252, 252, 250);
-	box-sizing: border-box;
-
-	line-height: 1.6em;
-	display: block;
-	vertical-align: top;
-
-	box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24);
-}
-.glossaryTerm {
-	color: rgb(246, 246, 246);
-	background-color: rgb(62, 66, 66);
-	padding: 4px;
-	font-weight: bold;
-}
-.glossaryDefinition {
-	color: rgb(26, 28, 29);
-}
-.termButton {
-	display: none;
-}
-.glossaryCard:hover>.termButton{
-	display: inline-block;
-}
-.termDelete {
-	border-radius: 2px;
-	background-color: rgb(224, 70, 49);
 }
 
 /* Includes styles for the background, cards, and anything related to the general panning area. */

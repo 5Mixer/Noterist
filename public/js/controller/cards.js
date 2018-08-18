@@ -14,7 +14,7 @@ function Card(){
 }
 app.controller("cards", function($scope,$http,$stateParams,header,database) {
 	$scope.cards = []
-
+	
 	//Load any search from the url.
 	setTimeout(function(){
 		$scope.$watch(function(){return $scope.filteredCards.length},function (a){
@@ -30,9 +30,13 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 		$scope.newCardDialogOpen = !$scope.newCardDialogOpen
 	}
 
-	database.get().then(function(db){
-		$scope.cards = db.notes.cards
+	database.getCards().then(function(cards){
+		console.log("Got cards")
+		$scope.cards = cards
+		console.log($scope.cards)
 		$scope.$apply();
+	},function (err){
+		console.log(err)
 	})
 
 	$scope.newcard = new Card()
