@@ -1,6 +1,6 @@
-app.controller("home", function($scope,$http,$state,header,database) {
+app.controller("home", function($scope,$http,$state,header,database,Account) {
 	$scope.databaseItems = {}
-	$scope.user = {}
+	$scope.user = Account.getAccount()
 	$scope.quotes = [
 		{
 			quote : "Start where you are. Use what you have. Do what you can. ",
@@ -48,13 +48,17 @@ app.controller("home", function($scope,$http,$state,header,database) {
 		}
 	]
 	$scope.quoteIndex = Math.floor(Math.random()*$scope.quotes.length)
-	database.get().then(function(db){
+/*	database.get().then(function(db){
 		$scope.databaseItems = db.notes;
 		$scope.glossaryIndex = Math.floor(Math.random()*db.notes.glossary.length)
 		$scope.user = db.user
 		$scope.$apply()
-	})
+	})*/
 	$scope.search = ""
+
+	$scope.logout = function () {
+		Account.logout()
+	}
 
 	$scope.openCard = function(card){
 		$state.go("cards",{search:"#"+card.id})

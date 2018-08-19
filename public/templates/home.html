@@ -1,6 +1,7 @@
 <div class="home">
 	<div class="homepanel">
-		<h1>Happy studying, {{user.name}}</h1><br>
+		<h1>Happy studying</h1><br>
+		<button ng-click="logout()">Logout</button> {{user.email}}<br>
 		<p class="quote">
 			"{{quotes[quoteIndex].quote}}"<br>
 			<i>{{quotes[quoteIndex].author}}</i>

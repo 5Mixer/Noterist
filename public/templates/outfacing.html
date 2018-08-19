@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>Noterist</title>
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-		<link rel="stylesheet" href="./landing.css">
-	</head>
-	<body ng-app="">
     <section class="topSection">
       <div class="panel">
-        <h1>Study smarter with noterist.</h1>
+        <h1>Study with noterist.</h1>
         <h2>Store and search notes, cards, definitions and more.</h2>
       </div>
 
@@ -17,12 +8,12 @@
         <fieldset>
             <span class='signup'>Sign up</span>
 
-            <input id="email" type="email" placeholder="Email">
+            <input id="email" type="email" ng-model="signupUser.email" placeholder="Email">
             <!-- <span class="pure-form-message">This is a required field.</span> -->
 
-            <input id="password" type="password" placeholder="Password">
+            <input id="password" type="password" ng-model="signupUser.password" placeholder="Password">
 
-            <button type="submit" class="pure-button pure-button-primary">Sign up</button>
+            <button class="pure-button pure-button-primary" ng-click="signup()">Sign up</button>
         </fieldset>
       </form>
 
@@ -30,17 +21,12 @@
         <fieldset>
             <span class='signup'>Login</span>
 
-            <input id="email" type="email" placeholder="Email">
+            <input id="email" type="email" placeholder="Email" ng-model="loginUser.email">
             <!-- <span class="pure-form-message">This is a required field.</span> -->
 
-            <input id="password" type="password" placeholder="Password">
+            <input id="password" type="password" placeholder="Password" ng-model="loginUser.password">
 
-
-            <label for="remember" class="pure-checkbox">
-                <input id="remember" type="checkbox"> Remember me
-            </label>
-
-            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+            <button ng-click="signin()" class="pure-button pure-button-primary">Sign in</button>
         </fieldset>
       </form>
     </section>
@@ -58,7 +44,3 @@
 
       </div>
     </section>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
-	</body>
-</html>

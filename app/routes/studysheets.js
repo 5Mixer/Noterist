@@ -59,7 +59,10 @@ module.exports = function (db) {
 		db.get("notes").set("studysheets",studysheets).write()
 
 	},2000)
+	
+	router.get("/", function (req,res) {
 
+	})
 
 	router.post('/', function (req, res) {
 		console.log("Adding studysheet. (Title: "+req.body.title+")")

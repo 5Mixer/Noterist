@@ -29,31 +29,35 @@
 	</head>
 	<body>
 		<div ng-app="studycloud" ng-controller="core">
+			<div ng-cloak>
+				<header ng-show="$state.current.name!='anon'" ng-cloak>
+					<span class="standardHeader header"><i class="fa fas {{stateIcon}}"></i> {{capitalizeFirstLetter($state.current.name)}}
 
-			<header ng-cloak>
-				<span class="standardHeader header"><i class="fa fas {{stateIcon}}"></i> {{capitalizeFirstLetter($state.current.name)}}
+						<div class="icon-bar">
+							<a ui-sref-active="active" ui-sref="home"><i class="fa fa-home"></i> Home</a>
+							<a ui-sref-active="active" ui-sref="test"><i class="fa fa-lightbulb"></i> Test</a>
+							<a ui-sref-active="active" ui-sref="glossary"><i class="fa fa-book"></i> Glossary</a>
+							<a ui-sref-active="active" ui-sref="cards"><i class="fa fa-list-alt"></i> Cards</a>
+							<a ui-sref-active="active" ui-sref="studysheets"><i class="fa fa-file-alt"></i> Study Sheets</a>
+							<a ui-sref-active="active" ui-sref="improve"><i class="fa fas fa-chart-line"></i> Improve</a>
+							<a ui-sref-active="active" ui-sref="listen"><i class="fa fa-file-video"></i> Listen</a>
+						</div>
 
-					<div class="icon-bar">
-						<a ui-sref-active="active" ui-sref="home"><i class="fa fa-home"></i> Home</a>
-						<a ui-sref-active="active" ui-sref="test"><i class="fa fa-lightbulb"></i> Test</a>
-						<a ui-sref-active="active" ui-sref="glossary"><i class="fa fa-book"></i> Glossary</a>
-						<a ui-sref-active="active" ui-sref="cards"><i class="fa fa-list-alt"></i> Cards</a>
-						<a ui-sref-active="active" ui-sref="studysheets"><i class="fa fa-file-alt"></i> Study Sheets</a>
-						<a ui-sref-active="active" ui-sref="improve"><i class="fa fas fa-chart-line"></i> Improve</a>
-						<a ui-sref-active="active" ui-sref="listen"><i class="fa fa-file-video"></i> Listen</a>
-					</div>
-
-				</span>
-				<span class="header" ui-view="header"></span>
-			</header>
-			<div ui-view="content" ng-cloak></div>
+					</span>
+					<span class="header" ui-view="header"></span>
+				</header>
+				<div ui-view="content" ></div>
+			</div>
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
+
+
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 		<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-cookies.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-tree/2.22.6/angular-ui-tree.js"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>

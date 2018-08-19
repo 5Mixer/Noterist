@@ -1,4 +1,4 @@
-var app = angular.module("studycloud", ["ngQuill", "ui.router","ui.tree"]);
+var app = angular.module("studycloud", ["ngQuill", "ui.router","ui.tree", "ngCookies"]);
 
 var icons = {
 	"home":"home",
@@ -44,13 +44,38 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 		}
 	});
 
+	$stateProvider.state('direct',{
+		controller: function($scope,$state,Account) {
+			if (Account.isLoggedIn()){
+				$state.go('home');
+			}else{
+				$state.go('anon');
+			}
+		}
+	})
+
 	$stateProvider
+	.state("anon", {
+		views: { 'content' : { templateUrl: "templates/outfacing.html", controller: "outfacing"}},
+		data: {
+			secure: false
+		}
+	})
+	/*.state("user", {
+		abstract: true,
+		data: {
+			secure: true 
+		}
+	})*/
 	.state("home", {
 		url: "/",
 		views: { 'content' : { templateUrl : "templates/home.html", controller: "home" } },
-
+		data: {
+			secure: true 
+		}
 	})
-	.state("test", {
+	
+/*	.state("test", {
 		url: "/test",
 		views: { 'content' : { templateUrl : "templates/test.html" } }
 	})
@@ -58,37 +83,40 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 		url: "/glossary",
 		views: { 'content' : { templateUrl : "templates/glossary.html",controller: "glossary" } },
 
-	})
+	})*/
 	.state("cards", {
 		url: "/cards?search&id",
 		views: {
 			'header' : { templateUrl: "templates/cardHeader.html", controller: "cardHeader"},
 			'content': { templateUrl : "templates/cards.html", controller: "cards"}
+		},
+		data: {
+			secure: true 
 		}
 	})
 	.state("studysheets", {
 		url: "/studysheets",
-		views: { 'content' : { templateUrl : "templates/studysheets.html", controller: "studysheets" } }
+		views: { 'content' : { templateUrl : "templates/studysheets.html", controller: "studysheets" } },
+		data: {
+			secure: true 
+		}
 	})
-	.state("improve", {
+	/*.state("user.improve", {
 		url: "/improve",
 		views: { 'content' : { templateUrl : "templates/improve.html", controller: "improve" } },
-	})
+	})/*
 	.state("listen", {
 		url: "/listen",
 		views: { 'content' : { templateUrl : "templates/listen.html" } }
-	})
+	})*/
 	$urlRouterProvider.otherwise('/');
 });
 
 app.run(function($rootScope, $state, $stateParams) {
 	$rootScope.$on("$locationChangeStart", function(event, next, current) {
-		// handle route changes
-		console.log("State change "+$state.current.name)
 		$rootScope.stateIcon = "fa-" + icons[$state.current.name]
 		$rootScope.$state = $state;
 		$rootScope.$stateParams = $stateParams;
-
 	});
 
 });

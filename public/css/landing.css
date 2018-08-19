@@ -26,8 +26,8 @@ h1 {
 
   color: rgb(38, 37, 37);
 
-  background: url(bg.jpg) no-repeat center center;
-  -webkit-background-size: cover;
+  /*background: url(bg.jpg) no-repeat center center;
+  */-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;

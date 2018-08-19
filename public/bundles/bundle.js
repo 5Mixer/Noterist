@@ -1,4 +1,4 @@
-var app = angular.module("studycloud", ["ngQuill", "ui.router","ui.tree"]);
+var app = angular.module("studycloud", ["ngQuill", "ui.router","ui.tree", "ngCookies"]);
 
 var icons = {
 	"home":"home",
@@ -44,13 +44,38 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 		}
 	});
 
+	$stateProvider.state('direct',{
+		controller: function($scope,$state,Account) {
+			if (Account.isLoggedIn()){
+				$state.go('home');
+			}else{
+				$state.go('anon');
+			}
+		}
+	})
+
 	$stateProvider
+	.state("anon", {
+		views: { 'content' : { templateUrl: "templates/outfacing.html", controller: "outfacing"}},
+		data: {
+			secure: false
+		}
+	})
+	/*.state("user", {
+		abstract: true,
+		data: {
+			secure: true 
+		}
+	})*/
 	.state("home", {
 		url: "/",
 		views: { 'content' : { templateUrl : "templates/home.html", controller: "home" } },
-
+		data: {
+			secure: true 
+		}
 	})
-	.state("test", {
+	
+/*	.state("test", {
 		url: "/test",
 		views: { 'content' : { templateUrl : "templates/test.html" } }
 	})
@@ -58,37 +83,40 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 		url: "/glossary",
 		views: { 'content' : { templateUrl : "templates/glossary.html",controller: "glossary" } },
 
-	})
+	})*/
 	.state("cards", {
 		url: "/cards?search&id",
 		views: {
 			'header' : { templateUrl: "templates/cardHeader.html", controller: "cardHeader"},
 			'content': { templateUrl : "templates/cards.html", controller: "cards"}
+		},
+		data: {
+			secure: true 
 		}
 	})
 	.state("studysheets", {
 		url: "/studysheets",
-		views: { 'content' : { templateUrl : "templates/studysheets.html", controller: "studysheets" } }
+		views: { 'content' : { templateUrl : "templates/studysheets.html", controller: "studysheets" } },
+		data: {
+			secure: true 
+		}
 	})
-	.state("improve", {
+	/*.state("user.improve", {
 		url: "/improve",
 		views: { 'content' : { templateUrl : "templates/improve.html", controller: "improve" } },
-	})
+	})/*
 	.state("listen", {
 		url: "/listen",
 		views: { 'content' : { templateUrl : "templates/listen.html" } }
-	})
+	})*/
 	$urlRouterProvider.otherwise('/');
 });
 
 app.run(function($rootScope, $state, $stateParams) {
 	$rootScope.$on("$locationChangeStart", function(event, next, current) {
-		// handle route changes
-		console.log("State change "+$state.current.name)
 		$rootScope.stateIcon = "fa-" + icons[$state.current.name]
 		$rootScope.$state = $state;
 		$rootScope.$stateParams = $stateParams;
-
 	});
 
 });
@@ -117,17 +145,29 @@ app.directive("fileread", [function () {
 
 app.service('database',function($http){
 	var database = undefined
+	
 	this.getCards = function () {
 		return new Promise(function(resolve, reject) {
 			$http({
 				method: 'GET',
 				url: '/cards'
 			}).then(function (response){
+				console.log(response.data)
 				resolve (response.data)
 			})
 		})
 	}
-	this.get = function (){
+	this.getStudysheets = function () {
+		return new Promise(function(resolve, reject) {
+			$http({
+				method: 'GET',
+				url: '/studysheets'
+			}).then(function (response){
+				resolve (response.data)
+			})
+		})
+	}
+	/*this.get = function (){
 		return new Promise(function(resolve, reject) {
 			if (database != {} && database != undefined){
 				console.log(database)
@@ -157,7 +197,116 @@ app.service('database',function($http){
 				})
 			}
 		});
-	}
+	}*/
+});
+
+app.factory('Account', function($state,$http, $rootScope, $cookies) {
+
+    //This function doesn't rely on (potentially old) cookies, it just asks the server
+    //if this session is currently authorised, allowing for cases such as the server
+    //being restarted (and thus lost sessions)
+    function isLoggedInCheck (){
+        $http.get('/user').then(function(response){
+            var data = response.data;
+            return data.secure;
+        })
+    }
+
+    currentUser = $cookies.getObject('user') || { email: '', secure: false };
+
+
+
+    var cookieExpireDate = new Date();
+    cookieExpireDate.setDate(cookieExpireDate.getDate() + 1);
+
+    return {
+        user: currentUser,
+
+        getAccount: function (){
+            console.log("Got account");
+            if ($cookies.getObject('user') != undefined){
+                return $cookies.getObject('user')
+            }else{
+                return { email: '', secure: false };
+            }
+        },
+
+        isLoggedIn : function (){
+            return ($cookies.getObject('user') != undefined) ? $cookies.getObject('user').secure : false;
+        },
+        logout: function(success, error) {
+            $cookies.remove('user');
+            this.user = {
+                email: '',
+                secure:false
+            };
+            $cookies.putObject('user',this.user);
+            $state.go('anon');
+        },
+
+
+        login : function(user) {
+            return $http.post('/login', user).then(function(_user){
+                console.log("Login post returned "+JSON.stringify(user))
+                this.user = _user.data;
+                $cookies.putObject('user',this.user,{'expires':cookieExpireDate});
+                console.log("Login Worked "+$cookies.get('user'));
+                $state.go('home');
+            },function(e){
+                console.log("Login failed "+e);
+            });
+        },
+
+        signup : function(user) {
+            return $http.post('/signup', user).then(function(user){
+                this.user = user;
+                $cookies.putObject('user',this.user);
+                console.log("Signup Worked "+JSON.stringify(this.user));
+                $state.go('home');
+            },function(e){
+                console.log("Signup failed "+e);
+            });
+        }
+    }
+
+})
+app.run(function ($state,$rootScope, $transitions, $location, Account) {
+
+	$transitions.onStart({ to: function(state){
+		return state.data != null && state.data.secure
+	}}, function(trans) {
+		var auth = trans.injector().get('Account');
+		if (auth.isLoggedIn() == false) {
+			// User isn't authenticated. Redirect to a new Target State
+            $location.path('/');
+			return trans.router.stateService.target('anon');
+		}
+	});
+
+/*
+    $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+	console.log("state change")
+		console.log("$stateChangeStart " + fromState.name + JSON.stringify(fromParams) + " -> " + toState.name + JSON.stringify(toParams));
+        if (toState.data == undefined){
+            console.log("Initial page load/No Secuirity specification.");
+            return;
+        }
+        console.log(toState);
+        console.log("Changing page. Next page is secure: "+toState.data.secure);
+
+        if (toState.data.secure == true && Account.isLoggedIn() == false) {
+            console.log("Redirecting to /login because account secure: "+Account.isLoggedIn()+" and next page secure:"+toState.data.secure);
+            event.preventDefault();
+            $location.path('/');
+            $state.go('anon');
+        }
+        if (toState.data.secure == false && Account.isLoggedIn() == true) {
+            console.log("Redirecting to / because account secure: "+Account.isLoggedIn()+" and next page secure:"+toState.data.secure);
+            event.preventDefault();
+            $state.go('user.home');
+            $location.path('/');
+        }
+    });*/
 });
 
 // Ah this file makes me cry. A complete hack to get the card header view talking to the card content view
@@ -168,17 +317,9 @@ app.factory('header',function(){
 	return this;
 });
 
-app.controller("core", function($scope,$http,header) {
-	$scope.capitalizeFirstLetter = function(string) {
-		if (string == undefined)
-			return ""
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
-});
-
-app.controller("home", function($scope,$http,$state,header,database) {
+app.controller("home", function($scope,$http,$state,header,database,Account) {
 	$scope.databaseItems = {}
-	$scope.user = {}
+	$scope.user = Account.getAccount()
 	$scope.quotes = [
 		{
 			quote : "Start where you are. Use what you have. Do what you can. ",
@@ -226,13 +367,17 @@ app.controller("home", function($scope,$http,$state,header,database) {
 		}
 	]
 	$scope.quoteIndex = Math.floor(Math.random()*$scope.quotes.length)
-	database.get().then(function(db){
+/*	database.get().then(function(db){
 		$scope.databaseItems = db.notes;
 		$scope.glossaryIndex = Math.floor(Math.random()*db.notes.glossary.length)
 		$scope.user = db.user
 		$scope.$apply()
-	})
+	})*/
 	$scope.search = ""
+
+	$scope.logout = function () {
+		Account.logout()
+	}
 
 	$scope.openCard = function(card){
 		$state.go("cards",{search:"#"+card.id})
@@ -259,6 +404,14 @@ app.controller("home", function($scope,$http,$state,header,database) {
 		}
 		return false;
 	};
+});
+
+app.controller("core", function($scope,$http,header) {
+	$scope.capitalizeFirstLetter = function(string) {
+		if (string == undefined)
+			return ""
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
 });
 
 app.controller("improve", function($scope,$http,$stateParams,header,database) {
@@ -721,9 +874,9 @@ app.controller("studysheets", function($scope,$http,database) {
 
 	$scope.studysheets = []
 
-	database.get().then(function(db){
-		$scope.studysheets = db.notes.studysheets
-		$scope.hierarchy = db.notes.hierarchy
+	database.getStudysheets().then(function(studysheetData){
+		$scope.studysheets = studysheetData.studysheets
+		$scope.hierarchy = studysheetData.hierarchy
 		$scope.$apply();
 	})
 
@@ -798,13 +951,6 @@ app.controller("glossary", function($scope,$http,database) {
 	};
 })
 
-app.controller("cardHeader", function ($scope, header){
-	$scope.header = header
-	$scope.openNewCard = function (){
-		header.openNewCard()
-	}
-})
-
 function Card(){
 	this.title = "";
 	this.tags = ""
@@ -821,7 +967,6 @@ function Card(){
 }
 app.controller("cards", function($scope,$http,$stateParams,header,database) {
 	$scope.cards = []
-	
 	//Load any search from the url.
 	setTimeout(function(){
 		$scope.$watch(function(){return $scope.filteredCards.length},function (a){
@@ -927,4 +1072,33 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 		}
 		return false;
 	};
+})
+
+app.controller("cardHeader", function ($scope, header){
+	$scope.header = header
+	$scope.openNewCard = function (){
+		header.openNewCard()
+	}
+})
+
+app.controller("outfacing", function($scope,$http,$state, Account, header,database) {
+	$scope.databaseItems = {}
+	$scope.loginUser = {
+		email: "",
+		username: "",
+		password: ""
+	}
+	$scope.signupUser = {
+		email: "",
+		username: "",
+		password: ""
+	}
+	$scope.signup = function () {
+		Account.signup($scope.signupUser);
+		$scope.signupUser = {username:"",email:"",password:""};
+	}
+	$scope.signin = function () {
+		Account.login($scope.loginUser)
+		$scope.loginUser = {username:"",email:"",password:""}
+	}
 })

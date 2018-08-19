@@ -14,14 +14,16 @@ gulp.task('pack-js', function () {
 	var jsFiles = [
 		'./public/js/app.js',
 		'./public/js/service/database.js',
+		'./public/js/service/Account.js',
 		'./public/js/service/header.js',
-		'./public/js/controller/core.js',
 		'./public/js/controller/home.js',
+		'./public/js/controller/core.js',
 		'./public/js/controller/improve.js',
 		'./public/js/controller/studysheets.js',
 		'./public/js/controller/glossary.js',
+		'./public/js/controller/cards.js',
 		'./public/js/controller/cardHeader.js',
-		'./public/js/controller/cards.js'
+		'./public/js/controller/outfacing.js'
 	]
 
 	var allJS = ['./public/js/*.js'];

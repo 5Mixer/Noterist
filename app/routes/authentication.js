@@ -1,9 +1,25 @@
-var express = require("express")
-var router = express.Router()
-var bcrypt = require("bcrypt")
+var User = require("../models/user.js")
+module.exports = function (app,passport, db) {
+	app.post('/signup',passport.authenticate('local-signup'),function(req,res){
+		console.log("/signup post");
+		console.log(req.user)
+		if (req.user == undefined) next("err");
+		res.json(200, { "secure": true, "email": req.user.email});
+	});
 
-module.exports = function (db) {
-	Router.post("/signup", function (req, res) {
+	app.post('/login', passport.authenticate('local-login'),function(req,res){
+		console.log("/login post");
+		if (req.user == undefined) next("err");
+		res.json(200, { "secure": true, "email": req.user.email});
+	});
+
+
+	app.get('/logout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+	});
+	
+/*	Router.post("/signup", function (req, res) {
 		if (req.body.email &&
 			req.body.username &&
 			req.body.password) {
@@ -24,5 +40,5 @@ module.exports = function (db) {
 			})
 			
 		}
-	})
+	})*/
 }
