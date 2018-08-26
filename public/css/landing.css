@@ -1,14 +1,18 @@
+html {font-size: 1.3em;}
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
 section {
   width: 100%;
   padding: 3em;
   background-color: rgb(252, 251, 252);
-  min-height: 400px;
+  min-height: 600px;
   box-sizing: border-box;
 }
 
 h1 {
     /* text-shadow: 2px 2px rgb(236, 234, 17); */
-    font-size: 3em;
+	font-size: 6.854em;
     /*background-color: rgb(250, 255, 22);*/
     padding-top: 10px;
     padding-bottom: 10px;
@@ -19,12 +23,28 @@ h1 {
   /*box-shadow: 10px 0 0 rgb(250, 255, 22), -10px 0 0 rgb(250, 255, 22);*/
 }
 
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+	margin: 1.414em 0 0.5em;
+	font-weight: inherit;
+	line-height: 1.2;
+}
+
+  h2 {font-size: 4.236em;}
+
+  h3 {font-size: 2.618em;}
+
+  h4 {font-size: 1.618em;}
+
 .topSection {
   background: #2BC0E4;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   color: rgb(38, 37, 37);
+
+	padding: 8em;
 
   /*background: url(bg.jpg) no-repeat center center;
   */-webkit-background-size: cover;
@@ -42,8 +62,37 @@ h1 {
   margin: 5px;
 }
 
+h1 {
+	font-size: 5em;
+}
+
 .panel {
-  width: 50%;
+	width: 100%;
+	line-height: 1.5em;
+	font-size: 1.2em;
+}
+#panel1{
+	background-color: #f4f2f2;
+}
+#panel2{
+	background-color: #e8e8ea;
+}
+#panelAuth {
+	background-color: #f5effc;
+}
+.left{
+	float:left;
+}
+.half {
+	width:50%;
+	box-sizing: border-box;
+	padding: 3em;
+}
+.wideImage {
+	max-width: 100%;
+}
+.maxwidth {
+	max-width: 600px;
 }
 
 .signup {
