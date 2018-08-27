@@ -38,16 +38,16 @@ h1, h2, h3, h4 {
   h4 {font-size: 1.618em;}
 
 .topSection {
-  background: #2BC0E4;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #f2994a;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(242,153,74,.6), rgba(242,201,76,.7)), url('../resources/bg.png') ;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(242,153,74,.6),rgba(242,201,76,.7)), url('../resources/bg.png'); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   color: rgb(38, 37, 37);
 
 	padding: 8em;
 
-  /*background: url(bg.jpg) no-repeat center center;
-  */-webkit-background-size: cover;
+  /*background:no-repeat center center;
+  -*/webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
