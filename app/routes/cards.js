@@ -27,7 +27,9 @@ module.exports = function (db,passport) {
 	//
 	// },2000)
 	router.get('/', function (req,res) {
-		console.log("Sending requested card data")
+		console.log("GET card. User: ");
+		console.log(req.user)
+
 		User.findById(req.user._id).populate("cards").exec(function(err,cards){
 			console.log("Found these cards: ")
 			console.log(cards)

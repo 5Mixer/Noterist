@@ -150,10 +150,13 @@ app.service('database',function($http){
 		return new Promise(function(resolve, reject) {
 			$http({
 				method: 'GET',
-				url: '/cards'
+				url: '/cards/'
 			}).then(function (response){
-				console.log(response.data)
+				console.log(response)
 				resolve (response.data)
+			}, function (response){
+				console.log("error")
+				console.log(response)
 			})
 		})
 	}
@@ -223,11 +226,13 @@ app.factory('Account', function($state,$http, $rootScope, $cookies) {
         user: currentUser,
 
         getAccount: function (){
-            console.log("Got account");
             if ($cookies.getObject('user') != undefined){
+				console.log("User: ")
+				console.log($cookies.getObject('user'))
                 return $cookies.getObject('user')
             }else{
-                return { email: '', secure: false };
+            	console.log("Not authenticated")
+				return { email: '', secure: false };
             }
         },
 
@@ -1001,6 +1006,7 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 			data    : $scope.newcard,
 			headers : { 'Content-Type': "application/json" }  // set the headers so angular passing info as form data (not request payload)
 		}).then(function (response){
+			console.log(response)
 			$scope.cards.push(response.data)
 		})
 		$scope.newCardDialogOpen = false;

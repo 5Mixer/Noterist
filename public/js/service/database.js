@@ -5,10 +5,13 @@ app.service('database',function($http){
 		return new Promise(function(resolve, reject) {
 			$http({
 				method: 'GET',
-				url: '/cards'
+				url: '/cards/'
 			}).then(function (response){
-				console.log(response.data)
+				console.log(response)
 				resolve (response.data)
+			}, function (response){
+				console.log("error")
+				console.log(response)
 			})
 		})
 	}

@@ -58,9 +58,10 @@ function isLoggedIn(req, res, next) {
 		    // if user is authenticated in the session, carry on
 	if (req.isAuthenticated())
 		return next();
-
-		// if they aren't redirect them to the home page
-	res.redirect('/');
+	
+	// if they aren't redirect them to the home page
+	//res.redirect('/');
+	res.status(401).json({error:"Auth failed or expired"})
 }
 
 
@@ -68,7 +69,7 @@ var cards = require('./app/routes/cards.js')(db,passport)
 //var studysheets = require('.app//routes/studysheets.js')(db)
 var hierarchy = require('./app/routes/hierarchy.js')(db,passport)
 //var glossary = require('./app/routes/glossary.js')(db)
-app.use("/cards", cards)
+app.use("/cards", isLoggedIn, cards)
 require("./app/routes/authentication")(app,passport,db)
 //app.use("/studysheets",studysheets)
 //app.use("/glossary",glossary)

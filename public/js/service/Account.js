@@ -21,11 +21,13 @@ app.factory('Account', function($state,$http, $rootScope, $cookies) {
         user: currentUser,
 
         getAccount: function (){
-            console.log("Got account");
             if ($cookies.getObject('user') != undefined){
+				console.log("User: ")
+				console.log($cookies.getObject('user'))
                 return $cookies.getObject('user')
             }else{
-                return { email: '', secure: false };
+            	console.log("Not authenticated")
+				return { email: '', secure: false };
             }
         },
 

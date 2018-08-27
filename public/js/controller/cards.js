@@ -48,6 +48,7 @@ app.controller("cards", function($scope,$http,$stateParams,header,database) {
 			data    : $scope.newcard,
 			headers : { 'Content-Type': "application/json" }  // set the headers so angular passing info as form data (not request payload)
 		}).then(function (response){
+			console.log(response)
 			$scope.cards.push(response.data)
 		})
 		$scope.newCardDialogOpen = false;
