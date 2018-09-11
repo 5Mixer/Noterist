@@ -145,18 +145,16 @@ app.directive("fileread", [function () {
 
 app.service('database',function($http){
 	var database = undefined
-	
+
 	this.getCards = function () {
 		return new Promise(function(resolve, reject) {
 			$http({
 				method: 'GET',
 				url: '/cards/'
 			}).then(function (response){
-				console.log(response)
 				resolve (response.data)
 			}, function (response){
-				console.log("error")
-				console.log(response)
+				console.log("error GETing cards")
 			})
 		})
 	}
@@ -323,7 +321,7 @@ app.factory('header',function(){
 });
 
 app.controller("home", function($scope,$http,$state,header,database,Account) {
-	$scope.databaseItems = {}
+	$scope.databaseItems = []
 	$scope.user = Account.getAccount()
 	$scope.quotes = [
 		{
@@ -372,12 +370,11 @@ app.controller("home", function($scope,$http,$state,header,database,Account) {
 		}
 	]
 	$scope.quoteIndex = Math.floor(Math.random()*$scope.quotes.length)
-/*	database.get().then(function(db){
-		$scope.databaseItems = db.notes;
-		$scope.glossaryIndex = Math.floor(Math.random()*db.notes.glossary.length)
-		$scope.user = db.user
+	database.getCards().then(function(cards){
+		$scope.databaseItems = cards;
+		// $scope.user = db.user
 		$scope.$apply()
-	})*/
+	})
 	$scope.search = ""
 
 	$scope.logout = function () {

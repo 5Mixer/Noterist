@@ -23,13 +23,14 @@
 				<source class="cardimg" ng-srcset="{{('compressedwebp/'+card.img.split('.')[0]+'.webp') | encodeURIComponent}}" type='image/webp'>
 				<source class="cardimg" ng-srcset="{{encodeURI('compressedjpg/'+card.img.split('.')[0]+'.jpg')}}" type='image/jpeg'>
 				<img class="cardimg" ng-src="compressedjpg/{{card.img}}" alt="">
-				<img class="cardimg" src="cards/{{card.img}}" alt=""> 
+				<img class="cardimg" src="cards/{{card.img}}" alt="">
 			</picture>
 		</div>
+		
 		<div id="expand">
-			<h3 ng-hide="card.beingEdited">{{card.title}}</h3>
-			<span ng-hide="card.beingEdited" class="cardId">ID: #{{card.id}}</span>
-			<h3 ng-show="card.beingEdited"><input type="text" name="" class="wide" ng-model="card.edits.title"></h3>
+			<h4 ng-hide="card.beingEdited">{{card.title}}</h4>
+			<!-- <span ng-hide="card.beingEdited" class="cardId">ID: #{{card.id}}</span> -->
+			<h4 ng-show="card.beingEdited"><input type="text" name="" class="wide" ng-model="card.edits.title"></h4>
 
 			<div>
 				<button type="button" class="pure-button" ng-click="edit(card)" ng-hide="card.beingEdited"><i class="fas fa-edit"></i> Edit</button>

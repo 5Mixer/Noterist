@@ -1,6 +1,7 @@
 <div class="home">
 	<div class="homepanel">
-		<h3>Happy studying</h3><br>
+		<!-- <h3>Happy studying</h3><br> -->
+		<h3>Noterist</h3>
 		<button ng-click="logout()">Logout</button> {{user.email}}<br>
 		<!-- <p class="quote">
 			"{{quotes[quoteIndex].quote}}"<br>
@@ -17,7 +18,7 @@
 		</div>
 		<input placeholder="Search" class="mastersearch" name="search" type="text" ng-model="search"><br>
 		<div class="">
-			<div class="cardSearchItem" ng-repeat="card in databaseItems.cards | filter:searchFilter | limitTo:10 ">
+			<div class="cardSearchItem" ng-repeat="card in databaseItems | filter:searchFilter | limitTo:10 ">
 				<span ng-click="openCard(card)">{{card.title}}</span>
 			</div>
 		</div>

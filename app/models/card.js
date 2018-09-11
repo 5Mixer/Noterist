@@ -4,7 +4,7 @@ var cardSchema = {
 	img: {type: String, required: true},
 	title: {type: String, required: true},
 	tags: [{type: String}],
-	description: {type:String, required: true},
+	description: {type:String, required: false},
 	id: {type:String, required:true},
 	uploadedAt: { type: Date, default: Date.now, required: true}
 }

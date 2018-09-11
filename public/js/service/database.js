@@ -1,17 +1,15 @@
 app.service('database',function($http){
 	var database = undefined
-	
+
 	this.getCards = function () {
 		return new Promise(function(resolve, reject) {
 			$http({
 				method: 'GET',
 				url: '/cards/'
 			}).then(function (response){
-				console.log(response)
 				resolve (response.data)
 			}, function (response){
-				console.log("error")
-				console.log(response)
+				console.log("error GETing cards")
 			})
 		})
 	}

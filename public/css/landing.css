@@ -161,11 +161,11 @@ h1 {
 		padding: 2em;
 		display: inline-block
 	}
-	.left {
+	.left.landing{
 		float: left;
 		display: inline-block;
 	}
-	.right {
+	.right.landing{
 		float: left !important;
 		display: inline-block;
 	}

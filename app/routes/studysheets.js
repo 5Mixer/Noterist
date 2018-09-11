@@ -31,10 +31,9 @@ module.exports = function (db) {
 					var base64Data = op.insert.image.replace(/^data:([A-Za-z-+/]+);base64,/, '');
 					// console.log(base64Data
 					console.log("Processing base64 image")
-					console.log("length: "+base64Data.length)
 
-					if (base64Data.length<100){
-						console.log("SKIPPING TINY")
+					if (base64Data.length<200){
+						console.log("SKIPPING TINY, Probably URL")
 						continue;
 					}
 
@@ -45,11 +44,8 @@ module.exports = function (db) {
 						if(err) console.log("Error: "+err);
 						this.op.insert.image = this.imgpath
 						console.log(this.imgpath)
-						console.log(op)
 
 					}.bind({imgpath:imgpath, op:op, qtext:page.qtext}));
-
-
 				}
 
 			}
@@ -59,15 +55,9 @@ module.exports = function (db) {
 		db.get("notes").set("studysheets",studysheets).write()
 
 	},2000)
-	
-	router.get("/", function (req,res) {
-
-	})
 
 	router.post('/', function (req, res) {
 		console.log("Adding studysheet. (Title: "+req.body.title+")")
-
-		// var id = shortid.generate()
 
 		var studysheet = {title: req.body.title, tags: req.body.tags, pages:req.body.pages, id: req.body.id}
 		db.get("notes").get("studysheets").push(studysheet).write()
@@ -76,20 +66,10 @@ module.exports = function (db) {
 	});
 
 	router.delete('/', function (req,res) {
-		// NOTE: Deletions have no data in req.body except an array of sheet id's! Do not look for other data.
-		console.log("Deleting studysheet/s. "+req.body.sheets)
-
 		db.get("notes").get("studysheets").remove(function(studysheet){ return req.body.sheets.indexOf(studysheet.id) != -1}).write()
 		res.sendStatus(200)
 	})
 	router.patch('/', function (req,res) {
-		// For images?
-		// var base64Data = req.body.file.replace(/^data:([A-Za-z-+/]+);base64,/, '');
-
-		// var targetPath = path.resolve('./public/studysheets/'+req.body.title+".jpg");
-		// fs.writeFile(targetPath, base64Data, 'base64', function(err) {
-		// 	if(err) console.log("Error: "+err);
-		// });
 
 		//Any new images introduced in patch MAY BE BASE64 encoded, and should be replaced here.
 		var studysheet = req.body
@@ -103,7 +83,7 @@ module.exports = function (db) {
 					console.log("Processing base64 image")
 
 					if (base64Data.length<200){
-						console.log("SKIPPING, TINY, NOT BASE64?")
+						console.log("SKIPPING SMALL IMG, NOT BASE64, PROBABLY URL :/")
 						continue;
 					}
 

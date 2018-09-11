@@ -1,5 +1,5 @@
 app.controller("home", function($scope,$http,$state,header,database,Account) {
-	$scope.databaseItems = {}
+	$scope.databaseItems = []
 	$scope.user = Account.getAccount()
 	$scope.quotes = [
 		{
@@ -48,12 +48,11 @@ app.controller("home", function($scope,$http,$state,header,database,Account) {
 		}
 	]
 	$scope.quoteIndex = Math.floor(Math.random()*$scope.quotes.length)
-/*	database.get().then(function(db){
-		$scope.databaseItems = db.notes;
-		$scope.glossaryIndex = Math.floor(Math.random()*db.notes.glossary.length)
-		$scope.user = db.user
+	database.getCards().then(function(cards){
+		$scope.databaseItems = cards;
+		// $scope.user = db.user
 		$scope.$apply()
-	})*/
+	})
 	$scope.search = ""
 
 	$scope.logout = function () {

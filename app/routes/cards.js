@@ -27,66 +27,49 @@ module.exports = function (db,passport) {
 	//
 	// },2000)
 	router.get('/', function (req,res) {
-		console.log("GET card. User: ");
-		console.log(req.user)
-
 		User.findById(req.user._id).populate("cards").exec(function(err,cards){
-			console.log("Found these cards: ")
-			console.log(cards)
 			res.json(cards.cards)
 		})
-		
-		/*db.collection("cards").find({}).toArray(function (err,data){
-			if (err){
-				console.log(err)
-				return res(err)
-			}else{
-				//console.log(data)
-				return res.json(data)
-			}
-		})*/
 	})
 	router.post('/', function (req, res) {
         User.findById(req.user._id, function(err, user) {
             if (err == undefined) {
-				
-				
-				console.log("Adding card. (Title: "+req.body.title+")")
-			
-				//if (req.body.file != undefined)
-					var base64Data = req.body.file.replace(/^data:([A-Za-z-+/]+);base64,/, '');
+							// No error finding the user - user returned from findById
 
-				var targetPath = path.resolve('./public/cards/'+req.body.title+".jpg");
-				fs.writeFile(targetPath, base64Data, 'base64', function(err) {
-					if(err) console.log("Error: "+err);
-				});
+							//if (req.body.file != undefined)
+							var base64Data = req.body.file.replace(/^data:([A-Za-z-+/]+);base64,/, '');
 
-				var id = shortid.generate()
-				var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), description: req.body.description, id: id}
-				card.uploadedAt = Date.now()
+							var targetPath = path.resolve('./public/cards/'+req.body.title+".jpg");
+							fs.writeFile(targetPath, base64Data, 'base64', function(err) {
+								if(err) console.log("Error: "+err);
+							});
 
-				//db.get("notes").get("cards").push(card).write()
-				
-				//db.collection("cards").insert(new Card(card))	
-				var newCard = new Card(card)
-					
-				user.cards.push(newCard._id)
-				console.log(user.cards)
-				console.log(newCard)
-				
-				newCard.save()
-				user.save()
+							var id = shortid.generate()
+							var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), description: req.body.description, id: id}
+							card.uploadedAt = Date.now()
 
-				res.json(card)
-			}else{
-				console.log("couldn't find user to put card into: "+err)
-			}
+							//db.get("notes").get("cards").push(card).write()
+
+							//db.collection("cards").insert(new Card(card))
+							var newCard = new Card(card)
+
+							user.cards.push(newCard._id)
+
+							newCard.save()
+							user.save()
+
+							res.json(card)
+						}else{
+							console.log("couldn't find user to put card into: "+err)
+							res.sendStatus(500)
+						}
         });
 
 	});
 
 	router.delete('/', function (req,res) {
 		var card = req.body
+		//TODO: Authentication
 		console.log("Deleting card. (Title: "+card.title+")")
 
 		// Searching/deleting based off the full card object seems to fail, probably due to difference in representation of image.
@@ -101,9 +84,7 @@ module.exports = function (db,passport) {
 	})
 	router.patch('/', function (req,res) {
 		var card = req.body
-		console.log("Updating card. (Title: "+card.title+")")
-		console.log(card)
-	
+
 		db.collection("cards").updateOne({id: card.id}, {$set: {
 			img: card.img,
 			title: card.title,
@@ -114,12 +95,10 @@ module.exports = function (db,passport) {
 				res.sendStatus(200)
 			}else{
 				res.sendStatus(500)
-				console.log("Error patching: "+err)
+				console.log("Error patching card: "+err)
 			}
-		}) 
-		//db.get("notes").get("cards").find({id:card.id}).assign(card).write()
+		})
 	})
-
 
 	return router;
 }
