@@ -1,11 +1,12 @@
     <section class="topSection">
       <div class="panel">
-		  <img src="resources/logoT.png">
+
+      <div class="logoWide"><span class="iconWrapper"><img height="200px" src="resources/noteristIcon.png"></span>noterist</div>
 	<!--	<h1>Organise your notes digitally.</h1>
 	-->  <p>Store and search notes, cards, definitions and more.</p>
-      
-		<a target="_self" href="#signup" class="pure-button pure-button-primary">Signup</a>
-		<a target="_self" href="#login" class="pure-button">Login</a>
+
+		<a target="_self" href="#signup" class="pure-button pure-button-primary">Register</a>
+		<a target="_self" href="#login" class="pure-button">Sign in</a>
 	  </div>
     </section>
     <section>
@@ -34,16 +35,16 @@
 	<section class="panel" id="panel1">
 		<div class="left half">
 			<div class="right maxwidth">
-				<h4>Rapidly review notes with friends</h4>
+				<h4>Rapidly review notes</h4>
 				<div>Tag study images with their area of study, topic, and contents.
 					Search and rapidly find notes of an area of study, topic, and or contents.
 					Spend less time looking for notes and more time studying them.
 				</div>
 			</div>
 		</div>
-		<div class="right half">
+		<div class="right half maxwidth">
 			<img src="resources/details.png">
-			
+
 		</div>
     	<div style="clear: both">
 	</section>
@@ -52,7 +53,7 @@
 		<div class="left half">
 			<div class="right maxwidth">
 				<h4>Share notes with friends</h4>
-				<div>Share your study notes with others by marking them as public. 
+				<div>Share your study notes with others by marking them as public.
 					Find notes from others to assist your study.
 				</div>
 			</div>
@@ -68,34 +69,34 @@
 	<section class="panel" id="panelAuth">
 		<div class="left half">
 			<div class="right maxwidth">
-				<h4>Sign up</h4>
 			  <form class="registerInterest pure-form pure-form-stacked">
+          <h4>Register</h4>
 				<fieldset id="signup">
-					<span class='signup'>Sign up</span>
-	
+
 					<input id="email" type="email" ng-model="signupUser.email" placeholder="Email">
 					<!-- <span class="pure-form-message">This is a required field.</span> -->
 					<input id="password" type="password" ng-model="signupUser.password" placeholder="Password">
 
-					<button class="pure-button pure-button-primary" ng-click="signup()">Sign up</button>
+					<button class="pure-button pure-button-primary" ng-click="signup()">Register</button>
 				</fieldset>
 			  </form>
 			</div>
 		</div>
 	<div class="right half">
-		<h4>Login</h4>
-	      <form id="login" class="registerInterest pure-form pure-form-stacked">
-    	    <fieldset>
-        	    <span class='signup'>Login</span>
+    <div class="left maxwidth">
+  	      <form id="login" class="registerInterest pure-form pure-form-stacked">
+            <h4>Sign in</h4>
+      	    <fieldset>
 
-            	<input id="email" type="email" placeholder="Email" ng-model="loginUser.email">
-        	    <!-- <span class="pure-form-message">This is a required field.</span> -->
+              	<input id="email" type="email" placeholder="Email" ng-model="loginUser.email">
+          	    <!-- <span class="pure-form-message">This is a required field.</span> -->
 
-            	<input id="password" type="password" placeholder="Password" ng-model="loginUser.password">
+              	<input id="password" type="password" placeholder="Password" ng-model="loginUser.password">
 
-         	   <button ng-click="signin()" class="pure-button pure-button-primary">Sign in</button>
-        	</fieldset>
-    	  </form>
+           	   <button ng-click="signin()" class="pure-button pure-button-primary">Sign in</button>
+          	</fieldset>
+      	  </form>
+        </div>
 		</div>
     	<div style="clear: both">
 	</section>
