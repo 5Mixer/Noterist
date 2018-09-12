@@ -4,13 +4,13 @@ module.exports = function (app,passport, db) {
 		console.log("/signup post");
 		console.log(req.user)
 		if (req.user == undefined) next("err");
-		res.json(200, { "secure": true, "email": req.user.email});
+		res.status(200).json({ "secure": true, "email": req.user.email});
 	});
 
 	app.post('/login', passport.authenticate('local-login'),function(req,res){
 		console.log("/login post");
 		if (req.user == undefined) next("err");
-		res.json(200, { "secure": true, "email": req.user.email});
+		res.status(200).json({ "secure": true, "email": req.user.email});
 	});
 
 
@@ -18,12 +18,12 @@ module.exports = function (app,passport, db) {
 		req.logout();
 		res.redirect('/');
 	});
-	
+
 /*	Router.post("/signup", function (req, res) {
 		if (req.body.email &&
 			req.body.username &&
 			req.body.password) {
-			
+
 			//At this point the password is cleartext. Hash + salt with bcrypt.
 			bcrypt.hash(req.body.password, 10, function (err, hash) {
 				if (err) {
@@ -38,7 +38,7 @@ module.exports = function (app,passport, db) {
 
 				}
 			})
-			
+
 		}
 	})*/
 }
