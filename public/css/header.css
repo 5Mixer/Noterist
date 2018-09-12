@@ -43,7 +43,7 @@ header,.header {
 
 .search {
 	vertical-align: middle;
-	line-height: 60px;
+	line-height: 30px;
 	padding: 0;
 	font-size: 20px;
 	height: 30px;
@@ -51,4 +51,9 @@ header,.header {
 	margin-top: 10px;
 	padding: 5px;
 
+}
+@media (max-width: 1200px){
+		header,.header {
+			font-size: 1.2em !important;
+		}
 }

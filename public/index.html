@@ -36,8 +36,8 @@
 	</head>
 	<body>
 		<div ng-app="studycloud" ng-controller="core">
-			<div ng-cloak>
-				<header ng-show="$state.current.name!='anon'" ng-cloak>
+			<div ng-cloak class="ng-cloak">
+				<header ng-show="$state.current.name!='anon'" ng-cloak class="ng-cloak">
 					<span class="standardHeader header"><i class="fa fas {{stateIcon}}"></i> {{capitalizeFirstLetter($state.current.name)}}
 
 						<div class="icon-bar">
