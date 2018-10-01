@@ -61,20 +61,34 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 			secure: false
 		}
 	})
+	.state("forgot", {
+		url:"/forgot",
+		views: { 'content' : { templateUrl: "templates/forgot.html", controller: "forgot"}},
+		data: {
+			secure: false
+		}
+	})
+	.state("reset", {
+		url:"/reset/:token",
+		views: { 'content' : { templateUrl: "templates/reset.html", controller: "reset"}},
+		data: {
+			secure: false
+		}
+	})
 	/*.state("user", {
 		abstract: true,
 		data: {
-			secure: true 
+			secure: true
 		}
 	})*/
 	.state("home", {
 		url: "/",
 		views: { 'content' : { templateUrl : "templates/home.html", controller: "home" } },
 		data: {
-			secure: true 
+			secure: true
 		}
 	})
-	
+
 /*	.state("test", {
 		url: "/test",
 		views: { 'content' : { templateUrl : "templates/test.html" } }
@@ -91,14 +105,14 @@ app.config(function($stateProvider, $urlRouterProvider,ngQuillConfigProvider, $l
 			'content': { templateUrl : "templates/cards.html", controller: "cards"}
 		},
 		data: {
-			secure: true 
+			secure: true
 		}
 	})
 	.state("studysheets", {
 		url: "/studysheets",
 		views: { 'content' : { templateUrl : "templates/studysheets.html", controller: "studysheets" } },
 		data: {
-			secure: true 
+			secure: true
 		}
 	})
 	/*.state("user.improve", {

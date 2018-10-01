@@ -4,35 +4,29 @@ app.factory('Account', function($state,$http, $rootScope, $cookies) {
     //if this session is currently authorised, allowing for cases such as the server
     //being restarted (and thus lost sessions)
     function isLoggedInCheck (){
+		// NOTE: NOT CURRENTLY USED, SO ABOVE PROBLEM EXISTS.
         $http.get('/user').then(function(response){
             var data = response.data;
             return data.secure;
         })
     }
 
-    currentUser = $cookies.getObject('user') || { email: '', secure: false };
-
-
-
     var cookieExpireDate = new Date();
     cookieExpireDate.setDate(cookieExpireDate.getDate() + 1);
 
-    return {
-        user: currentUser,
+	function getAccount (){
+		if ($cookies.getObject('user') != undefined){
+			return $cookies.getObject('user')
+		}else{
+			return { email: '', secure: false };
+		}
+	}
 
-        getAccount: function (){
-            if ($cookies.getObject('user') != undefined){
-				console.log("User: ")
-				console.log($cookies.getObject('user'))
-                return $cookies.getObject('user')
-            }else{
-            	console.log("Not authenticated")
-				return { email: '', secure: false };
-            }
-        },
+    return {
+        getAccount: getAccount,
 
         isLoggedIn : function (){
-            return ($cookies.getObject('user') != undefined) ? $cookies.getObject('user').secure : false;
+			return getAccount ().secure;
         },
         logout: function(success, error) {
             $cookies.remove('user');
@@ -47,64 +41,53 @@ app.factory('Account', function($state,$http, $rootScope, $cookies) {
 
         login : function(user) {
             return $http.post('/login', user).then(function(_user){
-                console.log("Login post returned "+JSON.stringify(user))
                 this.user = _user.data;
                 $cookies.putObject('user',this.user,{'expires':cookieExpireDate});
-                console.log("Login Worked "+$cookies.get('user'));
                 $state.go('home');
             },function(e){
-                console.log("Login failed "+e);
+                console.log("Login failed "+JSON.stringify(e));
             });
         },
 
         signup : function(user) {
-            return $http.post('/signup', user).then(function(user){
-                this.user = user;
+            return $http.post('/signup', user).then(function(data){
+                this.user = data.data;
                 $cookies.putObject('user',this.user);
-                console.log("Signup Worked "+JSON.stringify(this.user));
                 $state.go('home');
             },function(e){
                 console.log("Signup failed "+e);
             });
-        }
+        },
+
+		forgot: function (email){
+			return $http.post('/forgot', {"email":email}).then(function(data){
+                // $state.go('home');
+            },function(e){
+                // console.log("Signup failed "+e);
+            });
+		},
+		reset: function (token,newPassword){
+			return $http.post('/reset', {"token":token,"password":newPassword}).then(function(data){
+                // $state.go('home');
+            },function(e){
+                // console.log("Signup failed "+e);
+            });
+		}
     }
-
 })
-app.run(function ($state,$rootScope, $transitions, $location, Account) {
 
+app.run(function ($state,$rootScope, $transitions, $location, Account) {
+	// When a transition begins, check if it is to a state marked at 'secure' in it's data
 	$transitions.onStart({ to: function(state){
 		return state.data != null && state.data.secure
 	}}, function(trans) {
+		// If the user is transitioning to a secure page, get Account service as auth and check login
 		var auth = trans.injector().get('Account');
-		if (auth.isLoggedIn() == false) {
-			// User isn't authenticated. Redirect to a new Target State
-            $location.path('/');
+		if (!auth.isLoggedIn()) {
+			// User isn't authenticated. Redirect to non-secure page.
+			$location.path('/');
 			return trans.router.stateService.target('anon');
 		}
+		//Otherwise, user is logged in and transitioning to secure page. Great!
 	});
-
-/*
-    $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-	console.log("state change")
-		console.log("$stateChangeStart " + fromState.name + JSON.stringify(fromParams) + " -> " + toState.name + JSON.stringify(toParams));
-        if (toState.data == undefined){
-            console.log("Initial page load/No Secuirity specification.");
-            return;
-        }
-        console.log(toState);
-        console.log("Changing page. Next page is secure: "+toState.data.secure);
-
-        if (toState.data.secure == true && Account.isLoggedIn() == false) {
-            console.log("Redirecting to /login because account secure: "+Account.isLoggedIn()+" and next page secure:"+toState.data.secure);
-            event.preventDefault();
-            $location.path('/');
-            $state.go('anon');
-        }
-        if (toState.data.secure == false && Account.isLoggedIn() == true) {
-            console.log("Redirecting to / because account secure: "+Account.isLoggedIn()+" and next page secure:"+toState.data.secure);
-            event.preventDefault();
-            $state.go('user.home');
-            $location.path('/');
-        }
-    });*/
 });

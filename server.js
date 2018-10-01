@@ -9,6 +9,7 @@ const path = require("path")
 const fs = require("fs")
 
 const shortid = require('shortid');
+require('dotenv').config(); //Load Environment variables from .env
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
@@ -35,6 +36,7 @@ app.use(bodyParser.urlencoded({extended:true, limit: '5mb'}))
 app.use(bodyParser.json({limit: '5mb'}))
 
 
+
 // Realistically, all cards should have the id's that were generated when they were added.
 // However, for example in the case of manual db modification, the server should check that everything has an id. Else stuff breaks!
 /*var cards = db.get("cards").value();
@@ -58,7 +60,7 @@ function isLoggedIn(req, res, next) {
 		    // if user is authenticated in the session, carry on
 	if (req.isAuthenticated())
 		return next();
-	
+
 	// if they aren't redirect them to the home page
 	//res.redirect('/');
 	res.status(401).json({error:"Auth failed or expired"})
@@ -70,6 +72,7 @@ var cards = require('./app/routes/cards.js')(db,passport)
 var hierarchy = require('./app/routes/hierarchy.js')(db,passport)
 //var glossary = require('./app/routes/glossary.js')(db)
 app.use("/cards", isLoggedIn, cards)
+app.use(require("./app/routes/forgot")())
 require("./app/routes/authentication")(app,passport,db)
 //app.use("/studysheets",studysheets)
 //app.use("/glossary",glossary)

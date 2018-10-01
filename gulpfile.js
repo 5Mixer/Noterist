@@ -18,6 +18,8 @@ gulp.task('pack-js', function () {
 		'./public/js/service/header.js',
 		'./public/js/controller/home.js',
 		'./public/js/controller/core.js',
+		'./public/js/controller/forgot.js',
+		'./public/js/controller/reset.js',
 		'./public/js/controller/improve.js',
 		'./public/js/controller/studysheets.js',
 		'./public/js/controller/glossary.js',

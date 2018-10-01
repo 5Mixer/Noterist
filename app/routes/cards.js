@@ -8,24 +8,6 @@ var Card = require("../models/card.js")
 var User = require("../models/user.js")
 
 module.exports = function (db,passport) {
-	// var cards = db.get("cards").value()
-	// for (var c = 0; c < cards.length; c++){
-	// 	if (cards[c].stats == undefined){
-	// 		cards[c].stats = {
-	// 			flags: {
-	// 				strength: 0,
-	// 				weakness: 0,
-	// 				important: 0
-	// 			},
-	// 			presented: 0
-	// 		}
-	// 	}
-	// }
-	// setTimeout(function(){
-	// 	console.log("saving")
-	// 	db.set("cards",cards).write()
-	//
-	// },2000)
 	router.get('/', function (req,res) {
 		User.findById(req.user._id).populate("cards").exec(function(err,cards){
 			res.json(cards.cards)
@@ -34,35 +16,35 @@ module.exports = function (db,passport) {
 	router.post('/', function (req, res) {
         User.findById(req.user._id, function(err, user) {
             if (err == undefined) {
-							// No error finding the user - user returned from findById
+				// No error finding the user - user returned from findById
 
-							//if (req.body.file != undefined)
-							var base64Data = req.body.file.replace(/^data:([A-Za-z-+/]+);base64,/, '');
+				//if (req.body.file != undefined)
+				var base64Data = req.body.file.replace(/^data:([A-Za-z-+/]+);base64,/, '');
 
-							var targetPath = path.resolve('./public/cards/'+req.body.title+".jpg");
-							fs.writeFile(targetPath, base64Data, 'base64', function(err) {
-								if(err) console.log("Error: "+err);
-							});
+				var targetPath = path.resolve('./public/cards/'+req.body.title+".jpg");
+				fs.writeFile(targetPath, base64Data, 'base64', function(err) {
+					if(err) console.log("Error: "+err);
+				});
 
-							var id = shortid.generate()
-							var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), description: req.body.description, id: id}
-							card.uploadedAt = Date.now()
+				var id = shortid.generate()
+				var card = {img: req.body.title+".jpg",title: req.body.title, tags: req.body.tags.split(" "), description: req.body.description, id: id}
+				card.uploadedAt = Date.now()
 
-							//db.get("notes").get("cards").push(card).write()
+				//db.get("notes").get("cards").push(card).write()
 
-							//db.collection("cards").insert(new Card(card))
-							var newCard = new Card(card)
+				//db.collection("cards").insert(new Card(card))
+				var newCard = new Card(card)
 
-							user.cards.push(newCard._id)
+				user.cards.push(newCard._id)
 
-							newCard.save()
-							user.save()
+				newCard.save()
+				user.save()
 
-							res.json(card)
-						}else{
-							console.log("couldn't find user to put card into: "+err)
-							res.sendStatus(500)
-						}
+				res.json(card)
+			}else{
+				console.log("couldn't find user to put card into: "+err)
+				res.sendStatus(500)
+			}
         });
 
 	});

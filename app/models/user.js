@@ -5,7 +5,9 @@ var userSchema = mongoose.Schema({
 	email: String,
 	name: String,
 	password:String,
-	cards: [{ type: mongoose.Schema.ObjectId, ref: 'Card'}]	
+	cards: [{ type: mongoose.Schema.ObjectId, ref: 'Card'}],
+	resetPasswordToken: String,
+	resetPasswordExpires: Date
 });
 
 //Methods for working with users.
