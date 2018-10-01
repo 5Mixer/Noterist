@@ -52,6 +52,7 @@ module.exports = function (){
                         "template_id":"d-3df228b3d36942fc89719247fb9d5364"
                     };
                     transport.sendMail(mailOptions, function(err) {
+                        console.log(err)
                         res.sendStatus(200)
                         // req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
                     });
