@@ -5,6 +5,8 @@ Over the six weeks of the BNTS Student Startup program, I improved the website a
 
 It is no longer live, but it was a great experience launching and presenting a website, and certainly boosted my biology mark!
 
+As an MVP, it likely contains secuirity problems and is non-scalable (the 'database' is a JSON file)! It remains here as an archive of an enjoyable learning experience.
+
 ### Card Page
 ![Card Screenshot](CardScreenshot.jpg)
 ### Study Sheet Page
